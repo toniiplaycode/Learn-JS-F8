@@ -216,18 +216,44 @@
         } 
 - object constructor: khởi tạo đối tượng (lai lai constructor bên OOP), nhiều object sẽ dùng chung 1 constructor
     ex: + tạo constructor
-        function User(firstName, lastName, avatar){ // tên object constructor phải viết hoa chữ cái đầu (quy ước)
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.avatar = avatar;
-            
-            this.getFullName = function() {
-                return this.firstName + this.lastName;
+            function User(firstName, lastName, avatar){ // tên object constructor phải viết hoa chữ cái đầu (quy ước)
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.avatar = avatar;
+                
+                this.getFullName = function() {
+                    return this.firstName + this.lastName;
+                }
             }
-        }
         + tạo object từ constructor
-        var admin = new User('Thanh', 'Toan', 'avatar1');
-        var client =  new User('Minh', 'Hung', 'avatar2');
-        admin.age = 20; // thêm thuộc tính riêng của admin
-        client.address = 'Ho Chi Minh'; // thêm thuộc tính riêng của client
-        delete admin.avatar; // xoá thuộc tính avatar của admin
+            var admin = new User('Thanh', 'Toan', 'avatar1');
+            var client =  new User('Minh', 'Hung', 'avatar2');
+            admin.age = 20; // thêm thuộc tính riêng của admin
+            client.address = 'Ho Chi Minh'; // thêm thuộc tính riêng của client
+            delete admin.avatar; // xoá thuộc tính avatar của admin
+- object prototype: dùng để khởi tạo thuộc tính có value cứng và phương thức cho object constructor đã có, nó khác với object constructor là không thể truyền được tham số, mà chỉ fix cứng value
+    ex: + tạo thêm thuộc tính và phương thước cho object constructor
+    function User(firstName, lastName, avatar){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.avatar = avatar;
+    };
+    User.prototype.className = 'F8';
+    User.prototype.getLastName = function() {
+        return this.lastName;
+    }
+    --> tạo thêm thuộc tính và phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng 
+    var admin = new User('Thanh', 'Toan', 'avatar1');
+    var client =  new User('Minh', 'Hung', 'avatar2');
+    console.log(admin, client); // className = 'F8' nằm trong prototype của dev tool
+    console.log(admin.getLastName(), client.getLastName()); // in ra lastNames
+- object Date:
+    + new Date() // trả về thời gian hiện tại (thứ ngày tháng năm giờ phút giây)
+        ex: var date = new Date();
+            console.log(date);
+    + new Date().getFullYear(); // lấy năm;
+    + new Date().getMonth() + 1; // lấy tháng;
+    + new Date().getDate(); // lấy ngày;
+    + new Date().getHours(); // lấy giờ;
+    + new Date().getMinutes(); // lấy phút;
+    + new Date().getSeconds(); // lấy giây;
