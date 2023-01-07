@@ -1,0 +1,233 @@
+* các hàm built-in (hàm có sẵn)
+- alert
+- console
+- confirm (xác nhận)
+- prompt (lời nhắc)
+- setTimeout (đặt thời gian chờ)
+- setInterval (đặt khoảng thời gian)
+    + console.log() // : in ra một chuỗi hoặc biến, mảng, oject,... ở console
+    + console.warn() // : giống giống console.log() // + console.error() // : giống giống console.log() // + confirm() // : ra một chuỗi hoặc biến hiện popup để người dùng xác nhận
+    + prompt() // : giống confirm() // nhưng có thêm input
+    + setTimeout(function  // {...}, <mini giây>) : thực hiện một function sau một khoảng thời gian (mini giây)
+        ex: setTimeout(function() // {
+            alert('hello');
+        }, 1000);
+        --> sau 1 giây sẽ hiện ra thông báo 'hello'
+    + setInterval(function  // {...}, <mini giây>) : thực hiện liên tục một function sau một khoảng thời gian (mini giây)
+            ex: setInterval(function() // {
+                alert('hello');
+            }, 1000);
+        --> hiện ra thông báo 'hello' liên tục trong 1 giây
+- toán tử ++ -- tiền tố và hậu tố     
+- nối chuỗi: chuỗi + chuỗi
+- in ra dấu nháy đơn \' hoặc nháy kép \" (backslash)
+- 6 giá trị được JS convert là false
+    + false
+    + 0
+    + chuỗi trỗng '' hoặc ""
+    + undefined
+    + NaN //đại diện cho một số không hợp lệ
+    + null
+- các kiểu dữ liệu:
+    1. dữ liệu nguyên thuỷ - primitive data
+        + - number
+            ex: var a = 1;
+        + string
+            ex: var a = 'tonii'; b = '123';
+        + boolean    
+            ex: var a = true; b = false
+        + undefined
+            ex: var a;
+        + null
+            ex: var a = null;
+        + symbol
+            ex: var a = symbol('a') // unique
+    2. dữ liệu phức tạp - complex data (có thể chứa các kiểu dữ liệu khác nhau chung object hoặc array)
+        + function
+            ex: myFunction = function // {
+                ...
+            }
+            myFunction // ;
+        + object type
+            - object
+            ex: myObject = {
+                name: 'tonii',
+                age: 19,
+                address: 'can tho',
+                myFunction: function // {
+                    ...
+                }
+            };
+            --> gồm key và value
+
+            - array
+            ex: myArray = [
+                'tonii',
+                19, 
+                'can tho'
+            ];
+- hàm kiểm tra có phải array: Array.isArray(<biến array>);            
+- cách kiểm tra kiểu dữ liệu của 1 biến: typeof
+    ex:
+        a = 1;
+        console.log(typeof a);
+- toán tử so sánh tuyệt đối === và !== là so sánh giá trị và kiểu dữ liệu của 2 biến
+
+-----CHUỖI-----
+- template string: nối chuỗi với biến trong dấu huyền 
+    ex: 
+        var a = 'thanh';
+        var b = 'toan';
+        console.log(`Toi la:  ${a} ${b}`);
+        --> Toi la thanh toan
+- length:
+    + chuỗi.length là độ dài của chuỗi
+    
+- indexOf: in ra vị trí của chuỗi, không tìm được sẽ in ra -1
+    + chuỗi.indexOf('<chuỗi muốn tìm>');
+    --> in ra vị trí của chuỗi tìm được
+
+    + chuỗi.indexOf('<chuỗi muốn tìm>', <vị trí bắt đầu tìm>);
+    --> tìm chuỗi từ vị trí bắt đầu kể từ <chuỗi muốn tìm> 
+
+    + chuỗi.lastIndexOf('<chuỗi muốn tìm>');
+    --> in ra vị trí cuối cùng của chuỗi cần tìm      
+
+- slice: lấy chuỗi
+    + chuỗi.slice(<vị trí bắt đầu>, <ví trí kết thúc>) // nếu bỏ tham số thứ 2 thì nó lấy <vị trí bắt đầu> đến hết chuỗi
+    + chuỗi.slice(0) // lấy hết chuỗi
+    --> có thể cắt chuỗi ngược từ phải sang trái bắt đầu từ 0 đếm ngược về âm
+
+- replace: thay thế chuỗi
+    + chuỗi.replace('<chuỗi được thay thế>', '<chuỗi thay thế>'); 
+    --> thay thế chuỗi được tìm thấy đầu tiên
+    + chuỗi.replace(/<chuỗi được thay thế>/g, '<chuỗi thay thế>');
+    --> dùng biểu thức chính quy thay thế tất cả các chuỗi được tìm thấy
+
+- upper, lower case: chữ thường thành chữ hoa, chữ hoa thành chữ thường
+    + chuỗi.toUpperCase(); 
+    + chuỗi.toLowerCase();
+
+- trim: bỏ đi khoảng trắng thừa 2 đầu của chuỗi
+    chuỗi.trim();
+
+------MẢNG------
+- call function: myFunction(); // cặp ngoặc là được gọi là call
+- split: biến chuỗi thành mảng thông qua một điểm chung
+    ex: languages = 'JS, PHP, C++'; // điểm chung là ', '(dấu phẩy và khoảng trắng)
+        languages.split(', ');
+        --> ["JS", "PHP", "C++"]
+    ex: languages = "thanhtoan";    
+        languages.split(''); // lấy từng ký tự trong chuỗi
+        --> ["t", "h", "a", "n", "h", "t", "o", "a", "n"]
+- hàm join: biến mảng thành chuỗi thông qua điểm chung, cơ chế giống hàm split        
+- charAt: lấy một ký tự tại index
+    ex: languages = "thanhtoan";
+        languages.charAt(0);
+        -> t
+- note: mảng trong JS có thể chứa tất cả các kiểu dữ liệu khác nhau trong cùng một mảng
+- các function trùng tên thì function sau cùng sẽ đè tất cả
+- biến mảng thành chuỗi: toString();
+    ex: <mảng>.toString()
+- <mảng>.pop(); // xoá element cuối mảng và trả về element đã xoá (ngược lại với shift)
+    -> mảng trống mà xoá thì sẽ undefined
+- <mảng>.push(<element1>, <element2>,...); // thêm một hoặc nhiều phần tử vào cuối mảng (ngược lại với unshift)
+- <mảng>.shift(); // xoá element đầu mảng và trả về element đã xoá (ngược lại với pop)
+    -> mảng trống mà xoá thì sẽ undefined
+- <mảng>.unshift(<element1>, <element2>,...); // thêm một hoặc nhiều phần tử vào đầu mảng(ngược lại với push)
+- splice (F8 JS "làm việc với mảng" phút thứ 10)
+    + splice 2 tham số: xoá phần tử theo index
+        -> <mảng>.splice(<index bắt đầu xoá>, <số lượng element sẽ xoá kể từ index>); 
+    + splice 3 tham số: chèn phần từ và xoá phần từ theo index
+        -> <mảng>.splice(<index bắt đầu xoá>, <số lượng element sẽ xoá kể từ index>, <các element sẽ chèn>);
+- concat: nối 2 mảng <mảng1>.concat(<mảng2>);
+- slice: cắt mảng <mảng>.slice(<index bắt đầu cắt>, <cắt tới index>) giống slice chuỗi
+
+- truyền tham số vào function: có thể truyền được tất cả các kiểu dữ liệu 
+    ex: function writeLog(message){
+        console.log(message);
+    }
+    writeLog('test message');
+- arguments: gọi hàm truyền được nhiều tham số , nhưng hàm thì không cần tham số
+- hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện.
+
+- declaration function: dùng được hoisting
+    function myFunction // {
+        ...
+    }   
+- expressiton function: không dùng được hoisting
+    var myFunction = function // {
+        ...
+    }
+    
+    setTimeout(function myFunction // { //call back
+        ...
+    })
+
+    var myObject = {
+        myFunction: function // {
+            ...
+        }
+    }
+- Math.pow(x, n): x mũ 
+- BigInt:
+    ex: var million = 1e6; // 1000000
+- Number.isFinite(<số hoặc biến>) // Xác định xem giá trị đã cho có phải là số hữu hạn hay không. Trả về boolean
+- Number.isInteger(<số hoặc biến>) // Xác định xem giá trị đã cho có phải là số nguyên hay không. Trả về boolean
+- Number.parseFloat(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số dấu phẩy động
+- Number.parseInt(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số nguyên
+- hàm làm tròn số thập phân nhưng sẽ bị chuyển sang kiểu string: <số>.toFixed // ; // nhỏ hơn 5 thì làm tròn dưới và ngược lại 
+- hàm lấy số thập phân sau dấu phẩy <số>.toFixed(2); // lấy 2 số thập phân sau dấu phẩy
+- Number.toString() // đổi số thành chuỗi
+- hàm kiểm tra NaN: isNaN();
+
+----OBJECT----
+- object để lưu thông tin của một đối tượng gồm key và value
+    ex: var myInfo = {
+            name: 'Thanh Toan',
+            age: '19',
+            address: 'Can Tho'
+        }
+-thêm key và value từ object đã có: <object>.<key mới> = '<value mới>';
+    ex: myInfo.email = 'toan@gmail.com';
+- nếu tên key có ký tự đặc biệt thì dùng cách này: <object>['<key mới>'] = '<value mới>';
+    ex: myInfo['my-email'] = 'toan@gmail.com'; 
+- lấy value thông qua key: <object>.<key> hoặc <object>['<tên key có ký tự đặc biệt>']
+    ex: myInfo.name hoặc myInfo['my-email']
+- delete <object>.<key> : xoá một key trong object
+- value là một function:
+    ex: var myInfo = {
+            name: 'Thanh Toan',
+            age: '19',
+            address: 'Can Tho',
+            getName: function(){
+                return this.name;
+            }
+        }
+        --> key getName có value là một function trả về tên của myInfo
+- các function trong object được gọi là PHƯƠNG THỨC(method), còn lại được gọi là thuộc tính attribute/property
+    ex: var myInfo = {
+            name: 'Thanh Toan', // attribute
+            age: '19', // attribute
+            address: 'Can Tho', // attribute
+            getName: function(){ // method
+                return this.name;
+            }
+        } 
+- object constructor: khởi tạo đối tượng (lai lai constructor bên OOP), nhiều object sẽ dùng chung 1 constructor
+    ex: + tạo constructor
+        function User(firstName, lastName, avatar){ // tên object constructor phải viết hoa chữ cái đầu (quy ước)
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.avatar = avatar;
+            
+            this.getFullName = function() {
+                return this.firstName + this.lastName;
+            }
+        }
+        + tạo object từ constructor
+        var admin = new User('Thanh', 'Toan', 'avatar1');
+        var client =  new User('Minh', 'Hung', 'avatar2');
+        admin.age = 20; // thêm thuộc tính riêng của admin
+        client.address = 'Ho Chi Minh'; // thêm thuộc tính riêng của client
+        delete admin.avatar; // xoá thuộc tính avatar của admin
