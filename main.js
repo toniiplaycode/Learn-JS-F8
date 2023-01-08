@@ -6,7 +6,7 @@
 
 //ex2:
 // function cong(a, b) {
-//     return a + b;
+//     return a + b;    
 // }
 // console.log(cong(11, 7));
 
@@ -114,10 +114,86 @@
 // var lonNhat = [1, 2, 3, 4, 5, 6];
 // console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
 
-// ex11: Math object : trả về một số ngẫu nhiên có trong mảng
+//ex11: Math object : trả về một số ngẫu nhiên có trong mảng
 // function getRandomItem(array) {
 //     return array[Math.floor(Math.random() * 5)];
 // }
 // var array = [1,2,3,4,5];
 // console.log(getRandomItem(array));
 
+//ex13: ternary operator
+// var n = 8;
+// var x;
+// x = (n > 10) ? "n lớn hơn 10" : "n nhỏ hơn 10";
+// console.log(x);
+
+//ex13: loop for
+// for(var i = 0; i <= 10; i++){
+//     console.log(i);
+// }
+
+//ex14: loop for/in: in ra key của 1 object
+// var myInfo = {
+//     name: 'Thanh Toan',
+//     age: 19,
+//     address: 'Can Tho'
+// }
+// for(var key in myInfo){
+//     console.log(key);
+// }
+
+//ex14: loop for/in: in ra các value của 1 object thông qua key
+// var myInfo = {
+//     name: 'Thanh Toan',
+//     age: 19,
+//     address: 'Can Tho'
+// }
+// for(var key in myInfo){
+//     console.log(myInfo[key]);
+// }
+
+//ex15: loop for/in: in ra index của 1 mảng
+// var languages = [
+//         'C++',
+//         'JS',
+//         'PHP'
+// ];
+// for(var index in languages){
+//     console.log(index);
+// }
+
+// //ex16: loop for/in: in ra các element của 1 mảng thông qua index
+// var languages = [
+//     'C++',
+//     'JS',
+//     'PHP'
+// ]
+// for(var index in languages){
+//     console.log(languages[index]);
+// }
+
+//ex16: loop for/of: in ra từng element của 1 mảng
+// var languages = [
+//     'C++',
+//     'JS',
+//     'PHP'
+// ];
+// for(var element of languages){
+// console.log(element);
+// }
+
+//ex17: loop for/of: in ra từng chữ cái trong 1 chuỗi
+// var name = "lethanhtoan";
+// for(var value of name){
+//     console.log(value);
+// }
+
+//ex18: loop for/of: in ra từng value của 1 object
+// var myInfo = {
+//     name: 'Thanh Toan',
+//     age: 19
+// }
+// var valueMyInfo = Object.values(myInfo); // lấy từng value trong object
+// for(var value of valueMyInfo){
+//     console.log(value);
+// }

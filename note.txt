@@ -82,7 +82,12 @@
         --> Toi la thanh toan
 - length:
     + chuỗi.length là độ dài của chuỗi
-    
+
+- lấy một từ trong chuỗi thông qua index:
+    ex: var myString = 'toan';
+        myString[2];
+        --> a
+
 - indexOf: in ra vị trí của chuỗi, không tìm được sẽ in ra -1
     + chuỗi.indexOf('<chuỗi muốn tìm>');
     --> in ra vị trí của chuỗi tìm được
@@ -90,7 +95,7 @@
     + chuỗi.indexOf('<chuỗi muốn tìm>', <vị trí bắt đầu tìm>);
     --> tìm chuỗi từ vị trí bắt đầu kể từ <chuỗi muốn tìm> 
 
-    + chuỗi.lastIndexOf('<chuỗi muốn tìm>');
+    + chuỗi.lastIndexOf('<chuỗi muốn tìm>'
     --> in ra vị trí cuối cùng của chuỗi cần tìm      
 
 - slice: lấy chuỗi
@@ -188,7 +193,9 @@
             age: '19',
             address: 'Can Tho'
         }
--thêm key và value từ object đã có: <object>.<key mới> = '<value mới>';
+- hàm lấy từng key trong 1 object:  Object.keys(<object>);
+- hàm lấy từng value trong 1 object:  Object.values(<object>); 
+- thêm key và value từ object đã có: <object>.<key mới> = '<value mới>';
     ex: myInfo.email = 'toan@gmail.com';
 - nếu tên key có ký tự đặc biệt thì dùng cách này: <object>['<key mới>'] = '<value mới>';
     ex: myInfo['my-email'] = 'toan@gmail.com'; 
@@ -213,7 +220,7 @@
             getName: function(){ // method
                 return this.name;
             }
-        } 
+        }
 - object constructor: khởi tạo đối tượng (lai lai constructor bên OOP), nhiều object sẽ dùng chung 1 constructor
     ex: + tạo constructor
             function User(firstName, lastName, avatar){ // tên object constructor phải viết hoa chữ cái đầu (quy ước)
@@ -272,3 +279,76 @@
     + Math.max(<các số>) // trả về số lớn nhất trong các số
         ex: var lonNhat = [1, 2, 3, 4, 5, 6];
         console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
+
+- Ternary operator: cơ chế hoạt động giống IF ELSE nhưng ngắn gọn hơn, nên dùng trong những trường hợp đơn giản
+    ex: 
+    var n = 8;
+    (n > 10) ? "n lớn hơn 10" : "n nhỏ hơn 10";
+- LOOP:
+    + for: lặp với điều kiện đúng
+        ex: for(var i = 0; i <= 10; i++){
+            console.log(i);
+        }
+    + for/in: lặp qua từng key của đối tượng dưới dạng chuỗi, thường dùng cho object và mảng
+        ex1: in ra key của 1 object
+        var myInfo = {
+            name: 'Thanh Toan',
+            age: 19,
+            address: 'Can Tho'
+        }
+        for(var key in myInfo){
+            console.log(key);
+        }
+        ex2: in ra value của 1 object thông qua key
+        var myInfo = {
+            name: 'Thanh Toan',
+            age: 19,
+            address: 'Can Tho'
+        }
+        for(var key in myInfo){
+            console.log(myInfo[key]);
+        }
+        ex3: lop for/in: in ra index của 1 mảng
+        var languages = [
+                'C++',
+                'JS',
+                'PHP'
+        ];
+        for(var index in languages){
+            console.log(index);
+        }
+        ex4: lop for/in: in ra các element của 1 mảng thông qua index
+        var languages = [
+            'C++',
+            'JS',
+            'PHP'
+        ]
+        for(var index in languages){
+            console.log(languages[index]);
+        }
+    + for/of: lặp qua từng value của đối tượng, từng element của một mảng, từng chữ cái của 1 chuỗi
+        ex1: in ra từng element của mảng
+        var languages = [
+            'C++',
+            'JS',
+            'PHP'
+        ];
+        for(var element of languages){
+        console.log(element);
+        }
+        ex2: in ra từng chữ cái trong 1 chuỗi
+        var name = "lethanhtoan";
+        for(var value of name){
+            console.log(value);
+        }
+        ex3: in ra từng value của 1 object
+        var myInfo = {
+            name: 'Thanh Toan',
+            age: 19
+        }
+        var valueMyInfo = Object.values(myInfo); // Object.values(<object>) hàm lấy từng value trong object
+        for(var value of valueMyInfo){
+            console.log(value);
+        }
+    + white: lặp khi điều kiện đúng
+    + do/white: lặp ít nhất một lần, sau đó lặp khi điều kiện đúng
