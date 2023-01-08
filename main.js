@@ -88,14 +88,36 @@
 // console.log(admin.getLastName(), client.getLastName());
 
 //ex10: object Date
-var date = new Date();
-console.log(date);
-+ date.getFullYear(); // lấy năm;
-+ date.getMonth() + 1; // lấy tháng;
-+ date.getDate(); // lấy ngày;
-+ date.getHours(); // lấy giờ;
-+ date.getMinutes(); // lấy phút;
-+ date.getSeconds(); // lấy giây;
-console.log(date.getFullYear());
-console.log(date.getMonth() + 1);
-console.log(date.getDate());
+// var date = new Date();
+// console.log(date);
+// + date.getFullYear(); // lấy năm;
+// + date.getMonth() + 1; // lấy tháng;
+// + date.getDate(); // lấy ngày;
+// + date.getHours(); // lấy giờ;
+// + date.getMinutes(); // lấy phút;
+// + date.getSeconds(); // lấy giây;
+// console.log(date.getFullYear());
+// console.log(date.getMonth() + 1);
+// console.log(date.getDate());
+
+//ex11: Math object
+// var PI = Math.PI;
+// console.log(PI);
+// console.log(Math.round(1.5)); // làm tròn lên 2
+// console.log(Math.abs(-117));
+// console.log(Math.ceil(1.00000001));
+// console.log(Math.floor(1.99999));
+// console.log(Math.random());
+// console.log(Math.floor(Math.random() * 10)); // random từ 0-10
+// var nhoNhat = [1, 2, 3, 4, 5, 6];
+// console.log(Math.min(...nhoNhat)); // dùng dấu 3 chấm mới truyền được mảng
+// var lonNhat = [1, 2, 3, 4, 5, 6];
+// console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
+
+// ex11: Math object : trả về một số ngẫu nhiên có trong mảng
+// function getRandomItem(array) {
+//     return array[Math.floor(Math.random() * 5)];
+// }
+// var array = [1,2,3,4,5];
+// console.log(getRandomItem(array));
+

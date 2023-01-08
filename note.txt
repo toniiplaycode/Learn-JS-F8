@@ -246,14 +246,29 @@
     var admin = new User('Thanh', 'Toan', 'avatar1');
     var client =  new User('Minh', 'Hung', 'avatar2');
     console.log(admin, client); // className = 'F8' nằm trong prototype của dev tool
-    console.log(admin.getLastName(), client.getLastName()); // in ra lastNames
-- object Date:
+    console.log(admin.getLastName(), client.getLastName()); // in ra lastName
+- object Date: là một hàm object constructor
     + new Date() // trả về thời gian hiện tại (thứ ngày tháng năm giờ phút giây)
         ex: var date = new Date();
             console.log(date);
-    + new Date().getFullYear(); // lấy năm;
-    + new Date().getMonth() + 1; // lấy tháng;
-    + new Date().getDate(); // lấy ngày;
-    + new Date().getHours(); // lấy giờ;
-    + new Date().getMinutes(); // lấy phút;
-    + new Date().getSeconds(); // lấy giây;
+    + new Date().getFullYear(); // lấy năm
+    + new Date().getMonth() + 1; // lấy tháng (vì hàm getMonth() chỉ có từ 0-11)
+    + new Date().getDate(); // lấy ngày
+    + new Date().getHours(); // lấy giờ
+    + new Date().getMinutes(); // lấy phút
+    + new Date().getSeconds(); // lấy giây
+- Math object: là hàm built-in, không phải object constructor
+    + Math.PI // trả về số PI
+    + Math.round(<số>) // làm tròn số, <= 0.4 thì làm tròn dưới, >= 0.5 thì làm tròn trến
+    + Math.abs(<số>) // số tuyệt đối
+    + Math.ceil(<số>) // làm tròn trên, số phẩy nhỏ đến mấy cũng làm tròn trên
+    + Math.floor(<số>) // làm tròn dưới
+    + Math.random() // trả về số thập phân ngẫu nhiên nhỏ hơn 1
+        ex: số ngẫu nhiên từ 0-10
+            Math.floor(Math.random() * 10);
+    + Math.min(<các số>) // trả về số nhỏ nhất trong các số
+        ex: var nhoNhat = [1, 2, 3, 4, 5, 6];
+            console.log(Math.min(...nhoNhat)); // dùng dấu 3 chấm mới truyền được mảng
+    + Math.max(<các số>) // trả về số lớn nhất trong các số
+        ex: var lonNhat = [1, 2, 3, 4, 5, 6];
+        console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
