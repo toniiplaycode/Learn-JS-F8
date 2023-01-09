@@ -158,7 +158,7 @@
 
 - declaration function: dùng được hoisting
     function myFunction // {
-        ...
+        ... 
     }   
 - expressiton function: không dùng được hoisting
     var myFunction = function // {
@@ -289,7 +289,7 @@
         ex: for(var i = 0; i <= 10; i++){
             console.log(i);
         }
-    + for/in: lặp qua từng key của đối tượng dưới dạng chuỗi, thường dùng cho object và mảng
+    + for/in: lặp qua từng key của đối tượng dưới dạng chuỗi, thường dùng cho object và mảng hoặc chuỗi
         ex1: in ra key của 1 object
         var myInfo = {
             name: 'Thanh Toan',
@@ -308,7 +308,7 @@
         for(var key in myInfo){
             console.log(myInfo[key]);
         }
-        ex3: lop for/in: in ra index của 1 mảng
+        ex3: in ra index của 1 mảng
         var languages = [
                 'C++',
                 'JS',
@@ -317,7 +317,7 @@
         for(var index in languages){
             console.log(index);
         }
-        ex4: lop for/in: in ra các element của 1 mảng thông qua index
+        ex4: in ra các element của 1 mảng thông qua index
         var languages = [
             'C++',
             'JS',
@@ -325,6 +325,11 @@
         ]
         for(var index in languages){
             console.log(languages[index]);
+        }
+        ex5: in ra từng index của 1 chuỗi
+        var name = 'thanhtoan';
+        for(var index in name){
+            console.log(index);
         }
     + for/of: lặp qua từng value của đối tượng, từng element của một mảng, từng chữ cái của 1 chuỗi
         ex1: in ra từng element của mảng
@@ -334,7 +339,7 @@
             'PHP'
         ];
         for(var element of languages){
-        console.log(element);
+           console.log(element);
         }
         ex2: in ra từng chữ cái trong 1 chuỗi
         var name = "lethanhtoan";
@@ -351,4 +356,66 @@
             console.log(value);
         }
     + white: lặp khi điều kiện đúng
+        ex: var i = 0;
+        while(i<10){
+            i++;
+            console.log(i);
+        }
     + do/white: lặp ít nhất một lần, sau đó lặp khi điều kiện đúng
+        ex: var i = 0;
+        do {
+            i++;
+            console.log(i);
+        } while(i < 10);
+    + break & continue loop
+        ex1: 
+        for(var i = 0 ; i < 10 ; i++){
+            if(i >= 5){
+                break;
+            }
+            console.log(i);
+        }
+        ex2: 
+        for(var i = 0 ; i < 10 ; i++){
+            if(i % 2 === 1){
+                continue;
+            }
+            console.log(i);
+        }
+    + nested loop: vòng lặp lòng nhau
+        ex: in ra 1 2 3 4 5 6 
+        var array = [
+            [1, 2],
+            [3, 4],
+            [5, 6]
+        ];
+        for(var i = 0 ; i < array.length ; i++){
+            for(var j = 0 ; j < array[i].length ; j++){
+                console.log(array[i][j])
+            }
+        }
+
+    + new Set(<mảng các giá trị trùng nhau>); //trả về chuỗi các giá trị không bị trùng  
+        --> trả về mảng: [...(new Set(<mảng các giá trị trùng nhau>))];
+
+- ARRAY METHOD: các tham số là một function
+    + forEach(); // duyệt qua từng element của mảng
+        ex1: in ra từng element và index
+        var array = ['HTML', 'CSS', 'JS'];
+        array.forEach(function(arrayElement, index){ // dùng expressiton function
+            console.log(arrayElement, index);
+        });
+        ex2: tính tổng mảng
+        var array = [1,2,3,4,5];
+        var sum = 0;
+        array.forEach(function(element){
+            sum += element;
+        });
+        console.log(sum);
+        --> function 1 tham số thì đó là element, 2 tham số thì: 1 element và 1 index
+    + every();
+    + some();
+    + fine();
+    + filter();
+    + map();
+    + reduce();

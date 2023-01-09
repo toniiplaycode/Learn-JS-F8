@@ -197,3 +197,58 @@
 // for(var value of valueMyInfo){
 //     console.log(value);
 // }
+
+//ex19: loop while
+// var i = 0;
+// while(i < 10){
+//     i++;
+//     console.log(i);
+// }
+
+//ex20: loop do/while
+// var i = 0;
+// do {
+//     i++;
+//     console.log(i);
+// } while(i < 10);
+
+//ex21: break & continue loop
+// for(var i = 0; i < 10 ; i++){
+//     if(i >= 5){
+//         break;
+//     }
+//     console.log(i);
+// }
+// for(var i = 0; i < 10 ; i++){
+//     if(i % 2 === 1){
+//         continue;
+//     }
+//     console.log(i);
+// }
+
+//ex22: nested loop: vòng lặp lòng nhau 
+// var array = [
+//     [1, 2],
+//     [3, 4],
+//     [5, 6]
+// ];
+// for(var i = 0 ; i < array.length ; i++){
+//     for(var j = 0 ; j < array[i].length ; j++){
+//         console.log(array[i][j])
+//     }
+// }
+
+//ex23: array method: forEach();
+// ex1:
+// var array = ['HTML', 'CSS', 'JS'];
+// array.forEach(function(arrayElement, index){
+//    console.log(arrayElement, index);
+// });
+// ex2: 
+// var array = [1,2,3,4,5];
+// var sum = 0;
+// array.forEach(function(element){
+//     sum += element;
+// });
+// console.log(sum);
+
