@@ -213,12 +213,14 @@
 // } while(i < 10);
 
 //ex21: break & continue loop
+// ex1:
 // for(var i = 0; i < 10 ; i++){
 //     if(i >= 5){
 //         break;
 //     }
 //     console.log(i);
 // }
+// ex2:
 // for(var i = 0; i < 10 ; i++){
 //     if(i % 2 === 1){
 //         continue;
@@ -252,3 +254,168 @@
 // });
 // console.log(sum);
 
+//ex24: array method: every();
+// var array = [1,2,3,4,5]; 
+// var checkPositiveNumber = array.every(function(element){
+//     return element >= 0;
+// });
+// console.log(checkPositiveNumber);
+
+//ex25: array method: some();
+// var array = [1,2,'toan',4,5]; 
+// var checkString = array.some(function(element){
+//     return element === 'toan';
+// });
+// console.log(checkString);
+
+//ex26: array method: fine();
+// ex1:
+// var array = [1,2,'toan',4,5]; 
+// var find = array.find(function(element){
+//     return element === 'toan';
+// });
+// console.log(find);
+// ex2:
+// var array = [
+//     {
+//         id: 1,
+//         name: 'toan'
+//     },
+//     {
+//         id: 2,
+//         name: 'tonii'
+//     }
+// ];
+// var find = array.find(function(element){
+//     return element.id === 2;
+// })
+// console.log(find);
+
+//ex27: array method: filter();
+// var array = [
+//     {
+//         id: 1,
+//         name: 'toan'
+//     },
+//     {
+//         id: 2,
+//         name: 'tonii'
+//     },
+//     {
+//         id: 3,
+//         name: 'toan'
+//     }
+// ];
+// var listFind = array.filter(function(element){
+//     return element.name === 'toan';
+// })
+// console.log(listFind);
+
+//ex28: array method: map()
+// var languages = [
+//     {
+//         id: 1,
+//         name: 'HTML',
+//     },
+//     {
+//         id: 2,
+//         name: 'CSS',
+//     },
+//     {
+//         id: 3,
+//         name: 'JS',
+//     },
+//     {
+//         id: 4,
+//         name: 'PHP',
+//     },
+// ];
+// var newLanguages = languages.map(function(element, index){ //newLanguages mới sẽ nhận được toàn bộ element của laguages và có thêm các key và value mới của từng element trong mảng
+//     return {
+//         id: element.id,
+//         name: element.name,
+//         type: 'built webisite', // thêm key và value mới cho mỗi element
+//         stringId: 'DNC ' + element.id, // thêm key và value mới cho mỗi element
+//         index: index
+//     };z
+// });
+// console.log(newLanguages);
+
+//ex29: array method: reduce()
+// tính tổng các coin có trong mảng courses
+// var courses = [
+//     {
+//         id: 1,
+//         name: 'HTML',
+//         coin: 100,
+//     },
+//     {
+//         id: 2,
+//         name: 'CSS',
+//         coin: 200,
+//     },
+//     {
+//         id: 3,
+//         name: 'JS',
+//         coin: 300,
+//     },
+//     {
+//         id: 4,
+//         name: 'PHP',
+//         coin: 400,
+//     }
+// ];
+// var totalCoin = courses.reduce(function(total, currentValue){
+//     return total + currentValue.coin;
+// }, 0); // có 2 tham số trong hàm reduce: 1 function, 1 giá trị khởi tạo. trong function có tối đa 4 tham số (lên mạng xem), nhưng ở đây mình chỉ dùng 2 tham số: 1 biến khởi tạo (biến này được nhận từ tham số thứ 2 của hàm reduce), 1 biến để lấy giá trị trong từng element của mảng courses
+// console.log(totalCoin);
+
+//ex30: array method: reduce() chuyên sâu hơn chút
+// ex1: tính tổng các element trong mảng không cần tham số initial value
+// var numbers = [1,2,3,4,5];
+// var totalNumber = numbers.reduce(function(total, number){
+//     return total + number;   
+// }, 0);
+// console.log(totalNumber);
+// //--> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
+// 
+// ex2: flat mảng từ depth mảng (làm phẳng mảng(mảng 1 cấp) từ 1 mảng sâu(mảng có nhiều cấp))
+// var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9], 10];
+// var flatArray = depthArray.reduce(function(flat, depthArrayItem){
+//     return flat.concat(depthArrayItem);
+// }, []) // initital value là 1 mảng trống
+// console.log(flatArray);
+//
+// ex3: lấy ra các courses đưa vào 1 mảng mới
+var topics = [
+    {
+        topic: 'front-end',
+        courses:[
+            {
+                id: 1,
+                title: 'HTML, CSS'
+            },
+            {
+                id: 2,
+                title: 'JS'
+            }
+        ]
+    },
+    {
+        topic: 'back-end',
+        courses:[
+            {
+                id: 1,
+                title: 'PHP'
+            },
+            {
+                id: 2,
+                title: 'NodeJS'
+            }
+        ]
+    }
+];
+var newCourses = topics.reduce(function(courses, topic){
+    return courses.concat(topic.courses);
+}, []); // trả về 1 mảng các khoá học
+console.log(newCourses);

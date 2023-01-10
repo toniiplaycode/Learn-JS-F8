@@ -125,7 +125,7 @@
     ex: languages = "thanhtoan";    
         languages.split(''); // lấy từng ký tự trong chuỗi
         --> ["t", "h", "a", "n", "h", "t", "o", "a", "n"]
-- hàm join: biến mảng thành chuỗi thông qua điểm chung, cơ chế giống hàm split        
+- hàm join: biến mảng thành chuỗi thông qua điểm chung, cơ chế giống giống hàm split        
 - charAt: lấy một ký tự tại index
     ex: languages = "thanhtoan";
         languages.charAt(0);
@@ -299,6 +299,7 @@
         for(var key in myInfo){
             console.log(key);
         }
+
         ex2: in ra value của 1 object thông qua key
         var myInfo = {
             name: 'Thanh Toan',
@@ -308,6 +309,7 @@
         for(var key in myInfo){
             console.log(myInfo[key]);
         }
+
         ex3: in ra index của 1 mảng
         var languages = [
                 'C++',
@@ -317,6 +319,7 @@
         for(var index in languages){
             console.log(index);
         }
+        
         ex4: in ra các element của 1 mảng thông qua index
         var languages = [
             'C++',
@@ -326,6 +329,7 @@
         for(var index in languages){
             console.log(languages[index]);
         }
+
         ex5: in ra từng index của 1 chuỗi
         var name = 'thanhtoan';
         for(var index in name){
@@ -341,6 +345,7 @@
         for(var element of languages){
            console.log(element);
         }
+
         ex2: in ra từng chữ cái trong 1 chuỗi
         var name = "lethanhtoan";
         for(var value of name){
@@ -375,6 +380,7 @@
             }
             console.log(i);
         }
+        
         ex2: 
         for(var i = 0 ; i < 10 ; i++){
             if(i % 2 === 1){
@@ -398,13 +404,14 @@
     + new Set(<mảng các giá trị trùng nhau>); //trả về chuỗi các giá trị không bị trùng  
         --> trả về mảng: [...(new Set(<mảng các giá trị trùng nhau>))];
 
-- ARRAY METHOD: các tham số là một function
+- ARRAY METHOD: các tham số của array method là 1 function, các function có 1 hoặc 2 tham số, 1 tham số(do mình đặt tên tham số) là chỉ có element, 2 tham số(do mình đặt tên tham số): 1 element và 1 index
     + forEach(); // duyệt qua từng element của mảng
         ex1: in ra từng element và index
         var array = ['HTML', 'CSS', 'JS'];
         array.forEach(function(arrayElement, index){ // dùng expressiton function
             console.log(arrayElement, index);
         });
+
         ex2: tính tổng mảng
         var array = [1,2,3,4,5];
         var sum = 0;
@@ -412,10 +419,196 @@
             sum += element;
         });
         console.log(sum);
-        --> function 1 tham số thì đó là element, 2 tham số thì: 1 element và 1 index
-    + every();
-    + some();
-    + fine();
-    + filter();
-    + map();
-    + reduce();
+    + every(); // kiểm tra tất cả element của mảng thoả mãn 1 điều kiện gì đó và trả về boolean (giống logic AND)
+        ex: kiểm tra tất cả số trong mảng đều là số dương
+        var array = [1,2,3,4,5]; 
+        var checkPositiveNumber = array.every(function(element){
+            return element >= 0;
+        });
+        console.log(checkPositiveNumber);
+    + some(); // kiểm tra element của mảng, chỉ cần 1 element thoả mãn điều kiện và trả về boolean (giống logic OR)
+        ex: kiểm tra trong mảng có phần tử là chuỗi 'toan'
+        var array = [1,2,'toan',4,5]; 
+        var checkString = array.some(function(element){
+            return element === 'toan';
+        });
+        console.log(checkString);
+    + find(); // tìm kiếm trong mảng có element nào giống element cần tìm không, nếu có thì trả về trả về chính nó (chỉ trả về một element duy nhất)
+        ex1: tìm chuỗi 'toan', nếu có thì trả về chính nó
+        var array = [1,2,'toan',4,5];
+        var find = array.find(function(element){
+            return element === 'toan';
+        });
+        console.log(find);
+
+        ex2: tìm id của object trong mảng và trả về nguyên object đó dựa theo id
+        var array = [
+            {
+                id: 1,
+                name: 'toan'
+            },
+            {
+                id: 2,
+                name: 'tonii'
+            }
+        ];
+        var find = array.find(function(element){
+            return element.id === 2;
+        })
+        console.log(find);
+    + filter(); // giống như find(), nhưng trả về được nhiều element
+        ex: tìm id của object trong mảng và trả về nguyên object đó dựa theo id
+        var array = [
+            {
+                id: 1,
+                name: 'toan'
+            },
+            {
+                id: 2,
+                name: 'tonii'
+            },
+            {
+                id: 3,
+                name: 'toan'
+            }
+        ];
+        var listFind = array.filter(function(element){
+            return element.name === 'toan';
+        })
+        console.log(listFind);
+    + map(); // thay đổi hoặc thêm các element của 1 mảng, 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
+        ex: từ mảng đã có, hãy thêm key và value dựa trên mảng đã có 
+        var languages = [
+            {
+                id: 1,
+                name: 'HTML',
+            },
+            {
+                id: 2,
+                name: 'CSS',
+            },
+            {
+                id: 3,
+                name: 'JS',
+            },
+            {
+                id: 4,
+                name: 'PHP',
+            },
+        ];
+        var newLanguages = languages.map(function(element, index){ //newLanguages mới sẽ nhận được toàn bộ element của laguages và có thêm các key và value mới của từng element trong mảng
+            return {
+                id: element.id,
+                name: element.name,
+                type: 'built webisite', // thêm key và value mới cho mỗi element
+                stringId: 'DNC ' + element.id, // thêm key và value mới cho mỗi element
+                index: index
+            };
+        });
+        console.log(newLanguages);
+    + reduce(); được sử dụng khi muốn nhận được 1 giá trị duy nhất sau khi được tính toán hoặc xử lý trên từng element của mảng, ví dụ: tính tổng số coin có trong mảng, có 2 tham số trong hàm reduce: 1 function, 1 giá trị khởi tạo. trong function có tối đa 4 tham số (lên mạng xem)
+        ex: tính tổng các coin có trong mảng courses
+        var courses = [
+            {
+                id: 1,
+                name: 'HTML',
+                coin: 100,
+            },
+            {
+                id: 2,
+                name: 'CSS',
+                coin: 200,
+            },
+            {
+                id: 3,
+                name: 'JS',
+                coin: 300,
+            },
+            {
+                id: 4,
+                name: 'PHP',
+                coin: 400,
+            }
+        ];
+        var totalCoin = courses.reduce(function(total, currentValue){
+            return total + currentValue.coin;
+        }, 0); // có 2 tham số trong hàm reduce: 1 function, 1 giá trị khởi tạo. trong function có tối đa 4 tham số (lên mạng xem), nhưng ở đây mình chỉ dùng 2 tham số: 1 biến khởi tạo (biến này được nhận từ tham số thứ 2 của hàm reduce), 1 biến để lấy giá trị trong từng element của mảng courses
+        console.log(totalCoin);
+    +  reduce(); // chuyên sâu hơn chút
+        ex1: tính tổng các coin có trong mảng courses
+        var courses = [
+            {
+                id: 1,
+                name: 'HTML',
+                coin: 100,
+            },
+            {
+                id: 2,
+                name: 'CSS',
+                coin: 200,
+            },
+            {
+                id: 3,
+                name: 'JS',
+                coin: 300,
+            },
+            {
+                id: 4,
+                name: 'PHP',
+                coin: 400,
+            }
+        ];
+        var totalCoin = courses.reduce(function(total, course){ // đặt tên currentValue rõ ràng hơn. trong mảng courses (danh sách các course), gồm các element là course (khác nhau chữ 's', có 's' là mảng, không có là element);
+            return total + course.coin;
+        }, 0);
+        console.log(totalCoin);
+        --> tham số initial value của hàm reduce thì không bắt buộc, initial là kiểu gì thì nguyên hàm reduce sẽ return về kiểu đó, kiểu number thì sẽ trả về number, string, function, object... nhưng đa số đều nên dùng initial value để return cho tường minh và cụ thể, KHÔNG NÊN BỎ TRỐNG initial value. Nếu bỏ trống initial value thì mặc định nó sẽ lấy kiểu dữ liệu của element đầu tiên của mảng. 
+        
+        ex2: tính tổng các element trong mảng không cần tham số initial value
+        var numbers = [1,2,3,4,5];
+        var totalNumber = numbers.reduce(function(total, number){
+            return total + number;   
+        }, 0);
+        console.log(totalNumber);
+        --> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
+        
+        ex3: flat mảng từ depth mảng (làm phẳng mảng(mảng 1 cấp) từ 1 mảng sâu(mảng có nhiều cấp))
+        var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9], 10];
+        var flatArray = depthArray.reduce(function(flat, depthArrayItem){
+            return flat.concat(depthArrayItem);
+        }, []) // initital value là 1 mảng trống
+        console.log(flatArray);
+        
+        ex4: lấy ra các courses đưa vào 1 mảng mới
+        var topics = [
+            {
+                topic: 'front-end',
+                courses:[
+                    {
+                        id: 1,
+                        title: 'HTML, CSS'
+                    },
+                    {
+                        id: 2,
+                        title: 'JS'
+                    }
+                ]
+            },
+            {
+                topic: 'back-end',
+                courses:[
+                    {
+                        id: 1,
+                        title: 'PHP'
+                    },
+                    {
+                        id: 2,
+                        title: 'NodeJS'
+                    }
+                ]
+            }
+        ];
+        var newCourses = topics.reduce(function(courses, topic){
+            return courses.concat(topic.courses);
+        }, []); // trả về 1 mảng các khoá học
+        console.log(newCourses);
