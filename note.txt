@@ -476,7 +476,7 @@
             return element.name === 'toan';
         })
         console.log(listFind);
-    + map(); // thay đổi hoặc thêm các element của 1 mảng, 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
+    + map(); // thay đổi hoặc thêm các element của 1 mảng. 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
         ex: từ mảng đã có, hãy thêm key và value dựa trên mảng đã có 
         var languages = [
             {
@@ -506,7 +506,7 @@
             };
         });
         console.log(newLanguages);
-    + reduce(); được sử dụng khi muốn nhận được 1 giá trị duy nhất sau khi được tính toán hoặc xử lý trên từng element của mảng, ví dụ: tính tổng số coin có trong mảng, có 2 tham số trong hàm reduce: 1 function, 1 giá trị khởi tạo. trong function có tối đa 4 tham số (lên mạng xem)
+    + reduce(); được sử dụng khi muốn nhận được 1 giá trị duy nhất sau khi được tính toán hoặc xử lý trên từng element của mảng, ví dụ: tính tổng số có trong mảng. Có 2 tham số trong hàm reduce: 1 function, 1 initial value(giá trị khởi tạo và cũng là giá trị tích trữ). Trong function có tối đa 4 tham số: 1 initital value(được lấy từ tham số thứ 2 hàm reduce), 1 element, 1 index, 1 ogirin array (chính là mảng gọi hàm reduce (mảng gốc)). Nhưng bình thường function ta chỉ dùng 2 tham số là initital value và element
         ex: tính tổng các coin có trong mảng courses
         var courses = [
             {
@@ -612,3 +612,47 @@
             return courses.concat(topic.courses);
         }, []); // trả về 1 mảng các khoá học
         console.log(newCourses);
+- String/Array includes(): trả về giá trị boolean
+    + <chuỗi>.includes('<chuỗi cần tìm kiếm>', <index bắt đầu tìm>) // nếu không có tham số thứ 2 thì mặc định index = 0
+        ex1: var title = 'Responsive web design';
+        console.log(title.includes('web'))
+        --> true
+        ex2: var title = 'Responsive web design'; 
+        console.log(title.includes('web', 18))
+        --> false, vì index bắt đầu tìm đã vượt qua chuỗi cần tìm
+    + <mảng>.includes('element cần tìm', <index bắt đầu tìm>) // cơ chế hoạt động giống string includes
+- Callback: là hàm, được truyền qua đối số
+    ex1: 
+    function myFunction(param) {
+        param(123);
+    }
+    function myCallback(value) {
+        console.log('value : ', value);
+    }
+    myFunction(myCallback);
+    --> value: 123
+
+    ex2: Callback + - * /
+    function sumCb(a, b) {
+        return a + b;
+    }
+    function subCb(a, b) {
+        return a - b;
+    }
+    function multiCb(a, b) {
+        return a * b;
+    }
+    function divCb(a, b) {
+        return a / b;
+    }
+    function caculate(a, b, cb) {//Callback
+        return cb(a, b);
+    }
+    // Expected results
+    caculate(1, 2, sumCb) // Output: 3
+    caculate(1, 2, subCb) // Output: -1
+    caculate(1, 2, multiCb) // Output: 2
+    caculate(3, 1, divCb) // Output: 3
+    
+    ex3: 
+    

@@ -1,12 +1,12 @@
 // --function--
 
-//ex1: 
+//ex1:
 //var isConfirm = confirm('Message!');
 // console.log(isConfirm); // ok thì true, cancel thì false
 
 //ex2:
 // function cong(a, b) {
-//     return a + b;    
+//     return a + b;
 // }
 // console.log(cong(11, 7));
 
@@ -228,7 +228,7 @@
 //     console.log(i);
 // }
 
-//ex22: nested loop: vòng lặp lòng nhau 
+//ex22: nested loop: vòng lặp lòng nhau
 // var array = [
 //     [1, 2],
 //     [3, 4],
@@ -246,7 +246,7 @@
 // array.forEach(function(arrayElement, index){
 //    console.log(arrayElement, index);
 // });
-// ex2: 
+// ex2:
 // var array = [1,2,3,4,5];
 // var sum = 0;
 // array.forEach(function(element){
@@ -255,14 +255,14 @@
 // console.log(sum);
 
 //ex24: array method: every();
-// var array = [1,2,3,4,5]; 
+// var array = [1,2,3,4,5];
 // var checkPositiveNumber = array.every(function(element){
 //     return element >= 0;
 // });
 // console.log(checkPositiveNumber);
 
 //ex25: array method: some();
-// var array = [1,2,'toan',4,5]; 
+// var array = [1,2,'toan',4,5];
 // var checkString = array.some(function(element){
 //     return element === 'toan';
 // });
@@ -270,7 +270,7 @@
 
 //ex26: array method: fine();
 // ex1:
-// var array = [1,2,'toan',4,5]; 
+// var array = [1,2,'toan',4,5];
 // var find = array.find(function(element){
 //     return element === 'toan';
 // });
@@ -374,11 +374,11 @@
 // ex1: tính tổng các element trong mảng không cần tham số initial value
 // var numbers = [1,2,3,4,5];
 // var totalNumber = numbers.reduce(function(total, number){
-//     return total + number;   
+//     return total + number;
 // }, 0);
 // console.log(totalNumber);
 // //--> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
-// 
+//
 // ex2: flat mảng từ depth mảng (làm phẳng mảng(mảng 1 cấp) từ 1 mảng sâu(mảng có nhiều cấp))
 // var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9], 10];
 // var flatArray = depthArray.reduce(function(flat, depthArrayItem){
@@ -387,35 +387,101 @@
 // console.log(flatArray);
 //
 // ex3: lấy ra các courses đưa vào 1 mảng mới
-var topics = [
-    {
-        topic: 'front-end',
-        courses:[
-            {
-                id: 1,
-                title: 'HTML, CSS'
-            },
-            {
-                id: 2,
-                title: 'JS'
-            }
-        ]
-    },
-    {
-        topic: 'back-end',
-        courses:[
-            {
-                id: 1,
-                title: 'PHP'
-            },
-            {
-                id: 2,
-                title: 'NodeJS'
-            }
-        ]
+// var topics = [
+//     {
+//         topic: 'front-end',
+//         courses:[
+//             {
+//                 id: 1,
+//                 title: 'HTML, CSS'
+//             },
+//             {
+//                 id: 2,
+//                 title: 'JS'
+//             }
+//         ]
+//     },
+//     {
+//         topic: 'back-end',
+//         courses:[
+//             {
+//                 id: 1,
+//                 title: 'PHP'
+//             },
+//             {
+//                 id: 2,
+//                 title: 'NodeJS'
+//             }
+//         ]
+//     }
+// ];
+// var newCourses = topics.reduce(function(courses, topic){
+//     return courses.concat(topic.courses);
+// }, []); // trả về 1 mảng các khoá học
+// console.log(newCourses);
+
+//ex31: từ một mảnh cấp 2 thành một object như kỳ vọng
+// var arr = [
+//     ['name', 'Sơn Đặng'],
+//     ['age', 18],
+// ];
+// function arrToObj(arr) {
+//   return arr.reduce(function (result, a) {
+//     result[a[0]] = a[1];
+//     return result;
+//   }, {});
+// }
+// console.log(arrToObj(arr)); // kỳ vọng: { name: 'Sơn Đặng', age: 18 }
+
+//ex32: Callback
+// function myFunction(param) {
+//   param(123);
+// }
+// function myCallback(value) {
+//   console.log("value : ", value);
+// }
+// myFunction(myCallback);
+
+//ex33: Callback + - * /
+// function sumCb(a, b) {
+//   return a + b;
+// }
+
+// function subCb(a, b) {
+//   return a - b;
+// }
+
+// function multiCb(a, b) {
+//   return a * b;
+// }
+
+// function divCb(a, b) {
+//   return a / b;
+// }
+
+// function caculate(a, b, cb) {//Callback
+//   return cb(a, b);
+// }
+// // Expected results
+// // caculate(1, 2, sumCb) // Output: 3
+// // caculate(1, 2, subCb) // Output: -1
+// // caculate(1, 2, multiCb) // Output: 2
+// // caculate(3, 1, divCb) // Output: 3
+
+//ex34:
+Array.prototype.map2 = function(callback) {
+    var output = [], arrayLength = this.length;
+    for(var i = 0; i < arrayLength ; i++) {
+        var result = callback(this[i]);
+        output.push(result);
     }
-];
-var newCourses = topics.reduce(function(courses, topic){
-    return courses.concat(topic.courses);
-}, []); // trả về 1 mảng các khoá học
-console.log(newCourses);
+    return output;
+}
+
+var languages = ['HTML', 'CSS', 'JS'];
+
+var showLanguage = languages.map2(function(laguage){
+    return laguage;
+});
+
+console.log(showLanguage.join(' '));
