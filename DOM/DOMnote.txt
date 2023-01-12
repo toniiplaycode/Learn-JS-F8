@@ -1,0 +1,28 @@
+HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xem dạng cây DOM), gồm 3 thành phần. element (các tags), attribute (thuộc tính nằm trong thẻ mở) và text. Dùng JS có thể thay đổi được element, attribute, text
+    - document.write(<biến hoặc chuỗi>); // in ra chuỗi hoặc biến
+    - get element: ID, class, tag, CSS selector, HTML collection
+        + ID: document.getElementbyID('<tên id của thẻ>'); //chỉ lấy được 1. trả về 1 element
+        + class: document.getElementsbyClassName('<tên class của 1 hoặc nhiều thẻ>'); // lấy được nhiều, trả về HTMLcollection
+        + tag: document.getElementsbyTagName('<tên tag>'); // lấy được nhiều, trả về HTMLcollection
+        + CSS selector: - document.querySelector(< . tên class hoặc # tên ID>); // chỉ lấy được 1. trả về 1 element
+                        - document.querySelectorAll(< . tên class>); // lấy được nhiều, trả về Nodelist
+        + HTML collection: document.<forms(thẻ form), anchors(thẻ a), imgs(thẻ img), ...> // lấy được nhiều, trả về HTMLcollection
+        --> trả về HTMLcollection hoặc Nodelist đều giống mảng nên có thẻ dùng index để lấy các element và có thể dùng vòng lặp để lấy từng element
+    - attribute node: thêm, lấy attribute trong 1 element
+        + thêm attribute cho 1 element:
+            ex1:
+            var headingElement = document.querySelector('h1');
+            // cách đơn giản nhất là truy xuất qua dấu chấm
+            headingElement.className = 'heading';
+            headingElement.id = 'heading';
+            headingElement.title = 'heading';
+            // hoặc dùng hàm setAttribute(), hàm setAttribute() có thể thêm các thuộc tính không hợp lệ cho element
+            headingElement.setAttribute('class', 'heading');
+            headingElement.setAttribute('id', 'heading');
+            headingElement.setAttribute('title', 'heading');
+        + lấy attribute của 1 element (element có attribute sẵn)
+            var headingElement = document.querySelector('h1');
+            // lấy 1 attribute bằng hàm getAttribute();
+            console.log(headingElement.getAttribute('id'));
+            console.log(headingElement.getAttribute('title'));
+            console.log(headingElement.getAttribute('class'));    
