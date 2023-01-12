@@ -251,9 +251,23 @@
     }
     --> tạo thêm thuộc tính và phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng 
     var admin = new User('Thanh', 'Toan', 'avatar1');
-    var client =  new User('Minh', 'Hung', 'avatar2');
+    var client =  new User('Minh', 'Hu '
+    
+    ng', 'avatar2');
     console.log(admin, client); // className = 'F8' nằm trong prototype của dev tool
     console.log(admin.getLastName(), client.getLastName()); // in ra lastName
+- Array.property.<tên thuộc tính hoặc phương thức> = <thuộc tính hoặc phương thức>; //các thuộc tính và phương thức này không nằm trong element mà nằm trong property
+    ex1: thêm thuộc tính cho các mảng
+    Array.prototype.myNumber = 10;
+    var a = [2,3,4];
+    var b = [3,4,5];
+    
+    ex2: thêm phương thức cho các mảng
+    Array.prototype.myFunction = function(){
+        return 10;
+    };
+    var a = [2,3,4];
+    var b = [3,4,5];
 - object Date: là một hàm object constructor
     + new Date() // trả về thời gian hiện tại (thứ ngày tháng năm giờ phút giây)
         ex: var date = new Date();
@@ -404,7 +418,7 @@
     + new Set(<mảng các giá trị trùng nhau>); //trả về chuỗi các giá trị không bị trùng  
         --> trả về mảng: [...(new Set(<mảng các giá trị trùng nhau>))];
 
-- ARRAY METHOD: các tham số của array method là 1 function, các function có 1 hoặc 2 tham số, 1 tham số(do mình đặt tên tham số) là chỉ có element, 2 tham số(do mình đặt tên tham số): 1 element và 1 index
+- ARRAY METHOD: các tham số của array method là 1 function, các function có tối đa 3 tham số, 1 tham số(do mình đặt tên tham số) là chỉ có element, 2 tham số(do mình đặt tên tham số): 1 element và 1 index, 3 tham số(do mình đặt tên tham số): 1 element, 1 index, 1 originArray
     + forEach(); // duyệt qua từng element của mảng
         ex1: in ra từng element và index
         var array = ['HTML', 'CSS', 'JS'];
@@ -413,7 +427,8 @@
         });
 
         ex2: tính tổng mảng
-        var array = [1,2,3,4,5];
+        var array = 
+        [1,2,3,4,5];
         var sum = 0;
         array.forEach(function(element){
             sum += element;
@@ -653,6 +668,19 @@
     caculate(1, 2, subCb) // Output: -1
     caculate(1, 2, multiCb) // Output: 2
     caculate(3, 1, divCb) // Output: 3
-    
-    ex3: 
-    
+- myCallback: những hàm tự viết cơ chế giống những hàm built-in
+    ex1: viết hàm giống map() để lấy ra từng element trong mảng
+    Array.prototype.map2 = function(callback) {
+    var output = [], arrayLength = this.length;
+    for(var i = 0; i < arrayLength ; i++) {
+        var result = callback(this[i]);
+        output.push(result);
+    }
+    return output;
+    }
+    var languages = ['HTML', 'CSS', 'JS'];
+    var showLanguage = languages.map2(function(laguage){
+        return laguage;
+    });
+    console.log(showLanguage.join(' '));
+--DOM
