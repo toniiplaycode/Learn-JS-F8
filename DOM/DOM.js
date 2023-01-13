@@ -31,12 +31,65 @@
 // }
 
 // ex6: attribute node:
-var headingElement = document.querySelector('.heading-3');
-headingElement.id = 'heading-3';
-headingElement.title = 'heading-3';
+// var headingElement = document.querySelector('.heading-3');
+// headingElement.id = 'heading-3';
+// headingElement.title = 'heading-3';
 // hoặc dùng hàm setAttribute();
-headingElement.setAttribute('name', 'heading-3');
+// headingElement.setAttribute('name', 'heading-3');
 // lấy 1 attribute bằng hàm getAttribute();
-console.log(headingElement.getAttribute('id'));
-console.log(headingElement.getAttribute('title'));
-console.log(headingElement.getAttribute('class'));
+// console.log(headingElement.getAttribute('id'));
+// console.log(headingElement.getAttribute('title'));
+// console.log(headingElement.getAttribute('class'));
+
+//ex7: innerText & textContent: 
+// lấy ra text node
+// var headingElement = document.querySelector('.heading-text');
+// console.log(headingElement.innerText);
+// console.log(headingElement.textContent);
+// sửa text
+// headingElement.innerText = 'new innterText';
+// hoặc
+// headingElement.textContent = 'new textContent';
+//
+// khác nhau giữa innerText và textContent
+// var innerTextVStextContent = document.querySelector('.innerTextVStextContent');
+// console.log(innerTextVStextContent.innerText);
+// console.log(innerTextVStextContent.textContent);
+
+//ex8: innerHMTL & outerHTML:
+//innerHMTL:
+//setter
+// var boxElement =  document.querySelector('.box');
+// boxElement.innerHTML = '<h1>HELLO innerHTML</h1>'; // thêm element node và text node;
+// boxElement.innerHTML = '<h2 style="color: grey">HELLO innerHTML</h2>'; // thêm element node và text node, attribute;
+// //geter
+// console.log(boxElement.innerHTML);
+
+//ex9: DOM CSS
+// var boxCssElement = document.querySelector('.box-css')
+// // dùng cách bình thường
+// // boxCssElement.style.width = '100px';
+// // boxCssElement.style.height = '100px';
+// // boxCssElement.style.background = 'red';
+// // dùng Object.assign();
+// Object.assign(boxCssElement.style, {
+//    width: '100px',
+//    height: '100px',
+//    background: 'blue',
+// });
+
+//ex10: Classlist: add, contains, remove, toggle
+// var boxClassList = document.querySelector('.box-lastlist');
+// thêm phương thức
+// boxClassList.classList.add('red');
+// kiểm tra phương thức, trả về boolean
+// console.log(boxClassList.classList.contains('red'));
+// console.log(boxClassList.classList.contains('blue')); // class blue không có nên trả về false
+// gở phương thức
+// boxClassList.classList.remove('red');
+// nếu có thì gở, nếu không có thì thêm
+// boxClassList.classList.toggle('red');
+// ứng dụng của toggle
+// setInterval(() => {
+//    boxClassList.classList.toggle('red');
+// }, 500);

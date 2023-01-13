@@ -1,28 +1,75 @@
 HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xem dạng cây DOM), gồm 3 thành phần. element (các tags), attribute (thuộc tính nằm trong thẻ mở) và text. Dùng JS có thể thay đổi được element, attribute, text
-    - document.write(<biến hoặc chuỗi>); // in ra chuỗi hoặc biến
-    - get element: ID, class, tag, CSS selector, HTML collection
-        + ID: document.getElementbyID('<tên id của thẻ>'); //chỉ lấy được 1. trả về 1 element
-        + class: document.getElementsbyClassName('<tên class của 1 hoặc nhiều thẻ>'); // lấy được nhiều, trả về HTMLcollection
-        + tag: document.getElementsbyTagName('<tên tag>'); // lấy được nhiều, trả về HTMLcollection
-        + CSS selector: - document.querySelector(< . tên class hoặc # tên ID>); // chỉ lấy được 1. trả về 1 element
-                        - document.querySelectorAll(< . tên class>); // lấy được nhiều, trả về Nodelist
-        + HTML collection: document.<forms(thẻ form), anchors(thẻ a), imgs(thẻ img), ...> // lấy được nhiều, trả về HTMLcollection
-        --> trả về HTMLcollection hoặc Nodelist đều giống mảng nên có thẻ dùng index để lấy các element và có thể dùng vòng lặp để lấy từng element
-    - attribute node: thêm, lấy attribute trong 1 element
-        + thêm attribute cho 1 element:
-            ex1:
-            var headingElement = document.querySelector('h1');
-            // cách đơn giản nhất là truy xuất qua dấu chấm
-            headingElement.className = 'heading';
-            headingElement.id = 'heading';
-            headingElement.title = 'heading';
-            // hoặc dùng hàm setAttribute(), hàm setAttribute() có thể thêm các thuộc tính không hợp lệ cho element
-            headingElement.setAttribute('class', 'heading');
-            headingElement.setAttribute('id', 'heading');
-            headingElement.setAttribute('title', 'heading');
-        + lấy attribute của 1 element (element có attribute sẵn)
-            var headingElement = document.querySelector('h1');
-            // lấy 1 attribute bằng hàm getAttribute();
-            console.log(headingElement.getAttribute('id'));
-            console.log(headingElement.getAttribute('title'));
-            console.log(headingElement.getAttribute('class'));    
+- document.write(<biến hoặc chuỗi>); // in ra chuỗi hoặc biến
+- get element: ID, class, tag, CSS selector, HTML collection
+    + ID: document.getElementbyID('<tên id của thẻ>'); //chỉ lấy được 1. trả về 1 element
+    + class: document.getElementsbyClassName('<tên class của 1 hoặc nhiều thẻ>'); // lấy được nhiều, trả về HTMLcollection
+    + tag: document.getElementsbyTagName('<tên tag>'); // lấy được nhiều, trả về HTMLcollection
+    + CSS selector: - document.querySelector('<tag name>'); // CSS selector có thể lấy theo tag name. chỉ lấy được 1, trả về 1 element
+                    - document.querySelectorAll('<tag name>')); // CSS selector có thể lấy theo tag name. lấy được nhiều, trả về Nodelist
+                    - document.querySelector(< . tên class hoặc # tên ID>); // chỉ lấy được 1. trả về 1 element
+                    - document.querySelectorAll(< . tên class>); // lấy được nhiều, trả về Nodelist
+    + HTML collection: document.<forms(thẻ form), anchors(thẻ a), imgs(thẻ img), ...> // lấy được nhiều, trả về HTMLcollection
+    --> trả về HTMLcollection hoặc Nodelist đều giống mảng nên có thẻ dùng index để lấy các element và có thể dùng vòng lặp để lấy từng element
+- attribute node: thêm, lấy attribute trong 1 element
+    + thêm attribute cho 1 element:
+        ex1:
+        var headingElement = document.querySelector('h1');
+        // cách đơn giản nhất là truy xuất qua dấu chấm
+        headingElement.className = 'heading';
+        headingElement.id = 'heading';
+        headingElement.title = 'heading';
+        // hoặc dùng hàm setAttribute(), hàm setAttribute() có thể thêm các thuộc tính không hợp lệ cho element
+        headingElement.setAttribute('class', 'heading');
+        headingElement.setAttribute('id', 'heading');
+        headingElement.setAttribute('title', 'heading');
+    + lấy attribute của 1 element (element có attribute sẵn)
+        var headingElement = document.querySelector('h1');
+        // lấy 1 attribute bằng hàm getAttribute();
+        console.log(headingElement.getAttribute('id'));
+        console.log(headingElement.getAttribute('title'));
+        console.log(headingElement.getAttribute('class'));  
+- text note: lấy, sửa text(nội dung) trong 1 element (innterText & textContent)
+    + lấy text của 1 element (element có sẵn text) (geter)
+        var headingElement = document.querySelector('h1');
+        // dùng thuộc tính innerText
+        console.log(headingElement.innerText);
+        // hoặc dùng thuộc tính textContent
+        console.log(headingElement.textContent);
+    + sửa text của 1 element (seter)
+        headingElement.innerText = 'new innterText';
+        // hoặc
+        headingElement.textContent = 'new textContent';
+    --> khác nhau giữa innerText và textContent: innerText là giống như những gì được thấy ở browser, textContent chính những cái text node thật sự, innerText và textContent chỉ tạo ra được text node, không tạo ra được element node cho dù có <thẻ>...</thẻ> 
+--> muốn lấy attribute node hoặc text node thì ta phải lấy element node trước
+- innterHTML & outerHTML:
+    + innterHTML: dùng để thêm element và thêm được cả attribute, text (thêm được tất cả node) 
+    var boxElement =  document.querySelector('.box');
+    //seter
+    boxElement.innerHTML = '<h1>HELLO innerHTML</h1>'; //thêm element node và text node;
+    boxElement.innerHTML = '<h2 style="color: grey";>HELLO innerHTML</h2>'; //thêm element node và text node, attribute;
+    //geter
+    console.log(boxElement.innerHTML);
+    + outerHTML: dùng để ghi đè element, cái này ít dùng
+- DOM CSS: thêm style trên element (inline)
+    var boxCssElement = document.querySelector('.box-css')
+    //dùng cách bình thường
+        boxCssElement.style.width = '100px';
+        boxCssElement.style.height = '100px';
+        boxCssElement.style.background = 'red';
+    //dùng Object.assign();
+    Object.assign(boxCssElement.style, {
+        width: '100px',
+        height: '100px',
+        background: 'blue',
+    });
+- ClassList: quản lý class của 1 element, những phương thức thường dùng:  add('<tên class>'), contains('<tên class>'), remove('<tên class>'), toggle('<tên class>') 
+    var boxClassList = document.querySelector('.box-lastlist');
+    // thêm phương thức
+    boxClassList.classList.add('red');
+    // kiểm tra phương thức, trả về boolean
+    console.log(boxClassList.classList.contains('red'));
+    console.log(boxClassList.classList.contains('blue')); // class blue không có nên trả về false
+    // gở phương thức
+    boxClassList.classList.remove('red');
+    // nếu có thì gở, nếu không có thì thêm
+    boxClassList.classList.toggle('red');
