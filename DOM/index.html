@@ -71,7 +71,59 @@
     <div class="box-lastlist">
       <h1>CLASSLIST</h1>
     </div>
+
+    <!-- DOM EVENTS -->
   
+    <!-- Attribute events -->
+    <h1 onclick="console.log(Math.random())"> <!-- khi click vào -->
+      DOM EVENTS 1 (Attribute events)
+    </h1>
+    <h1 onmouseout="console.log(Math.random())"> <!-- khi rê chuột ra khỏi -->
+      DOM EVENTS 2
+    </h1>
+    <h1 onmouseover="console.log(Math.random())"> <!-- khi rê chuột vào -->
+      DOM EVENTS 3
+    </h1>
+    <h1 onclick="console.log(this)"> <!-- khi click vào console.log thì this sẽ trả về đúng elemenet node đã được onclick -->
+      DOM EVENTS this
+    </h1>
+    <h1 onclick="console.log(this.innerText)"> <!-- click vào thì trả về text node của element -->
+      DOM EVENTS this return innerText
+    </h1>
+    <h1 onclick="console.log(this.textContent)"> <!-- click vào thì trả về text node của element -->
+      DOM EVENTS this return textContent
+    </h1>
+    <div> <!-- không nổi bọt ra tới element node không chứ events --> 
+      <h1 onclick="console.log(this)"> <!-- sự kiện nổi bọt -->
+        <span>
+          DOM EVENTS BUBBLING <!-- tuy thẻ span không có events nhưng thằng cha là element h1 có event nên nó sẽ nổi bọt ra tới cha của nó -->
+        </span>
+      </h1>
+    </div>
+
+    <!-- Assign events -->
+    <h1 class="h1AssignEvents">
+      DOM EVENTS (Assign events)
+    </h1>
+    <h1 class="manyH1AssignEvents">
+      MANY DOM EVENTS 1
+    </h1>
+    <h1 class="manyH1AssignEvents">
+      MANY DOM EVENTS 2 
+    </h1>
+    <h1 class="manyH1AssignEvents">
+      MANY DOM EVENTS 3 
+    </h1>
+
+    <!-- DOM EVENTS EXAMPLE -->
+    <input type="text">
+    <input type="checkbox">
+    <select>
+      <option value="1">HTML</option>
+      <option value="2">CSS</option>
+      <option value="3">JS</option>
+    </select>
   </body>
   <script src="DOM.js"></script>
 </html>
+  

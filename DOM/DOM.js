@@ -93,3 +93,44 @@
 // setInterval(() => {
 //    boxClassList.classList.toggle('red');
 // }, 500);
+
+//ex11: DOM EVENTS: Assign events
+// 1 event cho 1 element
+// var h1Element = document.querySelector('.h1AssignEvents');
+// h1Element.onclick = function(){ //khi class h1AssignEvents được click thì event mới kich hoạt
+//     console.log(Math.random());
+// };
+// h1Element.onclick = function(){ //khi class h1AssignEvents được click thì event mới kich hoạt
+//     console.log(this);
+// };
+// 1 events cho nhiều element
+// var manyH1Elements = document.querySelectorAll('.manyH1AssignEvents'); // --> trả về 1 Nodelist và dùng vòng lặp để duyệt
+// for(var eachH1 of manyH1Elements){
+//     eachH1.onclick = function(){
+//         console.log(this);
+//     }
+// }
+// hoặc
+// for(var i = 0; i < manyH1Elements.length; ++i) {
+//     manyH1Elements[i].onclick = function(e) { // tham s  ố e trong function là các thuộc tính của event
+//     console.log(e.target); // thuộc tính target là trả về đúng element node có event
+//     }
+// }
+
+//ex12: DOM EVENTS EXAMPLE
+// var inputElement = document.querySelector('input[type="text"]');
+// change
+// inputElement.onchange = function(e){ // onchange sẽ thực thi khi mình trỏ chuột ra ngoài input, tham số e trong function là các thuộc tính của event
+//     console.log(e.target.value);// thuộc tính target là trả về đúng element node, và trong thuộc tính target có thuộc tính con của nó là value, value trả về text node
+// }
+// input
+// var inputValue;
+// inputElement.oninput = function(e){ // nhập value đến đâu thì thì event sẽ thực thi tới đó, các value theo kiểu cộng dồn
+//     inputValue = e.target.value; // biến inputValue sẽ được gán khi ta nhập 1 chữ hoặc số, và được gán liên tục nếu ta nhập 1 chuỗi hoặc 1 dãy số thì nó sẽ gán tương ứng
+// }
+//
+var inputElement = document.querySelector('input[type="checkbox"]');
+inputElement.onchange = function(e){
+    console.log(e.target.checked); // thuộc tính checked để trả về true hoặc false tương ứng với checkbox đã được check hay chưa
+}
+

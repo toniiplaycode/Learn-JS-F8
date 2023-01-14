@@ -62,14 +62,21 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
         height: '100px',
         background: 'blue',
     });
-- ClassList: quản lý class của 1 element, những phương thức thường dùng:  add('<tên class>'), contains('<tên class>'), remove('<tên class>'), toggle('<tên class>') 
+- ClassList: quản lý class của 1 element, những phương thức thường dùng:  add('<tên class>'), contains('<tên class>'), remove('<tên class>'), toggle('<tên class>'), replace('<tên class muốn thay thế>', '<tên class thay thế>'),...
     var boxClassList = document.querySelector('.box-lastlist');
-    // thêm phương thức
+    // thêm class
     boxClassList.classList.add('red');
-    // kiểm tra phương thức, trả về boolean
-    console.log(boxClassList.classList.contains('red'));
-    console.log(boxClassList.classList.contains('blue')); // class blue không có nên trả về false
-    // gở phương thức
+    // kiểm tra class có hay không , trả về boolean
+    console.log(boxClassList.classList.contains('red')); // class red có nên trả về true
+    console.log(boxClassList.classList.contains('blue')); // class blue không có sẽ trả về false
+    // gở class
     boxClassList.classList.remove('red');
     // nếu có thì gở, nếu không có thì thêm
     boxClassList.classList.toggle('red');
+    // thay thế class cũ bằng class mới
+    boxClassList.classList.replace('red', 'blue');
+- DOM EVENT: là các hành vi của trình duyệt hoặc người dùng, những events hay dùng: click, mouseout, mouseover, change, input...
+    + attribute events: là dùng event trực tiếp ngay trong attribute của một element. xem ví dụ bên index.html
+    + assign events: không dùng trực tiếp trong attribute mà viết riêng ra ngoài element, gán events cho 1 function. xem ví dụ bên DOMjs.js
+    * sự kiện nổi bọt: xem ví dụ bên index.html
+    --> nếu 1 element có 2 events, thì event nào cuối cùng sẽ đè lên event trước. 1 element chỉ thực hiện được 1 events. Nếu muốn 1 events dùng cho nhiều element thì kết hợp với vòng lặp.
