@@ -75,8 +75,36 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
     boxClassList.classList.toggle('red');
     // thay thế class cũ bằng class mới
     boxClassList.classList.replace('red', 'blue');
-- DOM EVENT: là các hành vi của trình duyệt hoặc người dùng, những events hay dùng: click, mouseout, mouseover, change, input...
+- DOM EVENT: là các hành vi của trình duyệt hoặc người dùng, những events hay dùng: click, mouseout, mouseover, change, input, keydown, keyup, onmousedown...
     + attribute events: là dùng event trực tiếp ngay trong attribute của một element. xem ví dụ bên index.html
     + assign events: không dùng trực tiếp trong attribute mà viết riêng ra ngoài element, gán events cho 1 function. xem ví dụ bên DOMjs.js
     * sự kiện nổi bọt: xem ví dụ bên index.html
     --> nếu 1 element có 2 events, thì event nào cuối cùng sẽ đè lên event trước. 1 element chỉ thực hiện được 1 events. Nếu muốn 1 events dùng cho nhiều element thì kết hợp với vòng lặp.
+    + các element input thường sử dụng event change
+    --> hành vi bình thường thì là event, bàn phím là KeyboardEvent, chuột là MouseEvent, click là PointeEvent,...
+    --> keydown và keyup có thể lấy được value giống như input và change, nhưng công dụng thực sự của KeyboardEvent là để tương tác với các nút trên bàn phím, khi nhấn một nút nào đó thì sẽ thực hiện event
+- preventDefault & stopPropagation: ngăn chặn hành vi mặc định của thẻ và loại bỏ sự kiện nổi bọt, xem ví dụ bên index.html & DOM.js
+- EVENT LISTENER: cách dùng cũng giống DOM EVENT, xem ví dụ bên index.html & DOM.js
+    + lắng nghe event: <element>.addEventListener('<tên event>', <1 function thực thi event>);
+    + huỷ bỏ lắng nghe event: <element>.removeEventListener('<tên event>', <1 function thực thi event>);
+    --> dùng EVENT LISTENER để huỷ bỏ 1 việc cụ thể trong nhiều việc sẽ tiện hơn khi dùng DOM EVENT
+    --> khi muốn huỷ bỏ lắng nghe và bóc tách nhiều xử lý trong 1 event thì dùng EVENT LISTENER
+- JSON(JavaScript Object Notation): là 1 định dạng dữ liệu dạng chuỗi, xem ví dụ bên DOM.js
+    + JSON thể hiện các dạng dữ liệu thành chuỗi: Number, String, Boolean, Null, Array, Object. không dùng được function hoặc class
+    + chuyển đổi dữ liệu giữa JavaScript - JSON gồm:
+        - Stringify: từ kiểu dữ liệu JS -> dạng chuỗi JSON (xem ví dụ bên DOM.js)
+        - Parse: từ dạng chuỗi JSON -> kiểu dữ liệu JS (xem ví dụ bên DOM.js)
+- Promise: 
+    + sync(đồng bộ): code vào viết trước thì chạy trước
+        ex: 
+            console.log(1);
+            console.log(2);       
+    + async(bất đồng bộ): những hàm bất đồng bộ setTimeout, setInterval, fetch, XMLHtpprequest, file reading, request animation frame...
+        ex:
+            setTimeout(function(){
+                console.log(1);
+            });
+            console.log(2);
+    + nỗi đau
+    + lý thuyết, cách hoạt động của Promise
+    + ví dụ

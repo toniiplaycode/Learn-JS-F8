@@ -129,8 +129,160 @@
 //     inputValue = e.target.value; // biến inputValue sẽ được gán khi ta nhập 1 chữ hoặc số, và được gán liên tục nếu ta nhập 1 chuỗi hoặc 1 dãy số thì nó sẽ gán tương ứng
 // }
 //
-var inputElement = document.querySelector('input[type="checkbox"]');
-inputElement.onchange = function(e){
-    console.log(e.target.checked); // thuộc tính checked để trả về true hoặc false tương ứng với checkbox đã được check hay chưa
-}
+// var inputElement = document.querySelector('input[type="checkbox"]');
+// inputElement.onchange = function(e){
+//     console.log(e.target.checked); // thuộc tính checked để trả về true hoặc false tương ứng với checkbox đã được check hay chưa
+// }
+//
+// var selectElement = document.querySelector('select');
+// selectElement.onchange = function(e){
+//     console.log(e.target.value);
+// }
+// keydown
+// var inputValueKeyDown;
+// inputElement.onkeydown = function(e){   
+//  inputValueKeyDown  = e.target.value;
+// }
+// keyup
+// var inputValueKeyUp;
+// inputElement.onkeydown = function(e){   
+//     inputValueKeyUp  = e.target.value;
+// }
+//
+// inputElement.onkeyup = function(e){
+//     console.log(e.which); // which là mã ASC II của ký tự trên bàn phím (KeyBoardEvent)
+//     switch(e.which){
+//         case 27: 
+//             console.log('ESC');
+//             break;
+//         case 13: 
+//             console.log('ENTER');
+//             break;
+//     }
+// }
 
+// preventDefault
+// ex1 bỏ hành vi chuyển trang mặc định của thẻ a
+// var aElements = document.querySelectorAll('.prevent-default');
+// for(var eachA of aElements){
+//     eachA.onclick = function(e){
+//         // console.log(e.target.href); // in ra href của từng thẻ a, vào console settings của devtools tích vào Preserve log để nhìn
+//         if(!e.target.href.startsWith('https://google.com')){ // thuộc tính starsWith('<chuỗi cần kiểm tra>') kiểm tra chuỗi có trên href, trả về true false
+//             e.preventDefault(); // nếu không phải href google.com thì sẽ không cho chuyển trang
+//         }
+//     }
+// }
+// ex2
+// var ulElement = document.querySelector('.ul-prevent-default');
+// ulElement.onmousedown = function(e){ // khi nhấn chuột thì sẽ không bị mất focus, mặc định khi nhấn chuột ngoài input thì sẽ mất focus
+//     e.preventDefault();
+// }
+// var liElement = document.querySelectorAll('.ul-prevent-default > li');
+// for(var eachLi of liElement){ // khi click vào li sẽ console.log ra text node của li đó
+//     eachLi.onclick = function(){
+//         console.log(this.innerText);
+//     }
+// }
+
+//stopPropagation
+// var divElement = document.querySelector('.div-stopPropagation');
+// divElement.onclick = function(){ // event của thẻ cha
+//     console.log('DIV');
+// }
+// var btnElement = document.querySelector('.btn-stopPropagation');
+// btnElement.onclick = function(e){ // event của thẻ con
+//     e.stopPropagation(); // loại bỏ nổi bọt ra thẻ div (thẻ cha), nếu không loại bỏ thì khi click vào thẻ con button thì thẻ cha div cũng thực thi event theo
+//     console.log('BUTTON CLICK');
+// }
+
+//DOM EVENT: xử lý nhiều việc khi 1 event xảy ra, lắng nghe và huỷ bỏ lắng nghe
+// var btnElement = document.querySelector('.btn-DOM-EVENT');
+// được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
+// btnElement.onclick = function(){
+//     console.log('viec 1');
+//     console.log('viec 1');
+//     alert('viec 3');
+// }
+// huỷ bỏ lắng nghe
+// setTimeout(function(){ // sau 5s thì sẽ huỷ bỏ lắng nghe
+//     btnElement.onclick = function(){}; // cho gán function trống cho event là huỷ bỏ lắng nghe 
+// }, 5000)
+
+//EVENT LISTENER: xử lý nhiều việc khi 1 event xảy ra, lắng nghe và huỷ bỏ lắng nghe
+// var btnElement = document.querySelector('.btn-EVENT-LISTENER');
+// được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
+// function viec1(){
+//     console.log('viec 1');
+// }
+// function viec2(){
+//     console.log('viec 2');
+// }
+// function viec3(){
+//     console.log('viec 3');
+// }
+// btnElement.addEventListener('click', viec1);
+// btnElement.addEventListener('click', viec2);
+// btnElement.addEventListener('click', viec3);
+// huỷ bỏ lắng nghe
+// setTimeout(function(){ // sau 5s thì sẽ huỷ bỏ lắng nghe của viec1
+//     btnElement.removeEventListener('click', viec1);
+// }, 5000);
+
+//JSON
+// --- các dạng chuỗi của JSON ---
+//number
+// var json1 = '1';
+//string
+// var json2 = '"tonii"'; // dạng chuỗi thì được để trong dấu nháy kép "<chuỗi>"
+//null
+// var json3 = 'null';
+//boolean
+// var json4 = 'true';
+//boolean
+// var json5 = 'false';
+//array
+// var json6 = '["HTML", "CSS", "JS"]'; // các element trong mảng dạng chuỗi thì được để trong dấu nháy kép "<chuỗi>"
+//object
+// var json7 = '{"name": "thanh toan", "age": 19}'; // các key trong object dạng JSON cũng là chuỗi nên phải để trong dấu nháy kép "<key>" và value cũng thế,  trừ value ở dạng number thì không cần dấu nháy kép
+// in ra các json
+// console.log(json1);
+// console.log(json2);
+// console.log(json3);
+// console.log(json4);
+// console.log(json5);
+// console.log(json6);
+// console.log(json7);
+//parse (từ dạng chuỗi JSON -> kiểu dữ liệu JS)
+// console.log(JSON.parse(json1));
+// console.log(JSON.parse(json2));
+// console.log(JSON.parse(json3));
+// console.log(JSON.parse(json4));
+// console.log(JSON.parse(json5));
+// console.log(JSON.parse(json6));
+// console.log(JSON.parse(json7));
+// --- các kiểu dữ liệu của JS ---
+// var jsType1 = 1;
+// var jsType2 = 'tonii';
+// var jsType3 = null;
+// var jsType4 = true;
+// var jsType5 = false;
+// var jsType6 = ['HTML', 'CSS', 'JS'];
+// var jsType7 = {
+//     name: 'thanh toan',
+//     age: 19
+// };
+// console.log(jsType1);
+// console.log(jsType2);
+// console.log(jsType3);
+// console.log(jsType4);
+// console.log(jsType5);
+// console.log(jsType6);
+// console.log(jsType7);
+//stringify (từ kiểu dữ liệu JS -> dạng chuỗi JSON);
+// console.log(JSON.stringify(jsType1));
+// console.log(JSON.stringify(jsType2));
+// console.log(JSON.stringify(jsType3));
+// console.log(JSON.stringify(jsType4));
+// console.log(JSON.stringify(jsType5));
+// console.log(JSON.stringify(jsType6));
+// console.log(JSON.stringify(jsType7));

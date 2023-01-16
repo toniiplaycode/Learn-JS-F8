@@ -8,13 +8,13 @@
     + console.log() // : in ra một chuỗi hoặc biến, mảng, oject,... ở console
     + console.warn() // : giống giống console.log() // + console.error() // : giống giống console.log() // + confirm() // : ra một chuỗi hoặc biến hiện popup để người dùng xác nhận
     + prompt() // : giống confirm() // nhưng có thêm input
-    + setTimeout(function  // {...}, <mini giây>) : thực hiện một function sau một khoảng thời gian (mini giây)
-        ex: setTimeout(function() // {
+    + setTimeout(function() {...}, <mini giây>) : thực hiện một function sau một khoảng thời gian (mini giây)
+        ex: setTimeout(function() {
             alert('hello');
         }, 1000);
         --> sau 1 giây sẽ hiện ra thông báo 'hello'
-    + setInterval(function  // {...}, <mini giây>) : thực hiện liên tục một function sau một khoảng thời gian (mini giây)
-            ex: setInterval(function() // {
+    + setInterval(function() {...}, <mini giây>) : thực hiện liên tục một function sau một khoảng thời gian (mini giây)
+            ex: setInterval(function(){
                 alert('hello');
             }, 1000);
         --> hiện ra thông báo 'hello' liên tục trong 1 giây
