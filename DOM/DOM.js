@@ -286,3 +286,59 @@
 // console.log(JSON.stringify(jsType5));
 // console.log(JSON.stringify(jsType6));
 // console.log(JSON.stringify(jsType7));
+
+//Promise
+//sync(đồng bộ)
+//console.log(1);
+//console.log(2);      
+//async(bất đồng bộ)
+// setTimeout(function(){
+//     console.log(1);
+// });
+// console.log(2);
+//vấn để khi sử dụng callbackL: callback hell (những việc được chạy tuần tự và callback sẽ lồng nhau)
+//  setTimeout(function(){
+//     console.log(1);
+//     setTimeout(function(){
+//         console.log(2);
+//         setTimeout(function(){
+//             console.log(3);
+//             setTimeout(function(){
+//                 console.log(4);
+//             }, 1000);
+//         }, 1000);
+//     }, 1000);
+// }, 1000);
+//ex1: dùng promise trả về resolve() hoặc trả về reject();
+// var promise = new Promise(
+//     function(resolve, reject){
+//         resolve(); // hoặc trả về reject();
+//     }
+// )
+// promise
+//     .then(function(){
+//         console.log('successully!');
+//     })
+//     .catch(function(){
+//         console.log('failure!');
+//     })
+//     .finally(function(){
+//         console.log('done!');
+//     })
+//ex2: trả dữ liệu từ executor ra .then(function(){}) hoặc .catch(function(){})
+// var promise = new Promise(
+//     function(resolve, reject){
+//         resolve(['HTML','CSS','JS']);
+//         // hoặc reject('lỗi rồi !');
+//     }
+// )
+// promise
+//     .then(function(laguages){
+//         console.log(laguages);
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     })
+//     .finally(function(){
+//         console.log('done!');
+//     })

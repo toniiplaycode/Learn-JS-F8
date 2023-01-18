@@ -94,7 +94,7 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
     + chuyển đổi dữ liệu giữa JavaScript - JSON gồm:
         - Stringify: từ kiểu dữ liệu JS -> dạng chuỗi JSON (xem ví dụ bên DOM.js)
         - Parse: từ dạng chuỗi JSON -> kiểu dữ liệu JS (xem ví dụ bên DOM.js)
-- Promise: 
+- Promise: được sinh ra để xử lý các thao tác bất đồng bộ, trước khi có promise thì chỉ dùng callback, nhưng khi sử dụng callback thì có 1 vấn đề đó là callback hell(callback hell là lồng các callback với nhau)
     + sync(đồng bộ): code vào viết trước thì chạy trước
         ex: 
             console.log(1);
@@ -105,6 +105,77 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
                 console.log(1);
             });
             console.log(2);
-    + nỗi đau
-    + lý thuyết, cách hoạt động của Promise
-    + ví dụ
+    + nỗi đau:
+        - vấn để khi sử dụng callback: callback hell (những việc được chạy tuần tự và callback sẽ lồng nhau)
+            setTimeout(function(){
+                console.log(1);
+                setTimeout(function(){
+                    console.log(2);
+                    setTimeout(function(){
+                        console.log(3);
+                        setTimeout(function(){
+                            console.log(4);
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+    + cách hoạt động của Promise
+        - promise có 3 trạng thái:
+            1. Padding(chờ) // là trạng thái không trả về resolve() hay reject()
+            2. Fulfilled // là trạng thái thành công, trả về resolve()
+            3. Rejected //  là trạng thái thất bại, trả về reject()
+        - tạo promise: trong Promise sẽ nhận 1 function được gọi là executor, trong executor nhận 2 tham số dạng function là resolve và reject 
+            var promise = new Promise(
+                // executor
+                function(resolve, reject){ // resolve, reject là function
+                    // logic xử lý...
+                    // thành công: resolve(); // logic thành công
+                    // thất bại: reject(); // logic thất bại
+                }
+            );
+            promise // sau khi xử lý logic xong sẽ trả về một biến promise
+                .then(function(){ //khi biến promise trả về resolve()(thành công) thì .then(function(){}) sẽ tự động được gọi
+                    ...
+                }) 
+                .catch(function(){ //khi biến promise trả về reject()(thất bại) thì .catch(function(){}) sẽ tự động được gọi
+                    ...
+                })
+                .finally(function(){ //dùng biến promise trả về resolve() hay reject() thì .finally(function(){}) cũng sẽ tự động được gọi
+                    ...
+                })
+
+        - ex1: trả về resolve() hoặc reject();
+            var promise = new Promise(
+                function(resolve, reject){
+                    resolve();
+                }
+            )
+            promise
+                .then(function(){
+                    console.log('successully!');
+                })
+                .catch(function(){
+                    console.log('failure!');
+                })
+                .finally(function(){
+                    console.log('done!');
+                })
+
+        - ex2: trả dữ liệu từ executor ra .then(function(){}) hoặc .catch(function(){})
+            var promise = new Promise(
+                function(resolve, reject){
+                    resolve(['HTML','CSS','JS']);
+                    // hoặc reject('lỗi rồi !');
+                }
+            )
+            promise
+                .then(function(laguages){
+                    console.log(laguages);
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+                .finally(function(){
+                    console.log('done!');
+                })
+    + ví dụ:        

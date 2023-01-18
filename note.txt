@@ -231,7 +231,7 @@
                 this.getFullName = function() {
                     return this.firstName + this.lastName;
                 }
-            }
+            }ci
         + tạo object từ constructor
             var admin = new User('Thanh', 'Toan', 'avatar1');
             var client =  new User('Minh', 'Hung', 'avatar2');
