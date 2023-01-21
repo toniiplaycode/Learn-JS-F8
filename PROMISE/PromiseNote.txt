@@ -206,3 +206,16 @@
                 .finally(function(){
                     console.log('done!');
                 })
+    + promise.resolve // tạo 1 promise resolve() nhanh gọn, khi không cần xử lý logic
+        var promise = Promise.resolve('Success!');
+        promise
+            .then(function(result){
+                console.log(result);
+            })    
+    + promise.reject // tạo 1 promise reject() nhanh gọn, khi không cần xử lý logic
+        var promise = Promise.reject('error!');
+        promise
+            .catch(function(result){
+                console.log(result);
+            })   
+    + promise.all // chạy song song các việc, các việc này không phụ thuộc nhau. Sau khi chạy xong các việc sẽ tạo ra các kết quả, và các kết quả này được dùng chung

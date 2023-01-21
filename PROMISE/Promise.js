@@ -179,3 +179,38 @@
 //     .finally(function(){
 //         console.log('done!');
 //     })
+// //promise.resolve // tạo 1 promise resolve() nhanh gọn, khi không cần xử lý logic
+//     var promise = Promise.resolve('Success!');
+//     promise
+//         .then(function(result){
+//             console.log(result);
+//         })
+//
+//promise.reject // tạo 1 promise reject() nhanh gọn, khi không cần xử lý logic
+// var promise = Promise.reject('error!');
+// promise
+//     .catch(function(result){
+//         console.log(result);
+//     })           
+//promise.all // chạy song song các việc, các việc này không phụ thuộc nhau. Sau khi chạy xong các việc sẽ tạo ra các kết quả, và các kết quả này được dùng chung
+// var promise1 = new Promise(
+//     function(resolve){
+//         setTimeout(function(){
+//             resolve([1]);
+//         }, 2000)
+//     }
+// );   
+// var promise2 = new Promise(
+//     function(resolve){
+//         setTimeout(function(){
+//             resolve([2, 3]);
+//         }, 4000)
+//     }
+// );
+// // --> 2 promise chỉ tốn 4s(lấy tối đa)
+// Promise.all([promise1, promise2]) //Promise.all nhận 1 mảng là promise1 và promise2
+//     .then(function(result){ // result là mảng
+//         var result1 = result[0];
+//         var result2 = result[1];
+//         console.log(result1.concat(result2));
+//     })     

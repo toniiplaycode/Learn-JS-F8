@@ -30,7 +30,7 @@
     + null
 - các kiểu dữ liệu:
     1. dữ liệu nguyên thuỷ - primitive data
-        + - number
+        + number
             ex: var a = 1;
         + string
             ex: var a = 'tonii'; b = '123';
@@ -44,10 +44,10 @@
             ex: var a = symbol('a') // unique
     2. dữ liệu phức tạp - complex data (có thể chứa các kiểu dữ liệu khác nhau chung object hoặc array)
         + function
-            ex: myFunction = function // {
+            ex: myFunction = function(){
                 ...
             }
-            myFunction // ;
+            myFunction(); // call function
         + object type
             - object
             ex: myObject = {
