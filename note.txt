@@ -95,7 +95,7 @@
     + chuỗi.indexOf('<chuỗi muốn tìm>', <vị trí bắt đầu tìm>);
     --> tìm chuỗi từ vị trí bắt đầu kể từ <chuỗi muốn tìm> 
 
-    + chuỗi.lastIndexOf('<chuỗi muốn tìm>'
+    + chuỗi.lastIndexOf('<chuỗi muốn tìm>')
     --> in ra vị trí cuối cùng của chuỗi cần tìm      
 
 - slice: lấy chuỗi
@@ -121,19 +121,27 @@
 - split: biến chuỗi thành mảng thông qua một điểm chung
     ex: languages = 'JS, PHP, C++'; // điểm chung là ', '(dấu phẩy và khoảng trắng)
         languages.split(', ');
-        --> ["JS", "PHP", "C++"]
+        --> ["JS", "PHP", "C++"];
     ex: languages = "thanhtoan";    
         languages.split(''); // lấy từng ký tự trong chuỗi
         --> ["t", "h", "a", "n", "h", "t", "o", "a", "n"]
-- hàm join: biến mảng thành chuỗi thông qua điểm chung, cơ chế giống giống hàm split        
+- hàm join: biến mảng thành chuỗi thông qua điểm chung, cơ chế giống giống hàm split
+    ex: var a = [1,2,3];
+        a.join();
+        --> 1,2,3    
+    ex: var a = ['html', 'css', 'js'];
+        a.join(', ');
+        --> html, css, js
 - charAt: lấy một ký tự tại index
     ex: languages = "thanhtoan";
         languages.charAt(0);
-        -> t
+        --> t
 - note: mảng trong JS có thể chứa tất cả các kiểu dữ liệu khác nhau trong cùng một mảng
 - các function trùng tên thì function sau cùng sẽ đè tất cả
-- biến mảng thành chuỗi: toString();
-    ex: <mảng>.toString()
+- toString(): biến mảng thành chuỗi
+    ex: var a = [1,2,3,4];
+        a.toString();
+        --> 1,2,3,4
 - <mảng>.pop(); // xoá element cuối mảng và trả về element đã xoá (ngược lại với shift)
     -> mảng trống mà xoá thì sẽ undefined
 - <mảng>.push(<element1>, <element2>,...); // thêm một hoặc nhiều phần tử vào cuối mảng (ngược lại với unshift)
@@ -142,9 +150,15 @@
 - <mảng>.unshift(<element1>, <element2>,...); // thêm một hoặc nhiều phần tử vào đầu mảng(ngược lại với push)
 - splice (F8 JS "làm việc với mảng" phút thứ 10)
     + splice 2 tham số: xoá phần tử theo index
-        -> <mảng>.splice(<index bắt đầu xoá>, <số lượng element sẽ xoá kể từ index>); 
-    + splice 3 tham số: chèn phần từ và xoá phần từ theo index
+        -> <mảng>.splice(<index bắt đầu xoá>, <số lượng element sẽ xoá kể từ index>);
+            ex: var a = [1,2,3,4];
+                a.splice(1,2);
+                --> [1, 4]
+    + splice 3 tham số: xoá phần tử theo index và chèn thêm phần tử mới đúng vào vị trí vừa xoá
         -> <mảng>.splice(<index bắt đầu xoá>, <số lượng element sẽ xoá kể từ index>, <các element sẽ chèn>);
+            ex: var a = [1,2,3,4];
+                a.splice(1,2,7,8,9,10);
+                --> [1,7,8,9,10,4]
 - concat: nối 2 mảng <mảng1>.concat(<mảng2>);
 - slice: cắt mảng <mảng>.slice(<index bắt đầu cắt>, <cắt tới index>) giống slice chuỗi
 
@@ -497,7 +511,7 @@
             {
                 id: 1,
                 name: 'HTML',
-            },
+            },  
             {
                 id: 2,
                 name: 'CSS',

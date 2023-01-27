@@ -10,7 +10,7 @@
 // }
 // console.log(cong(11, 7));
 
-//ex3: hàm trong hàmP
+//ex3: hàm trong hàm
 // function Message(){
 //     function sayHello(){
 //         console.log('hello');

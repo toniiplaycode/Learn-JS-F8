@@ -7,7 +7,7 @@
 //     console.log(1);
 // });
 // console.log(2);
-// //vấn để khi sử dụng callbackL: callback hell (những việc được chạy tuần tự và callback sẽ lồng nhau)
+// //vấn để khi sử dụng callback: callback hell (những việc được chạy tuần tự và callback sẽ lồng nhau)
 //  setTimeout(function(){
 //     console.log(1);
 //     setTimeout(function(){
