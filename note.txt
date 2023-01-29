@@ -167,37 +167,38 @@
         console.log(message);
     }
     writeLog('test message');
-- arguments: gọi hàm truyền được nhiều tham số , nhưng hàm thì không cần tham số
+- arguments: gọi hàm truyền được nhiều đối số, nhưng hàm thì không cần tham số(chỉ dùng được cho regular function, arrow function không dùng được)
 - hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện.
 
 - declaration function: dùng được hoisting
-    function myFunction // {
+    function myFunction() {
         ... 
     }   
 - expressiton function: không dùng được hoisting
-    var myFunction = function // {
+    var myFunction = function(){
         ...
     }
     
-    setTimeout(function myFunction // { //call back
+    setTimeout(function myFunction(){ //call back
         ...
     })
 
     var myObject = {
-        myFunction: function // {
+        myFunction: function(){
             ...
         }
     }
 - Math.pow(x, n): x mũ 
 - BigInt:
     ex: var million = 1e6; // 1000000
+        var bilion = 1e9; // 1000000000
 - Number.isFinite(<số hoặc biến>) // Xác định xem giá trị đã cho có phải là số hữu hạn hay không. Trả về boolean
 - Number.isInteger(<số hoặc biến>) // Xác định xem giá trị đã cho có phải là số nguyên hay không. Trả về boolean
-- Number.parseFloat(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số dấu phẩy động
-- Number.parseInt(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số nguyên
+- parseFloat(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số dấu phẩy động
+- parseInt(<số hoặc biến>) // Chuyển đổi chuỗi đã cho thành một số nguyên
 - hàm làm tròn số thập phân nhưng sẽ bị chuyển sang kiểu string: <số>.toFixed // ; // nhỏ hơn 5 thì làm tròn dưới và ngược lại 
 - hàm lấy số thập phân sau dấu phẩy <số>.toFixed(2); // lấy 2 số thập phân sau dấu phẩy
-- Number.toString() // đổi số thành chuỗi
+- <số hoặc biến>.toString() // đổi số thành chuỗi
 - hàm kiểm tra NaN: isNaN();
 
 ----OBJECT----
@@ -207,8 +208,8 @@
             age: '19',
             address: 'Can Tho'
         }
-- hàm lấy từng key trong 1 object:  Object.keys(<object>);
-- hàm lấy từng value trong 1 object:  Object.values(<object>); 
+- hàm lấy các key trong 1 object:  Object.keys(<object>);
+- hàm lấy các value trong 1 object:  Object.values(<object>); 
 - thêm key và value từ object đã có: <object>.<key mới> = '<value mới>';
     ex: myInfo.email = 'toan@gmail.com';
 - nếu tên key có ký tự đặc biệt thì dùng cách này: <object>['<key mới>'] = '<value mới>';
@@ -225,7 +226,7 @@
                 return this.name;
             }
         }
-        --> key getName có value là một function trả về tên của myInfo
+        --> key getName có value là một function trả value name
 - các function trong object được gọi là PHƯƠNG THỨC(method), còn lại được gọi là thuộc tính attribute/property
     ex: var myInfo = {
             name: 'Thanh Toan', // attribute
@@ -241,11 +242,10 @@
                 this.firstName = firstName;
                 this.lastName = lastName;
                 this.avatar = avatar;
-                
                 this.getFullName = function() {
                     return this.firstName + this.lastName;
                 }
-            }ci
+            }
         + tạo object từ constructor
             var admin = new User('Thanh', 'Toan', 'avatar1');
             var client =  new User('Minh', 'Hung', 'avatar2');
@@ -265,10 +265,8 @@
     }
     --> tạo thêm thuộc tính và phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng 
     var admin = new User('Thanh', 'Toan', 'avatar1');
-    var client =  new User('Minh', 'Hu '
-    
-    ng', 'avatar2');
-    console.log(admin, client); // className = 'F8' nằm trong prototype của dev tool
+    var client =  new User('Minh', 'Hung', 'avatar2');
+    console.log(admin, client); // className = 'F8' và getLastName nằm trong prototype của dev tool
     console.log(admin.getLastName(), client.getLastName()); // in ra lastName
 - Array.property.<tên thuộc tính hoặc phương thức> = <thuộc tính hoặc phương thức>; //các thuộc tính và phương thức này không nằm trong element mà nằm trong property
     ex1: thêm thuộc tính cho các mảng
@@ -552,7 +550,7 @@
                 id: 3,
                 name: 'JS',
                 coin: 300,
-            },
+             },
             {
                 id: 4,
                 name: 'PHP',

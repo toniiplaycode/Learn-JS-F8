@@ -55,6 +55,45 @@
 // }
 // console.log(myInfo.getName()); //gọi function trong object myInfo
 
+//ex: arrow function(have paramater)
+// var printYourName = (name) => {
+//     console.log('hello', name);
+// }
+// printYourName('thanh toan');
+//ex: arrow function(no paramater)
+// var printHello = _ =>{
+//     console.log('hello world');
+// }
+// printHello();
+
+//ex: IIFE function (sau khi định nghĩa xong là chạy liền)
+// (function (name) {
+//   console.log("Hello", name);
+// })("thanh toan");
+
+//ex: closures function (hàm lồng nhau)
+// function f1() {
+//   var N = 0; // N luon duoc khoi tao khoi ham f1 duoc thuc thi
+//   console.log(N);
+//   function f2() {
+//     // Ham f2
+//     N += 1; // cong don cho bien N
+//     console.log("-->>", N);
+//   }
+
+//   return f2;
+// }
+// var result = f1();
+// result(); // Chay lan 1
+// result(); // Chay lan 2
+// result(); // Chay lan 3
+
+//ex: arguments
+// function printYourName() {
+//   console.log(arguments);
+// }
+// printYourName("thanh toan", "nam can tho");
+
 // //ex8: object constructor
 // function User(firstName, lastName, avatar){ // tên object constructor phải viết hoa chữ cái đầu (quy ước)
 //     this.firstName = firstName;
@@ -73,18 +112,19 @@
 // console.log(admin.getFullName(), client.getFullName())
 
 //ex9: objectt prototype
-// function User(firstName, lastName, avatar){
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.avatar = avatar;
-// };
-// User.prototype.className = 'F8'; // tạo thêm thuộc tính bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng
-// User.prototype.getLastName = function() { // tạo thêm phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng
-//     return this.lastName;
+// function User(firstName, lastName, avatar) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.avatar = avatar;
 // }
-// var admin = new User('Thanh', 'Toan', 'avatar1');
-// var client =  new User('Minh', 'Hung', 'avatar2');
-// console.log(admin, client); // className = 'F8' nằm trong prototype của dev tool
+// User.prototype.className = "F8"; // tạo thêm thuộc tính bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng
+// User.prototype.getLastName = function () {
+//   // tạo thêm phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng
+//   return this.lastName;
+// };
+// var admin = new User("Thanh", "Toan", "avatar1");
+// var client = new User("Minh", "Hung", "avatar2");
+// console.log(admin, client); // className = 'F8' và getLastName nằm trong prototype của dev tool
 // console.log(admin.getLastName(), client.getLastName());
 
 //ex10: object Date
