@@ -11,27 +11,22 @@
 // function sumCb(a, b) {
 //   return a + b;
 // }
-
 // function subCb(a, b) {
 //   return a - b;
 // }
-
 // function multiCb(a, b) {
 //   return a * b;
 // }
-
 // function divCb(a, b) {
 //   return a / b;
 // }
-
-// function caculate(a, b, cb) {//Callback
+// function caculate(a, b, cb) { // Callback
 //   return cb(a, b);
 // }
-// // Expected results
-// // caculate(1, 2, sumCb) // Output: 3
-// // caculate(1, 2, subCb) // Output: -1
-// // caculate(1, 2, multiCb) // Output: 2
-// // caculate(3, 1, divCb) // Output: 3
+// caculate(1, 2, sumCb); // Output: 3
+// caculate(1, 2, subCb); // Output: -1
+// caculate(1, 2, multiCb); // Output: 2
+// caculate(3, 1, divCb); // Output: 3
 
 //ex3: lấy các element trong mảng
 // Array.prototype.map2 = function(callback) {
@@ -48,7 +43,7 @@
 // });
 // console.log(showLanguage.join(' '));
 //
-//ex4: dùng callback để thực hiện ra kết quả như output 
+//ex4: dùng callback để thực hiện ra kết quả như output
 // Array.prototype.myMap = function(cb) {
 //     var output = [], arrayLength = this.length;
 //     for(var i = 0; i < arrayLength; i++){
@@ -71,7 +66,7 @@
 //         var check = this.hasOwnProperty(index); // kiểm tra các element nằm trong mảng thì true, nếu element nằm trong prototype thì false
 //         if(check){
 //             callback(this[index], index, this)
-//         }        
+//         }
 //     }
 // }
 // var languages = ['HTML', 'CSS', 'JS'];
@@ -80,7 +75,7 @@
 // });
 
 //ex6: callback filter2()
-// Array.prototype.filter2 = function(callback){ 
+// Array.prototype.filter2 = function(callback){
 //     var output = [];
 //     for(var index in this){
 //         var check = this.hasOwnProperty(index);

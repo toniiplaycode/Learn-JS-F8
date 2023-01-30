@@ -1,3 +1,7 @@
+* tham trị (không thay đổi) và tham chiếu (thay đổi)
+- tham trị: kiểu dữ liệu number hoặc string, các biến sẽ được lưu vào stack, nếu có phép gán giữa các biến thì biến gán sẽ copy biến được gán, các biến này độc lập với nhau nên sẽ không bị ảnh hưởng khi biến gán thay đổi giá trị.
+- tham chiếu: kiễu dữ liệu object, các biến được lưu vào stack nhưng element(mảng) hoặc value(object) thì lại được lưu vào heap. biến trong stack sẽ trỏ tới element hoặc value tương ứng, nếu có phép gán giữa các biến thì biến gán sẽ trỏ tới element hoặc value của biến được gán. Vì vậy khi element hoặc value của biến được gán thay đổi thì các biến gán cũng sẽ thay đổi theo
+
 * các hàm built-in (hàm có sẵn)
 - alert
 - console
@@ -266,7 +270,7 @@
     --> tạo thêm thuộc tính và phương thức bên ngoài constructor dùng prototype và các object điều sẽ được thừa hưởng 
     var admin = new User('Thanh', 'Toan', 'avatar1');
     var client =  new User('Minh', 'Hung', 'avatar2');
-    console.log(admin, client); // className = 'F8' và getLastName nằm trong prototype của dev tool
+    console.log(admin, client); // class Name = 'F8' và getLastName nằm trong prototype của dev tool
     console.log(admin.getLastName(), client.getLastName()); // in ra lastName
 - Array.property.<tên thuộc tính hoặc phương thức> = <thuộc tính hoặc phương thức>; //các thuộc tính và phương thức này không nằm trong element mà nằm trong property
     ex1: thêm thuộc tính cho các mảng
@@ -306,10 +310,10 @@
         ex: var lonNhat = [1, 2, 3, 4, 5, 6];
         console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
 
-- Ternary operator: cơ chế hoạt động giống IF ELSE nhưng ngắn gọn hơn, nên dùng trong những trường hợp đơn giản
-    ex: 
-    var n = 8;
-    (n > 10) ? "n lớn hơn 10" : "n nhỏ hơn 10";
+- Ternary operator(toán tử 3 ngôi): cơ chế hoạt động giống IF ELSE nhưng ngắn gọn hơn, nên dùng trong những trường hợp đơn giản
+    ex: var n = 8;
+    (n > 10) ? console.log("n lớn hơn 10") : console.log("n nhỏ hơn 10");
+
 - LOOP:
     + for: lặp với điều kiện đúng
         ex: for(var i = 0; i <= 10; i++){
@@ -361,7 +365,7 @@
         for(var index in name){
             console.log(index);
         }
-    + for/of: lặp qua từng value của đối tượng, từng element của một mảng, từng chữ cái của 1 chuỗi
+    + for/of: lặp qua từng value của object, từng element của mảng, từng chữ cái của chuỗi
         ex1: in ra từng element của mảng
         var languages = [
             'C++',
@@ -429,6 +433,9 @@
 
     + new Set(<mảng các giá trị trùng nhau>); //trả về chuỗi các giá trị không bị trùng  
         --> trả về mảng: [...(new Set(<mảng các giá trị trùng nhau>))];
+        ex:
+            var notCoincident = [...new Set([1, 1, 2, 3, 4, 4, 4])];
+            console.log(notCoincident);
 
 - ARRAY METHOD: các tham số của array method là 1 function, các function có tối đa 3 tham số, 1 tham số(do mình đặt tên tham số) là chỉ có element, 2 tham số(do mình đặt tên tham số): 1 element và 1 index, 3 tham số(do mình đặt tên tham số): 1 element, 1 index, 1 originArray
     + forEach(); // duyệt qua từng element của mảng
@@ -439,8 +446,7 @@
         });
 
         ex2: tính tổng mảng
-        var array = 
-        [1,2,3,4,5];
+        var array = [1,2,3,4,5];
         var sum = 0;
         array.forEach(function(element){
             sum += element;
@@ -503,7 +509,7 @@
             return element.name === 'toan';
         })
         console.log(listFind);
-    + map(); // thay đổi hoặc thêm các element của 1 mảng. 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
+    + map(); // lấy, thay đổi hoặc thêm các element của 1 mảng. 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
         ex: từ mảng đã có, hãy thêm key và value dựa trên mảng đã có 
         var languages = [
             {
@@ -533,7 +539,7 @@
             };
         });
         console.log(newLanguages);
-    + reduce(); được sử dụng khi muốn nhận được 1 giá trị duy nhất sau khi được tính toán hoặc xử lý trên từng element của mảng, ví dụ: tính tổng số có trong mảng. Có 2 tham số trong hàm reduce: 1 function, 1 initial value(giá trị khởi tạo và cũng là giá trị tích trữ). Trong function có tối đa 4 tham số: 1 initital value(được lấy từ tham số thứ 2 hàm reduce), 1 element, 1 index, 1 ogirin array (chính là mảng gọi hàm reduce (mảng gốc)). Nhưng bình thường function ta chỉ dùng 2 tham số là initital value và element
+    + reduce(); được sử dụng khi muốn nhận được 1 giá trị duy nhất sau khi được tính toán hoặc xử lý trên từng element của mảng, ví dụ: tính tổng các số có trong mảng. Có 2 tham số trong hàm reduce: 1 function, 1 initial value(giá trị khởi tạo và cũng là giá trị tích trữ). Trong function có tối đa 4 tham số: 1 initital value(được lấy từ tham số thứ 2 hàm reduce), 1 element, 1 index, 1 ogirin array (chính là mảng gọi hàm reduce (mảng gốc)). Nhưng bình thường function ta chỉ dùng 2 tham số là initital value và element
         ex: tính tổng các coin có trong mảng courses
         var courses = [
             {
@@ -595,7 +601,7 @@
         var numbers = [1,2,3,4,5];
         var totalNumber = numbers.reduce(function(total, number){
             return total + number;   
-        }, 0);
+        });
         console.log(totalNumber);
         --> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
         

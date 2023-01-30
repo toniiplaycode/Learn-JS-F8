@@ -1,4 +1,14 @@
-// --function--
+//ex: tham trị và tham chiếu
+// // + tham trị (kiểu dữ liệu number hoặc string là tham trị, 2 biến x y được lưu vào bộ nhớ stack, biến y sẽ copy biến x, x và y là 2 element riêng biệt, biến y sẽ copy biến x một lần duy nhất. Vậy nên biến x có thay đổi giá trị mới thì biến y vẫn không thay đổi)
+// var x = 1;
+// var y = x;
+// x = 2;
+// console.log(x, y);
+// // + tham chiếu (kiểu dữ liệu object là tham chiếu, 2 biến a b được lưu vào bộ nhớ stack nhưng cái mảng thì được lưu vào bộ nhớ heap, biến a trỏ đến mảng trong bộ nhớ heap, biến b bằng biến a thì biến b cũng trỏ đến mảng trong bộ nhớ heap. Vậy nên khi các element trong mảng thay đổi thì biến a và biến b cũng thay đổi theo)
+// var a = [1, 2, 3, 4];
+// var b = a;
+// a[0] = 5;
+// console.log(a, b);
 
 //ex1:
 //var isConfirm = confirm('Message!');
@@ -111,7 +121,7 @@
 // console.log(admin, client);
 // console.log(admin.getFullName(), client.getFullName())
 
-//ex9: objectt prototype
+//ex9: object prototype
 // function User(firstName, lastName, avatar) {
 //   this.firstName = firstName;
 //   this.lastName = lastName;
@@ -130,12 +140,12 @@
 //ex10: object Date
 // var date = new Date();
 // console.log(date);
-// + date.getFullYear(); // lấy năm;
-// + date.getMonth() + 1; // lấy tháng;
-// + date.getDate(); // lấy ngày;
-// + date.getHours(); // lấy giờ;
-// + date.getMinutes(); // lấy phút;
-// + date.getSeconds(); // lấy giây;
+// date.getFullYear(); // lấy năm;
+// date.getMonth() + 1; // lấy tháng;
+// date.getDate(); // lấy ngày;
+// date.getHours(); // lấy giờ;
+// date.getMinutes(); // lấy phút;
+// date.getSeconds(); // lấy giây;
 // console.log(date.getFullYear());
 // console.log(date.getMonth() + 1);
 // console.log(date.getDate());
@@ -161,7 +171,7 @@
 // var array = [1,2,3,4,5];
 // console.log(getRandomItem(array));
 
-//ex13: ternary operator
+//ex13: ternary operator(toán tử 3 ngôi)
 // var n = 8;
 // var x;
 // x = (n > 10) ? "n lớn hơn 10" : "n nhỏ hơn 10";
@@ -279,6 +289,10 @@
 //         console.log(array[i][j])
 //     }
 // }
+
+//ex: loại bỏ các element bị trùng
+// var notCoincident = [...new Set([1, 1, 2, 3, 4, 4, 4])];
+// console.log(notCoincident);
 
 //ex23: array method: forEach();
 // ex1:
@@ -412,12 +426,12 @@
 
 //ex30: array method: reduce() chuyên sâu hơn chút
 // ex1: tính tổng các element trong mảng không cần tham số initial value
-// var numbers = [1,2,3,4,5];
-// var totalNumber = numbers.reduce(function(total, number){
-//     return total + number;
-// }, 0);
+// var numbers = [1, 2, 3, 4, 5];
+// var totalNumber = numbers.reduce(function (total, number) {
+//   return total + number;
+// });
 // console.log(totalNumber);
-// //--> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
+//--> các mảng flat (mảng phẳng, chỉ có 1 cấp) và cùng kiểu dữ liệu thì có thể không dùng initial value còn lại thì nên dùng initial value
 //
 // ex2: flat mảng từ depth mảng (làm phẳng mảng(mảng 1 cấp) từ 1 mảng sâu(mảng có nhiều cấp))
 // var depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9], 10];

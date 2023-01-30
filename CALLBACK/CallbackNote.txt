@@ -19,7 +19,7 @@
     function multiCb(a, b) {
         return a * b;
     }
-    function divCb(a, b) {
+    function divCb(a, b) { 
         return a / b;
     }
     function caculate(a, b, cb) {//Callback
@@ -30,6 +30,7 @@
     caculate(1, 2, subCb) // Output: -1
     caculate(1, 2, multiCb) // Output: 2
     caculate(3, 1, divCb) // Output: 3
+
 - myCallback: những hàm tự viết cơ chế giống những hàm built-in
     ex1: viết hàm giống map() để lấy ra từng element trong mảng
     Array.prototype.map2 = function(callback) {
@@ -38,7 +39,7 @@
         var result = callback(this[i]);
         output.push(result);
     }
-    return output;
+        return output;
     }
     var languages = ['HTML', 'CSS', 'JS'];
     var showLanguage = languages.map2(function(laguage){
