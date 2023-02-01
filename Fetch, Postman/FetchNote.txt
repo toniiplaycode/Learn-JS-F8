@@ -28,5 +28,5 @@
             .finally(function(){
                 console.log('DONE!');
             })
-- JSON sever: dùng để fake API sever (làm theo video JSON sever của F8)        
+- JSON sever: dùng để fake API server / Mock API  (làm theo video JSON sever của F8)        
 
