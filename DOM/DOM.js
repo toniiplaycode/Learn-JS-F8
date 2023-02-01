@@ -59,10 +59,10 @@
 //ex8: innerHMTL & outerHTML:
 //innerHMTL:
 //setter
-// var boxElement =  document.querySelector('.box');
+// var boxElement =  document.querySelector('.boxInnerHTML');
 // boxElement.innerHTML = '<h1>HELLO innerHTML</h1>'; // thêm element node và text node;
 // boxElement.innerHTML = '<h2 style="color: grey">HELLO innerHTML</h2>'; // thêm element node và text node, attribute;
-// //geter
+// geter
 // console.log(boxElement.innerHTML);
 
 //ex9: DOM CSS
@@ -79,26 +79,28 @@
 // });
 
 //ex10: Classlist: add, contains, remove, toggle
-// var boxClassList = document.querySelector('.box-lastlist');
-// thêm phương thức
+// var boxClassList = document.querySelector('.box-class-list');
+// //thêm phương thức
 // boxClassList.classList.add('red');
-// kiểm tra phương thức, trả về boolean
+// //kiểm tra phương thức, trả về boolean
 // console.log(boxClassList.classList.contains('red'));
 // console.log(boxClassList.classList.contains('blue')); // class blue không có nên trả về false
-// gở phương thức
+// //gở phương thức
 // boxClassList.classList.remove('red');
-// nếu có thì gở, nếu không có thì thêm
+// //nếu có thì gở, nếu không có thì thêm
 // boxClassList.classList.toggle('red');
-// ứng dụng của toggle
+// //ứng dụng của toggle
 // setInterval(() => {
 //    boxClassList.classList.toggle('red');
 // }, 500);
+// // thay thế phương thức
+// boxClassList.classList.replace('red', 'blue');
 
 //ex11: DOM EVENTS: Assign events
 // 1 event cho 1 element
 // var h1Element = document.querySelector('.h1AssignEvents');
 // h1Element.onclick = function(){ //khi class h1AssignEvents được click thì event mới kich hoạt
-//     console.log(Math.random());
+//     console.log('onclick');
 // };
 // h1Element.onclick = function(){ //khi class h1AssignEvents được click thì event mới kich hoạt
 //     console.log(this);
@@ -112,13 +114,13 @@
 // }
 // hoặc
 // for(var i = 0; i < manyH1Elements.length; ++i) {
-//     manyH1Elements[i].onclick = function(e) { // tham s  ố e trong function là các thuộc tính của event
+//     manyH1Elements[i].onclick = function(e) { // tham số e trong function là các thuộc tính của event
 //     console.log(e.target); // thuộc tính target là trả về đúng element node có event
 //     }
 // }
 
 //ex12: DOM EVENTS EXAMPLE
-// var inputElement = document.querySelector('input[type="text"]');
+var inputElement = document.querySelector('input[type="text"]');
 // change
 // inputElement.onchange = function(e){ // onchange sẽ thực thi khi mình trỏ chuột ra ngoài input, tham số e trong function là các thuộc tính của event
 //     console.log(e.target.value);// thuộc tính target là trả về đúng element node, và trong thuộc tính target có thuộc tính con của nó là value, value trả về text node
@@ -127,6 +129,7 @@
 // var inputValue;
 // inputElement.oninput = function(e){ // nhập value đến đâu thì thì event sẽ thực thi tới đó, các value theo kiểu cộng dồn
 //     inputValue = e.target.value; // biến inputValue sẽ được gán khi ta nhập 1 chữ hoặc số, và được gán liên tục nếu ta nhập 1 chuỗi hoặc 1 dãy số thì nó sẽ gán tương ứng
+//     console.log(inputValue);
 // }
 //
 // var inputElement = document.querySelector('input[type="checkbox"]');
@@ -141,12 +144,14 @@
 // keydown
 // var inputValueKeyDown;
 // inputElement.onkeydown = function(e){   
-//  inputValueKeyDown  = e.target.value;
+//     inputValueKeyDown  = e.target.value;
+//     console.log(inputValueKeyDown);
 // }
 // keyup
 // var inputValueKeyUp;
 // inputElement.onkeydown = function(e){   
 //     inputValueKeyUp  = e.target.value;
+//     console.log(inputValueKeyUp);
 // }
 //
 // inputElement.onkeyup = function(e){
@@ -184,7 +189,7 @@
 //     }
 // }
 
-//stopPropagation
+// stopPropagation
 // var divElement = document.querySelector('.div-stopPropagation');
 // divElement.onclick = function(){ // event của thẻ cha
 //     console.log('DIV');
@@ -197,20 +202,20 @@
 
 //DOM EVENT: xử lý nhiều việc khi 1 event xảy ra, lắng nghe và huỷ bỏ lắng nghe
 // var btnElement = document.querySelector('.btn-DOM-EVENT');
-// được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
+// //được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
 // btnElement.onclick = function(){
 //     console.log('viec 1');
 //     console.log('viec 1');
 //     alert('viec 3');
 // }
-// huỷ bỏ lắng nghe
+// //huỷ bỏ lắng nghe
 // setTimeout(function(){ // sau 5s thì sẽ huỷ bỏ lắng nghe
 //     btnElement.onclick = function(){}; // cho gán function trống cho event là huỷ bỏ lắng nghe 
 // }, 5000)
 
 //EVENT LISTENER: xử lý nhiều việc khi 1 event xảy ra, lắng nghe và huỷ bỏ lắng nghe
 // var btnElement = document.querySelector('.btn-EVENT-LISTENER');
-// được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
+// //được lắng nghe và xử lý nhiều việc khi 1 event xảy ra
 // function viec1(){
 //     console.log('viec 1');
 // }
@@ -223,7 +228,7 @@
 // btnElement.addEventListener('click', viec1);
 // btnElement.addEventListener('click', viec2);
 // btnElement.addEventListener('click', viec3);
-// huỷ bỏ lắng nghe
+// //huỷ bỏ lắng nghe
 // setTimeout(function(){ // sau 5s thì sẽ huỷ bỏ lắng nghe của viec1
 //     btnElement.removeEventListener('click', viec1);
 // }, 5000);

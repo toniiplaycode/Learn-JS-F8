@@ -1,0 +1,32 @@
+- Fetch: là một API(cổng giao tiếp giữa các phần mềm) cấp URL để lấy dữ liệu từ Backend dạng JSON, dùng để gửi và nhận request. Fetch được dùng chung với Promise và Json 
+- các bước lấy dữ liệu từ Backend để hiển thị lên Frontend: Backend -> API(URL) -> Fetch -> JSON/XMl -> JSON.parse -> JS types -> render ra giao diện HTML
+- cách dùng Fetch: 
+    fetch('<URL>') // truyền URL(API) vào hàm fetch
+        .then(function(response){ // .then() thứ nhất trả về 1 promise (được JSON.parse) và .then() thứ 2 sẽ nhận được promise đó
+            return response.json();
+        })
+        .then(function(<tham số>)){ // tham số .then() thứ 2 sẽ nhận được JS types, vì .then() thứ nhất đã parse sẵn ở return response.json()
+            ...
+        })
+        .catch(function(){
+            console.log("Lỗi mạng hoặc sai URL"); // nếu mạng lỗi hoặc URL sai thì sẽ nhảy vào .catch()
+        })
+        .finally(function(){
+            console.log('DONE!');
+        })
+    ex:
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+            })
+            .catch(function(){
+                console.log("Lỗi mạng hoặc sai URL");
+            })
+            .finally(function(){
+                console.log('DONE!');
+            })
+- JSON sever: dùng để fake API sever (làm theo video JSON sever của F8)        
+

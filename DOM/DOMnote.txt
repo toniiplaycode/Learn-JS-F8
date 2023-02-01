@@ -63,7 +63,7 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
         background: 'blue',
     });
 - ClassList: quản lý class của 1 element, những phương thức thường dùng:  add('<tên class>'), contains('<tên class>'), remove('<tên class>'), toggle('<tên class>'), replace('<tên class muốn thay thế>', '<tên class thay thế>'),...
-    var boxClassList = document.querySelector('.box-lastlist');
+    var boxClassList = document.querySelector('.box-class-list');
     // thêm class
     boxClassList.classList.add('red');
     // kiểm tra class có hay không , trả về boolean
@@ -76,15 +76,16 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
     // thay thế class cũ bằng class mới
     boxClassList.classList.replace('red', 'blue');
 - DOM EVENT: là các hành vi của trình duyệt hoặc người dùng, những events hay dùng: click, mouseout, mouseover, change, input, keydown, keyup, onmousedown...
-    + attribute events: là dùng event trực tiếp ngay trong attribute của một element. xem ví dụ bên index.html
-    + assign events: không dùng trực tiếp trong attribute mà viết riêng ra ngoài element, gán events cho 1 function. xem ví dụ bên DOMjs.js
-    * sự kiện nổi bọt: xem ví dụ bên index.html
+    + attribute events: là dùng event trực tiếp ngay trong attribute của một element. xem ví dụ bên DOM.html
+    + assign events: không dùng trực tiếp trong attribute mà viết riêng ra ngoài element, gán events cho 1 function. xem ví dụ bên DOM.js
+    * sự kiện nổi bọt: xem ví dụ bên DOM.html
     --> nếu 1 element có 2 events, thì event nào cuối cùng sẽ đè lên event trước. 1 element chỉ thực hiện được 1 events. Nếu muốn 1 events dùng cho nhiều element thì kết hợp với vòng lặp.
     + các element input thường sử dụng event change
-    --> hành vi bình thường thì là event, bàn phím là KeyboardEvent, chuột là MouseEvent, click là PointeEvent,...
+    --> hành vi bình thường thì là event, bàn phím là KeyboardEvent, chuột là MouseEvent, click là PointerEvent,...
     --> keydown và keyup có thể lấy được value giống như input và change, nhưng công dụng thực sự của KeyboardEvent là để tương tác với các nút trên bàn phím, khi nhấn một nút nào đó thì sẽ thực hiện event
-- preventDefault & stopPropagation: ngăn chặn hành vi mặc định của thẻ và loại bỏ sự kiện nổi bọt, xem ví dụ bên index.html & DOM.js
-- EVENT LISTENER: cách dùng cũng giống DOM EVENT, xem ví dụ bên index.html & DOM.js
+    --> e.which: mã ASCII 
+- preventDefault & stopPropagation: ngăn chặn hành vi mặc định của thẻ và loại bỏ sự kiện nổi bọt, xem ví dụ bên DOM.html & DOM.js
+- EVENT LISTENER: cách dùng cũng giống DOM EVENT, xem ví dụ bên DOM.html & DOM.js
     + lắng nghe event: <element>.addEventListener('<tên event>', <1 function thực thi event>);
     + huỷ bỏ lắng nghe event: <element>.removeEventListener('<tên event>', <1 function thực thi event>);
     --> dùng EVENT LISTENER để huỷ bỏ 1 việc cụ thể trong nhiều việc sẽ tiện hơn khi dùng DOM EVENT

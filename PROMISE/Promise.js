@@ -2,7 +2,7 @@
 // //sync(đồng bộ)
 //console.log(1);
 //console.log(2);      
-// //async(bất đồng bộ)
+//async(bất đồng bộ)
 // setTimeout(function(){
 //     console.log(1);
 // });
@@ -20,7 +20,7 @@
 //         }, 1000);
 //     }, 1000);
 // }, 1000);
-// //ex1: dùng promise trả về resolve() hoặc trả về reject();
+//ex1: dùng promise trả về resolve() hoặc trả về reject();
 // var promise = new Promise(
 //     function(resolve, reject){
 //         resolve(); // hoặc trả về reject();
@@ -39,8 +39,9 @@
 // //ex2: trả dữ liệu từ executor ra .then(function(){}) hoặc .catch(function(){})
 // var promise = new Promise(
 //     function(resolve, reject){
-//         resolve(['HTML','CSS','JS']);
-//         // hoặc reject('lỗi rồi !');
+//         // resolve(['HTML','CSS','JS']);
+//         // hoặc
+//         // reject('lỗi rồi !');
 //     }
 // )
 // promise
@@ -114,7 +115,7 @@
 // )
 // promise 
 //     .then(function(){
-//         return new Promise(function(resolve){
+//         return new Promise(function(resolve, reject){ // excutor này chỉ có 1 tham số là resolve
 //             setTimeout(function(){
 //                 resolve([1,2,3,4]);
 //             }, 2000);   
@@ -129,7 +130,7 @@
 //     .finally(function(){
 //         console.log('done!');
 //     })
-// //ex4: console.log từ 1->3 deplay 2s
+// //ex4: console.log từ 1->3 deplay 1s
 // function sleep(millisecond){
 //     return new Promise(function(resolve){
 //         setTimeout(resolve, millisecond);
@@ -154,7 +155,7 @@
 //     .finally(function(){
 //         console.log('done!');
 //     })
-// //ex5: khi có một .then return promise reject() thì dừng ngay và .catch sẽ được tự động gọi
+//ex5: khi có một .then return promise reject() thì dừng ngay và .catch sẽ được tự động gọi
 // var promise = new Promise(
 //     function(resolve, reject){
 //         resolve(1);
@@ -179,12 +180,13 @@
 //     .finally(function(){
 //         console.log('done!');
 //     })
-// //promise.resolve // tạo 1 promise resolve() nhanh gọn, khi không cần xử lý logic
-//     var promise = Promise.resolve('Success!');
-//     promise
-//         .then(function(result){
-//             console.log(result);
-//         })
+//
+//promise.resolve // tạo 1 promise resolve() nhanh gọn, khi không cần xử lý logic
+// var promise = Promise.resolve('Success!');
+// promise
+//     .then(function(result){
+//         console.log(result);
+//     })
 //
 //promise.reject // tạo 1 promise reject() nhanh gọn, khi không cần xử lý logic
 // var promise = Promise.reject('error!');
@@ -207,10 +209,10 @@
 //         }, 4000)
 //     }
 // );
-// // --> 2 promise chỉ tốn 4s(lấy tối đa)
+// // --> 2 promise chỉ tốn 4s(lấy max thời gian setTimeout)
 // Promise.all([promise1, promise2]) //Promise.all nhận 1 mảng là promise1 và promise2
 //     .then(function(result){ // result là mảng
-//         var result1 = result[0];
+//         var result1 = result[0;
 //         var result2 = result[1];
 //         console.log(result1.concat(result2));
 //     })     

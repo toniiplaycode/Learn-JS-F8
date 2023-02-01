@@ -1,0 +1,19 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "name": "Le Thanh Toan",
+            "address": "Can Tho"
+        },
+        {
+            "id": 2,
+            "name": "Le Minh Hung",
+            "address": "HCM"
+        },
+        {
+            "id": 3,
+            "name": "Le Duy Thuc",
+            "address": "Can Tho"
+        }
+    ]
+}
