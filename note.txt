@@ -509,7 +509,7 @@
             return element.name === 'toan';
         })
         console.log(listFind);
-    + map(); // lấy, thay đổi hoặc thêm các element của 1 mảng. 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
+    + map(); // lấy, thay đổi hoặc thêm các element của 1 mảng và trả về 1 mảng mới. 1 tham số là element, 2 tham số: 1 element và index, 3 tham số: 1 element, 1 index, 1 originArray(mảng gốc)
         ex: từ mảng đã có, hãy thêm key và value dựa trên mảng đã có 
         var languages = [
             {

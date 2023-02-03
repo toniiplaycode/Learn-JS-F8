@@ -41,6 +41,8 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
         headingElement.textContent = 'new textContent';
     --> khác nhau giữa innerText và textContent: innerText là giống như những gì được thấy ở browser, textContent chính những cái text node thật sự, innerText và textContent chỉ tạo ra được text node, không tạo ra được element node cho dù có <thẻ>...</thẻ> 
 --> muốn lấy attribute node hoặc text node thì ta phải lấy element node trước
+- lấy value trong input
+    ex: var inputValue = document.querySelector('input[type="text"]').value;
 - innterHTML & outerHTML:
     + innterHTML: dùng để thêm element và thêm được cả attribute, text (thêm được tất cả node) 
     var boxElement =  document.querySelector('.box');

@@ -1,6 +1,6 @@
 - Fetch: là một API(cổng giao tiếp giữa các phần mềm) cấp URL để lấy dữ liệu từ Backend dạng JSON, dùng để gửi và nhận request. Fetch được dùng chung với Promise và Json 
 - các bước lấy dữ liệu từ Backend để hiển thị lên Frontend: Backend -> API(URL) -> Fetch -> JSON/XMl -> JSON.parse -> JS types -> render ra giao diện HTML
-- cách dùng Fetch: 
+- cách dùng Fetch: fetch bình thường nếu 1 tham số thì method mặc định là GET, nếu có thêm tham số thứ 2 (là 1 object) thì method là: POST, PUT/PATCH, DELETE
     fetch('<URL>') // truyền URL(API) vào hàm fetch
         .then(function(response){ // .then() thứ nhất trả về 1 promise (được JSON.parse) và .then() thứ 2 sẽ nhận được promise đó
             return response.json();
@@ -29,4 +29,14 @@
                 console.log('DONE!');
             })
 - JSON sever: dùng để fake API server / Mock API  (làm theo video JSON sever của F8)        
+- Postman: dùng để thao tác với API, gồm 4 phương thức hay dùng: CRUD (xem và làm theo video Postman của F8)
+    + create: POST 
+    + read: GET
+    + update: PUT/PATCH
+    + delete: DELETE
+    - khi thêm POST thì key ID sẽ tự động tăng
+    - khi sửa PUT/PATCH thì ở URL thêm '/<ID cần sửa>'
+    - khi xoá DELETE thì ở URL thêm '/<ID cần xoá>'
+    * sự khác nhau giữa PUT và PATH (xem trang viblo để dễ hiểu hơn)  
 
+    
