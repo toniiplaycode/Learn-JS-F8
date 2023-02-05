@@ -1,84 +1,19 @@
 {
   "user": [
     {
-      "id": 1,
-      "name": "Le Thanh Toan",
-      "address": "Can Tho"
+      "name": "qưdqwd",
+      "address": "qưdqw",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Le Minh Hung",
-      "address": "HCM"
+      "name": "rtyjhrtybnfg",
+      "address": "qwdqwerh",
+      "id": 3
     },
     {
-      "id": 3,
-      "name": "Le Duy Thuc",
-      "address": "Can Tho"
-    },
-    {
-      "name": "Nguyen Van Phat",
-      "address": "Can Tho",
+      "name": "",
+      "address": "",
       "id": 4
-    },
-    {
-      "name": "asd",
-      "address": "asd",
-      "id": 5
-    },
-    {
-      "name": "qdq",
-      "address": "qd",
-      "id": 6
-    },
-    {
-      "name": "asdas",
-      "address": "asd",
-      "id": 7
-    },
-    {
-      "name": "qwd",
-      "address": "qwd",
-      "id": 8
-    },
-    {
-      "name": "qdw",
-      "address": "qwd",
-      "id": 9
-    },
-    {
-      "name": "sdcsdsdg",
-      "address": "231245",
-      "id": 10
-    },
-    {
-      "name": "qdw",
-      "address": "qdw",
-      "id": 11
-    },
-    {
-      "name": "qwqf",
-      "address": "qwd",
-      "id": 12
-    },
-    {
-      "name": "dfgdf",
-      "address": "sdfewqf",
-      "id": 13
-    },
-    {
-      "name": "qwdqw",
-      "address": "fgdfg",
-      "id": 14
-    },
-    {
-      "name": "erger",
-      "address": "egrerg",
-      "id": 15
-    },
-    {
-      "name": "asd",
-      "address": "qwerfqwe",
-      "id": 16
     }
   ]
 }

@@ -1,0 +1,13 @@
+- var, let, const đều được dùng để khai báo biến nhưng có vài điều khác biệt: scope, hosting, assignment
+- var khác let, const: scope, hosting
+    +  các code block(khối code): if else, loop, function, {},...
+        - thì khi dùng var: nó kiểu như là một biến global, khai báo biến trong code block nhưng có thể được gọi ở bên ngoài block. var dùng được hosting
+        - let, const: nó giống như biến local, chỉ gọi được trong code block, ra ngoài code block gọi sẽ bị lỗi. let/const không dùng được hosting
+        - const: 1 block chỉ được khai báo biến const 1 lần, nếu 1 block mà khai báo 2 biến const thì sẽ bị lỗi. 
+        --> + code thuần: var
+            + dùng thư viện babel: const, let
+- const khác var, let: assignment (gán lại giá trị cho biến)
+    + const chỉ được gán giá trị 1 lần duy nhất vì nó là hằng, còn var, let thì gán được nhiều lần  
+    --> biến là object hoặc mảng thì có thể gán lại thuộc tính(object) hoặc element(mảng)
+- temple string, arrow function là của ES6
+    + arrow function không dùng được this và constructor

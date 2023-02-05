@@ -50,10 +50,12 @@ function renderUsers(users){ // hàm renderUsers để show các dữ liệu đ�
     console.log(users);
     var listUsersBlock = document.querySelector('#list-users');
     var htmls = users.map(function(user){
-        return `<li>
+        return `<li class="user-item-${user.id}">
                     <h3>Name: ${user.name}</h3>
                     <p>ID: ${user.id}</p>
                     <p>Address: ${user.address}</p>
+                    <button onclick="deleteUser(${user.id})">Delete</button>
+                    <button onclick="handleEditForm(${user.id})">Edit</button>
                 </li>`;
     });
     return listUsersBlock.innerHTML = htmls.join(' ');
@@ -76,9 +78,7 @@ function handleCreateForm(){ // hàm xử lý form để lấy được value c�
 function createUser(data, callback){ // hàm createUsers để gửi yêu cầu thêm dữ liệu, tham số data truyền vào dữ liệu sẽ thêm, callback để sau khi dữ liệu đã được thêm thì GET dữ liệu đó luôn 
     var options = {  // mấy cái trong object này là làm theo video 179 của F8
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
     }
     fetch(userAPI, options) // fetch bình thường nếu 1 tham số thì method mặc định là GET, nếu có thêm tham số thứ 2 (là 1 object) thì method là: POST, PUT/PATCH, DELETE
@@ -86,4 +86,65 @@ function createUser(data, callback){ // hàm createUsers để gửi yêu cầu 
            return response.json();
         })
         .then(callback);
+}
+function deleteUser(id){ // hàm deleteUser xoá user theo id
+    var options = { // xoá user ở dữ liệu API
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'}
+    }
+    fetch(userAPI + "/" + id, options) // tham số thứ nhất là URL phải thêm /<id> để xoá được user theo id
+        .then(function(response){
+           return response.json();
+        })
+        .then(function(){ //xoá user ở DOM để khỏi call API
+            var userItem = document.querySelector('.user-item-' + id);
+            userItem.remove();
+        });
+}
+function handleEditForm(id){
+    fetch(userAPI)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(user){
+            var findUserId = user.find(function(element){
+                return element.id == id;
+            });
+            // console.log(findUserId); //console.log ra cho dễ nhìn
+            document.querySelector('input[name="name"]').value = findUserId.name;
+            document.querySelector('input[name="address"]').value = findUserId.address;
+        })
+        
+        var name = document.querySelector('input[name="name"]').value;
+        var address = document.querySelector('input[name="address"]').value;
+        var formData = {
+            name: name, // cái key phải giống với key trên API
+            address: address // cái key phải giống với key trên API
+        };
+
+        // gở nút create và thêm nút update
+        var createBtn = document.querySelector('#btn-create');
+        if(createBtn){ // nếu có nút btn-create thì remove
+            createBtn.remove();
+        }
+        var divAddBtnEdit = document.querySelector('#add-btn-update');
+        divAddBtnEdit.innerHTML = '<button id="btn-update">Edit</button>';
+        var btnEdit = document.querySelector('#btn-update');
+        btnEdit.onclick = function(){
+            updateUser(formData, id, function(){
+                getUsers(renderUsers);
+            });
+        }
+}    
+function updateUser(data, id, callback){ //hàm updateUser sửa user theo id
+    var options = { // sửa user ở dữ liệu API
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    }
+    fetch(userAPI + "/" + id, options)
+        .then(function(response){
+            return response.json();
+        })
+        .then(callback)
 }

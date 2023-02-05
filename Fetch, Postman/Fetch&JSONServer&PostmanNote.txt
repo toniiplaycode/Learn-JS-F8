@@ -38,5 +38,7 @@
     - khi sửa PUT/PATCH thì ở URL thêm '/<ID cần sửa>'
     - khi xoá DELETE thì ở URL thêm '/<ID cần xoá>'
     * sự khác nhau giữa PUT và PATH (xem trang viblo để dễ hiểu hơn)  
+* Note: muốn chạy mà không bị load lại trang thì phải tách folder json_server ra 1 folder riêng và chạy xong xong 2 tab VS code (tips này ở comment bài 179)
+
 
     
