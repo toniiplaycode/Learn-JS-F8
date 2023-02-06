@@ -10,4 +10,162 @@
     + const chỉ được gán giá trị 1 lần duy nhất vì nó là hằng, còn var, let thì gán được nhiều lần  
     --> biến là object hoặc mảng thì có thể gán lại thuộc tính(object) hoặc element(mảng)
 - temple string, arrow function là của ES6
-    + arrow function không dùng được this và constructor
+    + arrow function không dùng được this và object constructor
+- class: cơ chế giống giống object constructor (giống OOP)
+    ex: 
+        class User {
+            constructor(name, address){
+                this.name = name;
+                this.address = address;
+            }
+            getName(){
+                return this.name;
+            }
+            getAddress(){
+                return this.address;
+            }
+        }
+        var user1 = new User('thanh toan', 'can tho');
+        var user2 = new User('le minh hung', 'HCM');
+- default paramater: tham số có giá trị mặc định
+    ex: 
+        function showDefaultParamater(log = 'gia tri mac dinh'){
+            console.log(log);
+        }
+        showDefaultParamater(); // nếu không truyền đối số thì hàm sẽ lấy giá trị mặc định
+- Enhanced object literals dùng để thao tác với object ngắn gọn hơn:
+    + định nghĩa key, value của 1 object ngắn gọn
+        ex: 
+            var name = 'thanh toan';
+            var address = 'can tho';
+            var user = {
+                name,
+                address
+            }
+            console.log(user);
+    + định nghĩa method của 1 object ngắn gọn
+        ex: 
+            var name = 'thanh toan';
+            var address = 'can tho';
+            var user = {
+                name,
+                address,
+                getName(){
+                    return this.name;
+                }
+            }
+            console.log(user.getName());
+    + định nghĩa key của object dưới dạng biến(dạng này ít dùng)
+        ex:
+            var userName = 'name';
+            var userAddress = 'address';
+            var user = {
+                [userName]: 'thanh toan',
+                [userAddress]: 'can tho'
+            }
+            console.log(user);
+- destructuring: dùng cho mảng hoặc object. dùng để lấy ra element hoặc value(thông qua key) đơn giản hơn
+    ex: mảng
+        var array = [1,2,3,4];
+        var [a,b,c,d] =  array; // khai báo biến [<các biến được lấy từ array>], đây là cách dùng destructuring
+        console.log(a,b,c,d); // --> 1 2 3 4
+
+        var array2 = [1,2,3];
+        var [a, ,c] = array2;
+        console.log(a, c); // --> 1 3
+    ex2: object
+        var user = {
+            name: 'thanh toan',
+            address: 'can tho',
+            phone: '0123456'
+        }
+        var {name, address, phone} = user; // các tên biến phải giống tên key của object 
+        console.log(name, address, phone); // thanh toan can tho 0123456 
+    ex3: trong object có object
+    var user = {
+        name: 'thanh toan',
+        address: 'can tho',
+        phone: '0123456',
+        children: {
+            name: 'thanh long'
+        }
+    }
+    var {name: parentName, children: { name: childName }} = user; // vì 2 biến name bị trùng tên nên ta đặt tên cho từng biến
+    console.log(parentName, childName);
+    ex4: default destructuring
+    var user = {
+        name: 'thanh toan',
+        address: 'can tho',
+        phone: '0123456'
+    }
+    var {name, address, phone, dateOfBirth = '2003'} = user;
+    console.log(name, address, phone, dateOfBirth);
+- rest paramaters: lấy ra các phần tử trong mảng hoặc object (cơ chế giống shift() là lấy ra phần tử đầu và xoá nó khỏi mảng). Có thể dùng rest để làm tham số của 1 function (cơ chế giống giống arguments), rest trả về 1 mảng
+    ex: mảng
+        var array = [1,2,3,4];
+        var [a, b, ...rest] = array;
+        console.log(a, b); // --> 1 2 
+        console.log(rest); // --> [3, 4] // mảng đã lấy ra 1, 2 chỉ còn 3, 4
+    ex: object
+        var user = {
+            name: 'thanh toan',
+            address: 'can tho',
+            phone: '0123456'
+        }
+        var {name, ...rest} = user;
+        console.log(name);
+        console.log(rest);
+    ex: dùng rest là tham số của 1 function (cơ chế giống giống arguments) 
+        function restFunciton(...params){  // chưa lấy ra và xoá phần tử nào 
+            console.log(params);
+        }
+        restFunciton(1, 2, 3, 4, 5, 'thanh toan', {id:1, name: 'tonii'}); // truyền không giới hạn đối số
+        function restFunciton2(a, b, ...params){ // lấy ra và xoá 2 phần tử đầu
+            console.log(a, b);
+            console.log(params);
+        }
+        restFunciton2(1, 2, 3, 4, 5, 'thanh toan', {id:1, name: 'tonii'});
+- destructuring & rest truyền vào tham số của 1 function        
+    ex: mảng
+        function logger([a, b, ...rest]){
+            console.log(a, b); 
+            console.log(rest);
+        }   
+        logger([1, 2, 3, 4, 5, 6]);
+    ex: object
+        function logger({name, address, ...rest}){
+            console.log(name, address);
+            console.log(rest);
+        }
+        logger({
+            name: 'thanh toan',
+            address: 'can tho',
+            phone: '0123456'
+        });
+- spread: được dùng để giải các mảng hoặc object, mảng thì đặc trưng là có dấu [] và object thì có dấu {}. Thì spread sẽ loại các dấu đó để thực hiện các tác vụ nào đó. syntax cũng dùng 3 dấu chấm <...> giống giống rest, nhưng cơ chế thì khác nhau
+    ex: nối 2 mảng (cơ chế giống concat())
+        var array1 = [1, 2, 3]; 
+        var array2 = [4, 5, 6]; 
+        var array3 = [...array1, ...array2];
+        console.log(array3); // [1, 2, 3, 4, 5, 6]
+    ex: nối 2 object
+        var obj1 = {
+            name: 'thanh toan'
+        }
+        var obj2 = {
+            address: 'can tho'
+        }
+        var obj3 = {
+            ...obj1,
+            ...obj2
+        }
+        console.log(obj3);
+    ex: spread là 1 đối số của 1 hàm (mảng)
+        var arrayLanguages = ['HTML', 'CSS', 'JS'];
+        function languages(...rest){ // ở đối số thì là spreak, còn ở tham số là rest
+            // rest là dạng mảng nên có thể dùng forOf
+            for (const language of rest) {
+                console.log(language);
+            }
+        }
+        languages(...arrayLanguages); // spread sẽ giải mảng arrayLanguages thành: 'HTMl', 'CSS', 'JS' (3 đối số)
