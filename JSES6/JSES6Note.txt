@@ -9,7 +9,7 @@
 - const khác var, let: assignment (gán lại giá trị cho biến)
     + const chỉ được gán giá trị 1 lần duy nhất vì nó là hằng, còn var, let thì gán được nhiều lần  
     --> biến là object hoặc mảng thì có thể gán lại thuộc tính(object) hoặc element(mảng)
-- temple string, arrow function là của ES6
+- template string, arrow function là của ES6
     + arrow function không dùng được this và object constructor
 - class: cơ chế giống giống object constructor (giống OOP)
     ex: 
@@ -82,24 +82,24 @@
         var {name, address, phone} = user; // các tên biến phải giống tên key của object 
         console.log(name, address, phone); // thanh toan can tho 0123456 
     ex3: trong object có object
-    var user = {
-        name: 'thanh toan',
-        address: 'can tho',
-        phone: '0123456',
-        children: {
-            name: 'thanh long'
+        var user = {
+            name: 'thanh toan',
+            address: 'can tho',
+            phone: '0123456',
+            children: {
+                name: 'thanh long'
+            }
         }
-    }
-    var {name: parentName, children: { name: childName }} = user; // vì 2 biến name bị trùng tên nên ta đặt tên cho từng biến
-    console.log(parentName, childName);
+        var {name: parentName, children: { name: childName }} = user; // vì 2 biến name bị trùng tên nên ta đặt tên cho từng biến
+        console.log(parentName, childName);
     ex4: default destructuring
-    var user = {
-        name: 'thanh toan',
-        address: 'can tho',
-        phone: '0123456'
-    }
-    var {name, address, phone, dateOfBirth = '2003'} = user;
-    console.log(name, address, phone, dateOfBirth);
+        var user = {
+            name: 'thanh toan',
+            address: 'can tho',
+            phone: '0123456'
+        }
+        var {name, address, phone, dateOfBirth = '2003'} = user;
+        console.log(name, address, phone, dateOfBirth);
 - rest paramaters: lấy ra các phần tử trong mảng hoặc object (cơ chế giống shift() là lấy ra phần tử đầu và xoá nó khỏi mảng). Có thể dùng rest để làm tham số của 1 function (cơ chế giống giống arguments), rest trả về 1 mảng
     ex: mảng
         var array = [1,2,3,4];
@@ -113,11 +113,11 @@
             phone: '0123456'
         }
         var {name, ...rest} = user;
-        console.log(name);
-        console.log(rest);
+        console.log(name); // --> thanh toan
+        console.log(rest); // --> {address: 'can tho', phone: '0123456'}
     ex: dùng rest là tham số của 1 function (cơ chế giống giống arguments) 
         function restFunciton(...params){  // chưa lấy ra và xoá phần tử nào 
-            console.log(params);
+            console.log(params); // có nhiêu tham số được truyền vào thì nó sẽ in ra hết
         }
         restFunciton(1, 2, 3, 4, 5, 'thanh toan', {id:1, name: 'tonii'}); // truyền không giới hạn đối số
         function restFunciton2(a, b, ...params){ // lấy ra và xoá 2 phần tử đầu
@@ -169,3 +169,40 @@
             }
         }
         languages(...arrayLanguages); // spread sẽ giải mảng arrayLanguages thành: 'HTMl', 'CSS', 'JS' (3 đối số)
+- tagged template literals: cho phép xử lý template string với hàm (lên trang complete javascript đọc), nghĩa là gọi hàm thông qua template string
+    + cú pháp: <function>`template string with ${expression(biểu thức)}`
+        ex: 
+            var logger = (x, y, z) => { // các tham số: x là array string, y là expression1, z là expression2
+                console.log(x); 
+                console.log(y);
+                console.log(z);
+            }
+            var a = 1;
+            var b = 2;
+            var result = logger`day la 2 con so: ${a} ${b}`;
+            console.log(result) //--> ['day la 2 con so:', ' ', ' '] 1 2
+            --> các string và expression trong template string có thứ tự như thế nào thì array string sẽ có thứ tự tương ứng 
+        ex: cộng 2 số
+            var math = ([x, y], calculation) => calculation(Number(x), Number(y));
+            var plus = (x, y) => x + y;
+            var result = math`11 ${plus} 7`;
+            console.log(result); // --> 18
+        ex: tagged template kết hợp reduce (arrow function) để render hightlight(màu cam) các expression, xem video 192 của F8
+            function hightlight([first, ...strings], ...values){  // dùng destructuring & rest để nhận 2 tham số
+                // console.log(first);
+                // console.log(strings);
+                // console.log(values);
+                return values.reduce(
+                    (accumulator, currentElement) => [...accumulator, `<span style="color: orange">${currentElement}</span>`, strings.shift()],
+                    [first]
+                ).join(''); //nó là mảng. muốn thành chuỗi thì phải join('');
+            }
+            var brand = 'F8';
+            var course = 'Javascript';
+            var html = hightlight`Học lập trình ${course} tại ${brand} !`; // trong template string này gồm: 1 array sting (['học lập trình', 'tại', '!']), 1 mảng chứa(dùng rest) 2 biến nội suy: ${course}, ${brand}. --> hàm hightlight sẽ nhận được 2 đối số
+            console.log(html);
+            // dùng DOM để show
+            var divTaggedTemplate = document.querySelector('#show-hightlight-tagged-template');
+            divTaggedTemplate.innerHTML = html;
+- module: dùng để chia nhỏ code ra các file theo chức năng của nó, không gộp chung tất cả code vào 1 file duy nhất (xem ví dụ trong folder module, lên trang homiedex.com đọc là hiểu)
+- optional chaining(?.): khi ta truy cập value của 1 object hoặc 1 hàm, 1 element array, nếu như value của object hoặc 1 hàm, 1 element array không tồn tại thì thông thường sẽ báo lỗi, nên việc dùng optional chaining sẽ khắc phục. value của 1 object hoặc 1 hàm, 1 element array nếu có thì dùng như bình thường, không có thì sẽ không có lỗi gì cả. Được dùng khi ta nghi ngờ value của 1 object hoặc 1 hàm, 1 element array nào đó không tồn tại

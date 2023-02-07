@@ -70,6 +70,7 @@
                 19, 
                 'can tho'
             ];
+        --> so sánh bằng giữa 2 mảng hoặc 2 object với nhau sẽ luôn luôn là false, vì bọn nó là kiểu dữ liệu phức tạp. chỉ có kiểu dữ liệu nguyên thuỷ mới so sánh được. nếu muốn so sánh kiểu dữ liệu phức tạp thì chuyển nó về dạng JSON    
 - hàm kiểm tra có phải array: Array.isArray(<biến array>);            
 - cách kiểm tra kiểu dữ liệu của 1 biến: typeof
     ex:
