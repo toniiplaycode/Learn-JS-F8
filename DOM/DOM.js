@@ -232,3 +232,9 @@ var inputElement = document.querySelector('input[type="text"]');
 // setTimeout(function(){ // sau 5s thì sẽ huỷ bỏ lắng nghe của viec1
 //     btnElement.removeEventListener('click', viec1);
 // }, 5000);
+//appendChild
+// var heading3ELement = document.querySelector('.heading-3');
+// var addAppendChild = document.createElement('div');
+// addAppendChild.innerHTML = '<p>add addpendChild for heading 3</p>';
+// console.log(addAppendChild);
+// heading3ELement.appendChild(addAppendChild);

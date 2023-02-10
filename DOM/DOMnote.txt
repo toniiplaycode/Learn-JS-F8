@@ -92,3 +92,5 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
     + huỷ bỏ lắng nghe event: <element>.removeEventListener('<tên event>', <1 function thực thi event>);
     --> dùng EVENT LISTENER để huỷ bỏ 1 việc cụ thể trong nhiều việc sẽ tiện hơn khi dùng DOM EVENT
     --> khi muốn huỷ bỏ lắng nghe và bóc tách nhiều xử lý trong 1 event thì dùng EVENT LISTENER
+- addpendChild: dùng để thêm elemenet con cho elemenet cha đã có sẵn, xem ví dụ bên DOM.js
+- removeChild: addpendChild là để thêm elemenet con, còn removeChild thì để remove elemenet con

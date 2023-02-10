@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="toastMessage.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="toast">
+        <!-- mặc định toast message trống, dùng JS để hiện ra -->
+    </div>
+
+    <div>
+        <button onclick="showSuccessToast();" class="btn--success">Show toast SUCCESS</button>
+        <button onclick="showInfoToast();" class="btn--info">Show toast INFORMATION</button>    
+        <button onclick="showWarningToast();" class="btn--warning">Show toast WARNING</button>    
+    </div>
+</body>
+<script src="toastMessage.js"></script>
+</html>
