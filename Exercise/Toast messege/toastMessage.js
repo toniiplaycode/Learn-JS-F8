@@ -54,7 +54,7 @@ function toast({title, messege, type, duration = 3000}){ // duration mặc đị
                 </div>
             `;
         // console.log(toast); // in ra để xem , --> DOM đã tạo được thẻ toast cha ygan như ở trên (line 5->16)
-        main.appendChild(toast); //tạo được toast sau đó thêm vào main s
+        main.appendChild(toast); //tạo được toast sau đó thêm vào main
     }
 }
 

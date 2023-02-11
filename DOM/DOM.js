@@ -238,3 +238,9 @@ var inputElement = document.querySelector('input[type="text"]');
 // addAppendChild.innerHTML = '<p>add addpendChild for heading 3</p>';
 // console.log(addAppendChild);
 // heading3ELement.appendChild(addAppendChild);
+//createElement
+// var div = document.createElement('div');
+// div.style.width = '200px';
+// div.style.height = '200px';
+// div.style.background = 'red';
+// document.querySelector('#heading').appendChild(div);
