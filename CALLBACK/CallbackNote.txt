@@ -1,4 +1,4 @@
-# Callback: là hàm, được truyền qua đối số
+- Callback: là hàm, được truyền qua đối số
     ex1: 
     function myFunction(param) {
         param(123);
@@ -31,7 +31,7 @@
     caculate(1, 2, multiCb) // Output: 2
     caculate(3, 1, divCb) // Output: 3
 
-# myCallback: những hàm tự viết cơ chế giống những hàm built-in
+- myCallback: những hàm tự viết cơ chế giống những hàm built-in
     ex1: viết hàm giống map() để lấy ra từng element trong mảng
     Array.prototype.map2 = function(callback) {
     var output = [], arrayLength = this.length;
