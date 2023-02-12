@@ -486,3 +486,40 @@
 //   }, {});
 // }
 // console.log(arrToObj(arr)); // kỳ vọng: { name: 'Sơn Đặng', age: 18 }
+
+//ex32: IIFE
+// // không có tham số
+// (function(){
+//     console.log('call function now');
+// })();
+// // có tham số
+// (function(log){
+//     console.log(log);
+// })('hello');
+//// dùng IIFE để tạo 1 hàm quản lý xe
+// const app = (function(){
+//     const cars = []; // mảng cars để lưu lại các xe, biến này bên ngoài IIFE không thể truy cập được "private"; 
+//     return {
+//         get(index){
+//             return cars[index];
+//         },
+//         add(car){
+//             cars.push(car);
+//         },
+//         edit(index, car){
+//             cars[index] = car;
+//         },
+//         delete(index){
+//             cars.splice(index, 1);
+//         }
+//     }
+// })();
+// console.log(app);
+// app.add('HONDA');
+// console.log('get cars[0]: ', app.get(0));
+// app.add('YAMAHA');
+// console.log('get cars[1]: ', app.get(1));
+// app.edit(1, 'SUZUKI');
+// console.log('edited car[1]: ', app.get(1));
+// app.delete(1);
+// console.log('deleted car[1]: ', app.get(1));

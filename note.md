@@ -179,7 +179,7 @@
     function myFunction() {
         ... 
     }   
-- expressiton function: không dùng được hoisting
+- expression function: không dùng được hoisting
     var myFunction = function(){
         ...
     }
@@ -646,7 +646,7 @@
             return courses.concat(topic.courses);
         }, []); // trả về 1 mảng các khoá học
         console.log(newCourses);
-- String/Array includes(): trả về giá trị boolean
+- String/Array includes(): trả về giá trị boolean (mới có từ ES6)
     + <chuỗi>.includes('<chuỗi cần tìm kiếm>', <index bắt đầu tìm>) // nếu không có tham số thứ 2 thì mặc định index = 0
         ex1: var title = 'Responsive web design';
         console.log(title.includes('web'))
@@ -655,4 +655,17 @@
         console.log(title.includes('web', 18))
         --> false, vì index bắt đầu tìm đã vượt qua chuỗi cần tìm
     + <mảng>.includes('element cần tìm', <index bắt đầu tìm>) // cơ chế hoạt động giống string includes
-
+- Polyfill: là 1 thuật ngữ, các tính năng mới của ES6 sẽ có thể không dùng được trên các trình duyệt cũ, và mình sẽ tự viết ra các hàm có chức năng tương tự như các tính năng mới đó
+- IIFE: là một function expression sau khi định nghĩa xong thì được gọi ngay lập tức theo cú pháp riêng, IIFE là 1 hàm dạng 'private'(không thể được gọi hàm hoặc các biến từ bên ngoài), IIFE không có tính sử dụng lại, hầu hết các thư viện đều dùng IIFE để không bị xung đột biến global
+    ex1: định nghĩa function và call function ngay lập túc 
+        (function(){
+            console.log('call function now');
+        })();
+    ex2: có tham số
+        (function(log){
+            console.log(log);
+        })('hello');        
+    ex3: nếu theo trường phái dùng ; ở cuối câu của mỗi lệnh thì không cần dùng dấu ; ở trước IIFE 
+        ;(function(){
+            console.log('hello');
+        })();
