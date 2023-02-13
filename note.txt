@@ -173,8 +173,7 @@
     }
     writeLog('test message');
 - arguments: gọi hàm truyền được nhiều đối số, nhưng hàm thì không cần tham số(chỉ dùng được cho regular function, arrow function không dùng được)
-- hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện.
-
+- hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện (lên trang viblo để xem ví dụ)
 - declaration function: dùng được hoisting
     function myFunction() {
         ... 
@@ -668,4 +667,5 @@
     ex3: nếu theo trường phái dùng ; ở cuối câu của mỗi lệnh thì không cần dùng dấu ; ở trước IIFE 
         ;(function(){
             console.log('hello');
-        })();
+        })();    
+    

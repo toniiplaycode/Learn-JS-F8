@@ -1,0 +1,33 @@
+- Local Storage: được lưu dưới dạng object gồm key-value, value chỉ có thể lưu giá trị dưới dạng chuỗi, nên nếu muốn lưu được nhiều kiễu dữ liệu thì phải chuyển thành dạng JSON, Gồm 5 phương thức hay dùng: setItem(), getItem(), removeItem(), clear(), key()
+    + setItem(): để thêm các key-value
+        ex: lưu một key-value đơn giản dạng chuỗi
+            window.localStorage.setItem('name', 'Thanh Toan');
+        ex: lưu 1 biến object (dùng JSON)
+            const student = {
+                name: 'Tonii',
+                age: 20
+            }
+            window.localStorage.setItem('user', JSON.stringify(student));
+        ex: lưu 1 mảng (dùng JSON)
+            const arr = [1, 2, 3, 4, 5];
+            window.localStorage.setItem('number', JSON.stringify(arr));
+    + getItem(): dùng để lấy các value thông qua key, nếu value dạng JSON thì khi getItem() dùng JSON.parse(<key>);
+        ex: lấy các value vừa setItem() ở trên
+            var getName = window.localStorage.getItem('name');
+            console.log(getName);
+
+            const getStudent = JSON.parse(window.localStorage.getItem('user'));
+            console.log(getStudent);
+
+            var getArr = JSON.parse(window.localStorage.getItem('number'));
+            console.log(getArr);
+    + removeItem() xoá các object ở trên thông qua key
+        window.localStorage.removeItem('name');
+        window.localStorage.removeItem('user');
+        window.localStorage.removeItem('number');
+    + clear() xoá tất cả
+        window.localStorage.clear();   
+    + key() dùng để lấy ra từng key của object localStorage thông qua index
+        for(var i = 0 ; i < window.localStorage.length ; i++){
+            console.log(window.localStorage.key(i));
+        }
