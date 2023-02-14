@@ -1,8 +1,8 @@
-- var, let, const đều được dùng để khai báo biến nhưng có vài điều khác biệt: scope, hosting, assignment
-- var khác let, const: scope, hosting
+- var, let, const đều được dùng để khai báo biến nhưng có vài điều khác biệt: scope, hoisting, assignment
+- var khác let, const: scope, hoisting
     +  các code block(khối code): if else, loop, {}
-        - thì khi dùng var: nó kiểu như là một biến global, khai báo biến trong code block nhưng có thể được gọi ở bên ngoài block. var dùng được hosting
-        - let, const: nó giống như biến local, chỉ gọi được trong code block, ra ngoài code block gọi sẽ bị lỗi. let/const không dùng được hosting
+        - thì khi dùng var: nó kiểu như là một biến global, khai báo biến trong code block nhưng có thể được gọi ở bên ngoài block. var dùng được hoisting
+        - let, const: nó giống như biến local, chỉ gọi được trong code block, ra ngoài code block gọi sẽ bị lỗi. let/const không dùng được hoisting
         - const: 1 block chỉ được khai báo biến const 1 lần, nếu 1 block mà khai báo 2 biến const trùng nhau thì sẽ bị lỗi. 
         --> + code thuần: var
             + dùng thư viện babel: const, let

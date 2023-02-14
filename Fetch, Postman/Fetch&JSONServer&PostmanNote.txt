@@ -1,4 +1,4 @@
-- Fetch: là một API(cổng giao tiếp giữa các phần mềm) cấp URL để lấy dữ liệu từ Backend dạng JSON, dùng để gửi và nhận request. Fetch được dùng chung với Promise và Json 
+ - Fetch: là một API(cổng giao tiếp giữa các phần mềm) cấp URL để lấy dữ liệu từ Backend dạng JSON, dùng để gửi và nhận request. Fetch được dùng chung với Promise và Json 
 - các bước lấy dữ liệu từ Backend để hiển thị lên Frontend: Backend -> API(URL) -> Fetch -> JSON/XMl -> JSON.parse -> JS types -> render ra giao diện HTML
 - cách dùng Fetch: fetch bình thường nếu 1 tham số thì method mặc định là GET, nếu có thêm tham số thứ 2 (là 1 object) thì method là: POST, PUT/PATCH, DELETE
     fetch('<URL>') // truyền URL(API) vào hàm fetch
