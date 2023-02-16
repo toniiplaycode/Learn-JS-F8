@@ -14,15 +14,16 @@ if(localStorage.getItem('cartList')){ // nếu cartList có trên localStorage r
 }
 
 function addToCart(){
-    var input = document.querySelector('input').value;
-    carts.push(input);
+    var input = document.querySelector('input');
+    carts.push(input.value);
     localStorage.setItem('cartList', JSON.stringify(carts)); 
 
     var cartList = JSON.parse(localStorage.getItem('cartList'));
 
     showListCartFunc();
 
-    document.querySelector('input').value = '';
+    input.value = '';
+    input.focus();
 }
 
 function remove(index){

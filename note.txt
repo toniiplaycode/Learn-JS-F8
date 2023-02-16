@@ -1,6 +1,6 @@
-* tham trị (không thay đổi) và tham chiếu (thay đổi)
-- tham trị: kiểu dữ liệu number hoặc string, các biến sẽ được lưu vào stack, nếu có phép gán giữa các biến thì biến gán sẽ copy biến được gán, các biến này độc lập với nhau nên sẽ không bị ảnh hưởng khi biến gán thay đổi giá trị.
-- tham chiếu: kiễu dữ liệu object, các biến được lưu vào stack nhưng element(mảng) hoặc value(object) thì lại được lưu vào heap. biến trong stack sẽ trỏ tới element hoặc value tương ứng, nếu có phép gán giữa các biến thì biến gán sẽ trỏ tới element hoặc value của biến được gán. Vì vậy khi element hoặc value của biến được gán thay đổi thì các biến gán cũng sẽ thay đổi theo
+* tham trị (không thay đổi) và tham chiếu (thay đổi) 
+- tham trị(primitive types): kiểu dữ liệu number hoặc string, các biến sẽ được lưu vào stack, nếu có phép gán giữa các biến thì biến gán sẽ copy biến được gán, các biến này độc lập với nhau nên sẽ không bị ảnh hưởng khi biến gán thay đổi giá trị.
+- tham chiếu(reference types): kiễu dữ liệu object (object, array, function), các biến được lưu vào stack nhưng element(mảng) hoặc value(object) thì lại được lưu vào heap. biến trong stack sẽ trỏ tới element hoặc value tương ứng, nếu có phép gán giữa các biến thì biến gán sẽ trỏ tới element hoặc value của biến được gán. Vì vậy khi element hoặc value của biến được gán thay đổi thì các biến gán cũng sẽ thay đổi theo
 
 * các hàm built-in (hàm có sẵn)
 - alert
@@ -70,7 +70,7 @@
                 19, 
                 'can tho'
             ];
-        --> so sánh bằng giữa 2 mảng hoặc 2 object với nhau sẽ luôn luôn là false, vì bọn nó là kiểu dữ liệu phức tạp. chỉ có kiểu dữ liệu nguyên thuỷ mới so sánh được. nếu muốn so sánh kiểu dữ liệu phức tạp thì chuyển nó về dạng JSON    
+        --> so sánh bằng giữa 2 mảng hoặc 2 object với nhau sẽ luôn luôn là false, vì bọn nó là kiểu dữ liệu phức tạp và được lưu ở 2 địa chỉ khác nhau. chỉ có kiểu dữ liệu nguyên thuỷ mới so sánh được. nếu muốn so sánh kiểu dữ liệu phức tạp thì chuyển nó về dạng JSON    
 - hàm kiểm tra có phải array: Array.isArray(<biến array>);            
 - cách kiểm tra kiểu dữ liệu của 1 biến: typeof
     ex:
@@ -173,7 +173,7 @@
     }
     writeLog('test message');
 - arguments: gọi hàm truyền được nhiều đối số, nhưng hàm thì không cần tham số(chỉ dùng được cho regular function, arrow function không dùng được)
-- hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện (lên trang viblo để xem ví dụ)
+- hoisting: nghĩa là dù khai báo ở đâu thì biến hoặc function đều sẽ được đem lên đầu scope trước khi code được thực hiện (lên trang viblo để xem ví dụ), biến thì chỉ hoist phần khai báo, chứ không hoist phần gán biến 
 - declaration function: dùng được hoisting
     function myFunction() {
         ... 
@@ -654,18 +654,4 @@
         console.log(title.includes('web', 18))
         --> false, vì index bắt đầu tìm đã vượt qua chuỗi cần tìm
     + <mảng>.includes('element cần tìm', <index bắt đầu tìm>) // cơ chế hoạt động giống string includes
-- Polyfill: là 1 thuật ngữ, các tính năng mới của ES6 sẽ có thể không dùng được trên các trình duyệt cũ, và mình sẽ tự viết ra các hàm có chức năng tương tự như các tính năng mới đó
-- IIFE: là một function expression sau khi định nghĩa xong thì được gọi ngay lập tức theo cú pháp riêng, IIFE là 1 hàm dạng 'private'(không thể được gọi hàm hoặc các biến từ bên ngoài), IIFE không có tính sử dụng lại, hầu hết các thư viện đều dùng IIFE để không bị xung đột biến global
-    ex1: định nghĩa function và call function ngay lập túc 
-        (function(){
-            console.log('call function now');
-        })();
-    ex2: có tham số
-        (function(log){
-            console.log(log);
-        })('hello');        
-    ex3: nếu theo trường phái dùng ; ở cuối câu của mỗi lệnh thì không cần dùng dấu ; ở trước IIFE 
-        ;(function(){
-            console.log('hello');
-        })();    
-- closure:
+- Polyfill: là 1 thuật ngữ, các tính năng mới của ES6 sẽ có thể không dùng được trên các trình duyệt cũ, và mình sẽ tự viết ra các hàm có chức năng tương tự như các tính năng mới đó.

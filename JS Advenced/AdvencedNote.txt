@@ -1,0 +1,112 @@
+- IIFE: là một function expression sau khi định nghĩa xong thì được gọi ngay lập tức theo cú pháp riêng, IIFE là 1 hàm dạng 'private'(không thể được gọi hàm hoặc các biến từ bên ngoài), IIFE không có tính sử dụng lại, hầu hết các thư viện đều dùng IIFE để không bị xung đột biến global
+    ex1: định nghĩa function và call function ngay lập túc 
+        (function(){
+            console.log('call function now');
+        })();
+    ex2: có tham số
+        (function(log){
+            console.log(log);
+        })('hello');        
+    ex3: nếu theo trường phái dùng ; ở cuối câu của mỗi lệnh thì không cần dùng dấu ; ở trước IIFE 
+        ;(function(){
+            console.log('hello');
+        })();    
+- closure: là tính chất khép kín trong 1 function, Biến được tham chiếu(refer) trong closure sẽ không được xoá khỏi bộ nhớ khi hàm cha được thực hiện xong
+    ex: 
+        function counter(){
+            var count = 0;
+            function increase(){
+                return ++count;
+            }
+            return increase;
+        }
+        var counterTimes = counter(); 
+        console.log(counter()); // 1
+        console.log(counter()); // 2
+        console.log(counter()); // 3
+    --> do hàm counter() được gán cho 1 biến counterTimes nên biến count trong hàm counter() sẽ được lưu lại
+- strict mode (chế độ nghiêm ngặt): dùng để báo lỗi các đoạn code không rõ ràng, 'use strict' được dùng ở đầu trang JS
+    + dùng biến nhưng không khai báo biến
+        'use strict'; // thêm chuỗi này vào đầu trang là oke
+        a = 123;
+        console.log(123)
+        --> báo lỗi biến a undefined
+    + truy cập biến của 1 function (theo đúng thì không thể truy cập vì biến trong function là local scope)
+        'use strict';
+        function testStrict(){
+            b = 123;
+        }
+        testStrict();
+        console.log(b); 
+        --> báo lỗi biến a undefined
+    + hàm có 2 tham số trùng tên
+        'use strict';
+        function a(x, x){ // nếu bình thường không dùng strict mode để check thì nó sẽ lấy tham số sau cùng đè lên
+            console.log(x + x); // 20
+        }
+        a(5, 10);
+        --> báo lõi Duplicate paramater
+    + khai báo function trong phạm vi code block và gọi từ bên ngoài code block
+        'use strict';
+        {
+            function funcInBlock(){
+                console.log('outside is not call this function');
+            }
+        }
+        funcInBlock(); // nếu không dùng strict mode thì bên ngoài code block có thể call được 
+            --> bão lỗi funcInBlock is not defined
+- this: đề cập tới object mà nó thuộc về, this sẽ tham chiếu tới đối tượng trước dấu chấm <.>. Nếu không có đối tượng trước nó để nó tham chiếu thì nó sẽ lấy đối tượng global (là đối tượng Window). this trong hàm tạo (object constructor) là đại diện cho đối tượng được tạo. arrow function không có context nên không dùng được this
+    ex: this trả về object nó thuộc về
+        var myPhone = {
+            name: 'iphone 11',
+            ram: '3GB',
+            color: 'black',
+            getName(){
+                console.log(this.name);  // tương đương myPhone.name
+                }
+            }
+        myPhone.getName(); // iphone 11
+    ex: this trả về object nó thuộc về (trong object có object)
+        var phone = {
+        name: 'iphon 11',
+        brand: 'apple',
+        configuration : {
+            ram: '3GB',
+            camera: '12MP',
+                getAll(){
+                    console.log(this);
+                }
+            }
+        }
+        console.log(phone.configuration.getAll());  // trả về object configuration
+    ex: không có đối tượng trước this thì nó sẽ trả về đối lượng global(window), nếu dùng strict mode thì nó sẽ báo lỗi undefined
+        function func(){
+            console.log(this);
+        } 
+        func();
+    ex: this trong hàm tạo
+        function Car(name, color){
+            this.name = name;
+            this.color = color;
+        }
+        var honda = new Car('Winner X', 'black'); // biến honda là đối tượng được tạo
+        console.log(honda); 
+- bind(): cho phép ràng buộc this cho một phương thức(function)
+    ex: 
+        const teacher = {
+        firstName: 'Minh',
+        lastName: 'Thảo',
+        getFullName(){
+            return `${this.firstName} ${this.lastName}`;
+        }s
+        }
+        const student = {
+            firstName: 'Thanh',
+            lastName: 'Toàn',
+        }
+        const getStudentName = teacher.getFullName.bind(student); // tuy dùng hàm getFullName của object teacher nhưng this tham chiếu tới student
+        console.log(getStudentName()); // thanh toàn
+    ex: get DOM element tiện hơn khi gán vào biến $
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        

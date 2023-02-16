@@ -37,6 +37,7 @@
 // logger();
 // console.log(name, age, address); // không thể gọi các biến này bên ngoài function được(local scope)
 //
+
 // ex: class
 // class User {
 //     constructor(name, address){
