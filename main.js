@@ -491,3 +491,36 @@
 //   }, {});
 // }
 // console.log(arrToObj(arr)); // kỳ vọng: { name: 'Sơn Đặng', age: 18 }
+
+// đối tượng Map
+// + new map(): tạo Map mới
+// const fruits = new Map([
+//     ['apples', 500],
+//     ['bananas', 200],
+//     ['oranges', 100],
+// ]);
+// // + set Map(): thêm phần tử vào trong Map
+// fruits.set('peans', 150);
+// // + delete Map(), clear Map(): xoá từng phần tử theo key và xoá sạch phần tử
+// fruits.delete('oranges');
+// // fruits.clear();
+// // + get Map(): lấy value theo key
+// console.log(fruits.get('apples'));
+// // + Size: lấy số lượng phần tử của Map
+// console.log(fruits.size);
+// // + has: kiểm tra phần tử có trong Map không , trả về boolean
+// console.log(fruits.has('oranges'), fruits.has('apples'));
+// // + lập từng phần tử
+// for (const [key, value] of fruits) {
+//     console.log(key, value);
+// }
+// console.log(fruits);
+
+var obj1 = {
+    name: 'Sơn Đặng',
+}
+var obj2 = {
+    age: 18,
+}
+var obj = Object.assign({}, obj1, obj2);
+console.log(obj);

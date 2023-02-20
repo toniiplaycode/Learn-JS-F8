@@ -5,4 +5,4 @@ export default function logger2(log){
 
 export function otherFunction(){
     console.log('this is a other function in exportDefault.js');
-}
+} 

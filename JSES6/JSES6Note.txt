@@ -73,7 +73,7 @@
         console.log(a,b,c,d); // --> 1 2 3 4
 
         var array2 = [1,2,3];
-        var [a, ,c] = array2;
+        var [a, ,c] = array2;   
         console.log(a, c); // --> 1 3
     ex2: object
         var user = {
@@ -130,14 +130,14 @@
 - destructuring & rest truyền vào tham số của 1 function        
     ex: mảng
         function logger([a, b, ...rest]){
-            console.log(a, b); 
-            console.log(rest);
+            console.log(a, b); // 1, 2
+            console.log(rest); // [3, 4, 5, 6]
         }   
         logger([1, 2, 3, 4, 5, 6]);
     ex: object
         function logger({name, address, ...rest}){
-            console.log(name, address);
-            console.log(rest);
+            console.log(name, address); // thanh toan can tho
+            console.log(rest); // {phone: 0123456}
         }
         logger({
             name: 'thanh toan',
@@ -171,7 +171,7 @@
             }
         }
         languages(...arrayLanguages); // spread sẽ giải mảng arrayLanguages thành: 'HTMl', 'CSS', 'JS' (3 đối số)
-- tagged template literals: cho phép xử lý template string với hàm (lên trang complete javascript đọc), nghĩa là gọi hàm thông qua template string
+- tagged template literals: cho phép xử lý template string với hàm (lên trang complete javascript đọc), nghĩa là gọi hàm thông qua template string. Hàm sẽ nhận nhiều tham số, tham số đầu tiên là 1 array string, các tham số tiếp theo là các biến
     + cú pháp: <function>`template string with ${expression(biểu thức)}`
         ex: 
             var logger = (x, y, z) => { // các tham số: x là array string, y là expression1, z là expression2

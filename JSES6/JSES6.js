@@ -189,6 +189,7 @@
 //     }
 // }
 // languages(...arrayLanguages); // spread sẽ giải mảng arrayLanguages thành: 'HTMl', 'CSS', 'JS' (3 đối số)
+
 // ex: tagged template
 // var logger = (x, y, z) => { // các tham số: x là array string, y là expression1, z là expression2
 //     console.log(x); 
@@ -198,7 +199,7 @@
 // var a = 1;
 // var b = 2;
 // var result = logger`day la 2 con so: ${a} ${b}`;
-// ex: tagged template cộng 2 số (biểu thức nằm ở giữa giữa, không nằm ở đầu hoặc cuối)
+//ex: tagged template cộng 2 số (biểu thức nằm ở giữa giữa, không nằm ở đầu hoặc cuối)
 // var math = ([x, y], calculation) => calculation(Number(x), Number(y));
 // var plus = (x, y) => x + y;
 // var result = math`11 ${plus} 7`;
@@ -208,22 +209,23 @@
 // var sumElement  = array.reduce((total, element) => total + element, 0);
 // console.log(sumElement);
 //ex: tagged template kết hợp reduce (arrow function) để render hightlight(màu cam) các expression, xem video 192 của F8
-// function hightlight([first, ...strings], ...values){  // dùng destructuring & rest để nhận 2 tham số
-//     // console.log(first);
-//     // console.log(strings);
-//     // console.log(values);
-//     return values.reduce(
-//         (accumulator, currentElement) => [...accumulator, `<span style="color: orange">${currentElement}</span>`, strings.shift()],
-//         [first]
-//     ).join(''); //nó là mảng. muốn thành chuỗi thì phải join('');
-// }
-// var brand = 'F8';
-// var course = 'Javascript';
-// var html = hightlight`Học lập trình ${course} tại ${brand} !`; // trong template string này gồm: 1 array sting (['học lập trình', 'tại', '!']), 1 mảng chứa(dùng rest) 2 biến nội suy: ${course}, ${brand}. --> hàm hightlight sẽ nhận được 2 đối số
-// console.log(html);
-// // dùng DOM để show
-// var divTaggedTemplate = document.querySelector('#show-hightlight-tagged-template');
-// divTaggedTemplate.innerHTML = html;
+function hightlight([first, ...strings], ...values){  // dùng destructuring & rest để nhận 2 tham số
+    console.log(first);
+    console.log(strings);
+    console.log(values);
+    return values.reduce(
+        (accumulator, currentElement) => [...accumulator, `<span style="color: orange">${currentElement}</span>`, strings.shift()],
+        [first]
+    ).join(''); //nó là mảng. muốn thành chuỗi thì phải join('');
+}
+var brand = 'F8';
+var course = 'Javascript';
+var html = hightlight`Học lập trình ${course} tại ${brand} !`; // trong template string này gồm: 1 array sting (['học lập trình', 'tại', '!']), 1 mảng chứa(dùng rest) 2 biến nội suy: ${course}, ${brand}. --> hàm hightlight sẽ nhận được 2 đối số
+console.log(html);
+// dùng DOM để show
+var divTaggedTemplate = document.querySelector('#show-hightlight-tagged-template');
+divTaggedTemplate.innerHTML = html;
+
 //ex: optional chaining (element array)
 // var array = [1, , 3, 4];
 // if(array?.[1]){ // vì array[1] không có nên nó sẽ không console.log

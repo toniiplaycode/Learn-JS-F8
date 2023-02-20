@@ -155,7 +155,7 @@ var inputElement = document.querySelector('input[type="text"]');
 // }
 //
 // inputElement.onkeyup = function(e){
-//     console.log(e.which); // which là mã ASC II của ký tự trên bàn phím (KeyBoardEvent)
+//     console.log(e.which); // which là mã ASC II của ký tự trên bàn phím (KeyBoardEvent), hoặc e.keycode
 //     switch(e.which){
 //         case 27: 
 //             console.log('ESC');

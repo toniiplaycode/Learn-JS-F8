@@ -144,20 +144,110 @@
 // const $$ = document.querySelectorAll.bind(document);
 // console.log($('h1'));
 
-
 // bài tổng hợp kiến thức QUẢN LÝ Ô TÔ 
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+// const $ = document.querySelector.bind(document);
+// const $$ = document.querySelectorAll.bind(document);
+// const app = (() => { 
+//     const cars = ['Harley Davison']; // mảng cars để lưu xe
+//     const root = $('#root');
+//     const input = $('#input');
+//     const submit = $('#submit');
+//     return { // function IIFE sẽ trả về 1 object có các phương thước cho biến app(global)
+//         add(car){
+//             cars.push(car);
+//         },
+//         delete(index){
+//             cars.splice(index, 1);
+//         },
+//         render(){
+//             const html = cars.map((car, index) => {
+//                 return `
+//                     <li>
+//                         ${car}
+//                         <button class="delete" data-index="${index}">x</button>
+//                     </li>`;
+//             }).join('');
+            
+//             root.innerHTML = html;
 
-const app = (() => {
-   const cars = []; // mảng cars để lưu xe
-   
-   return { // function IIFE sẽ trả về 1 object có các phương thước cho biến app(global)
-        add(car){
-            cars.push(car);
-        },
-        delete(index){
-            cars.splice(index, 1);
-        }
-   }
-})();
+//         },
+//         handleDelete(e){
+//             const deleteBtn = e.target.closest('.delete'); // click đúng vào nút class delete
+//             if(deleteBtn){ // nếu click đúng mới thực hiện
+//                 const indexElement = deleteBtn.dataset.index // dataset.index, index là mình tên mình đặt cho data ở element
+//                 this.delete(indexElement);
+//                 this.render();
+//             }
+//         },
+//         init(){ // hàm init là khởi tạo, lắng nghe xự kiện và thêm dữ liệu
+//             // handle DOM events
+//             submit.onclick = () => { // dùng arrow function để không có context và this lúc này sẽ nhảy ra ngoài và tham chiếu đến biến app, nếu dùng function bình thường thì this sẽ tham chiếu tới element submit và sẽ bị lỗi
+//                 const car = input.value; // lấy dữ liệu từ input
+//                 this.add(car); // tương đuơng app.add(car)
+//                 this.render(); // tương đương app.render()
+//                 input.value = '';
+//                 input.focus();
+//             }
+//             root.onclick = this.handleDelete.bind(this); // bind(this) là this sẽ tham chiếu tới biến app(global), nếu không dùng bind() this sẽ tham chiếu tới root và sẽ bị lỗi 
+//             this.render(); 
+//         }
+//     }
+// })();
+// app.init();
+
+// call
+// // dùng call để gọi hàm như bình thường (biết thêm thôi chứ ít ai dùng)
+// function logger(){
+//     console.log('hello');
+// }
+//  logger.call();
+// // mượn hàm (function borrowing)
+// const teacher = {
+//     firstName: 'Son',
+//     lastName: 'Dang'
+// }
+// const me = {
+//     firstName: 'Thanh',
+//     lastName: 'Toan',
+//     getFullName(){
+//         console.log(`${this.firstName} ${this.lastName}`);
+//     }
+// }
+// me.getFullName.call(teacher);
+// // kế thừa (extends)
+// function Animal(name, weight){
+//     this.name = name;
+//     this.weight = weight;
+// }
+// function Chicken(name, weight, legs){
+//     Animal.call(this, name, weight); // this tham chiếu tới biến thanhToan
+//     this.legs = legs;
+// }
+// const thanhToan = new Chicken('Thanh Toàn', 55, 2);
+// console.log(thanhToan);
+
+// apply
+// // mượn hàm(borrowing)
+// const teacher = {
+//     firstName: 'Son',
+//     lastName: 'Dang'
+// }
+// const me = {
+//     firstName: 'Thanh',
+//     lastName: 'Toan',
+//     getFullName(){
+//         console.log(`${this.firstName} ${this.lastName}`);
+//     }
+// }
+// me.getFullName.apply(teacher);
+// // thừa kế(extends)
+// function Animal(name, weight){
+//     this.name = name;
+//     this.weight = weight;
+// }
+// function Chicken(name, weight, legs){
+//     Animal.apply(this, [name, weight]); // this tham chiếu tới biến thanhToan
+//     this.legs = legs;
+// }
+// const thanhToan = new Chicken('Thanh Toàn', 55, 2);
+// console.log(thanhToan);

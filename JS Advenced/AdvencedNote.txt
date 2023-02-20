@@ -94,11 +94,11 @@
 - bind(): cho phép ràng buộc this cho một phương thức(function)
     ex: 
         const teacher = {
-        firstName: 'Minh',
-        lastName: 'Thảo',
-        getFullName(){
-            return `${this.firstName} ${this.lastName}`;
-        }s
+            firstName: 'Minh',
+            lastName: 'Thảo',
+            getFullName(){
+                return `${this.firstName} ${this.lastName}`;
+            }
         }
         const student = {
             firstName: 'Thanh',
@@ -109,4 +109,59 @@
     ex: get DOM element tiện hơn khi gán vào biến $
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
-        
+- call(): là phương thức để gọi hàm như bình thường và cũng có thể bind, this cho hàm. Call này ít áp dụng thực tế, học chủ yếu để hiểu sâu JS hơn. call() nhận được nhiều đối số, đối số đầu tiền là this, các đối số tiếp theo tương ứng với tham số của 1 phương thức hoặc hàm mình muốn borrowing hoặc kế thừa
+    ex: dùng call để gọi hàm như bình thường (biết thêm thôi chứ ít ai dùng)
+        function logger(){
+            console.log('hello');
+        }
+        logger.call();
+    ex: mượn hàm (function borrowing)
+        const teacher = {
+            firstName: 'Son',
+            lastName: 'Dang'
+        }
+        const me = {
+            firstName: 'Thanh',
+            lastName: 'Toan',
+            getFullName(){
+                console.log(`${this.firstName} ${this.lastName}`);
+            }
+        }
+        me.getFullName.call(teacher);
+    ex: kế thừa (extends)
+        function Animal(name, weight){
+            this.name = name;
+            this.weight = weight;
+        }
+        function Chicken(name, weight, legs){
+            Animal.call(this, name, weight); // this tham chiếu tới biến thanhToan
+            this.legs = legs;
+        }
+        const thanhToan = new Chicken('Thanh Toàn', 55, 2);
+        console.log(thanhToan);
+- apply(): cơ chế ygan call(), nhưng khác ở chỗ là ở đối số, đối số đầu tiên vẫn là this (giống call), nhưng các đối số tiếp theo là mảng
+    ex: mượn hàm(borrowing)
+        const teacher = {
+            firstName: 'Son',
+            lastName: 'Dang'
+        }
+        const me = {
+            firstName: 'Thanh',
+            lastName: 'Toan',
+            getFullName(){
+                console.log(`${this.firstName} ${this.lastName}`);
+            }
+        }
+        me.getFullName.apply(teacher);
+    ex: thừa kế(extends)
+        function Animal(name, weight){
+            this.name = name;
+            this.weight = weight;
+        }
+        function Chicken(name, weight, legs){
+            Animal.apply(this, [name, weight]); // this tham chiếu tới biến thanhToan
+            this.legs = legs;
+        }
+        const thanhToan = new Chicken('Thanh Toàn', 55, 2);
+        console.log(thanhToan);
+--> bind, call, apply: thường để ứng dụng vào borrowing hoặc extends.        

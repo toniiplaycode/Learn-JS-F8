@@ -32,6 +32,11 @@
     + undefined
     + NaN //đại diện cho một số không hợp lệ
     + null
+- Truthy và Falsy:
+    + Truthy: là bất cứ giá trị nào trong JS khi chuyển đổi sang boolean mà có giá trị là true thì ta gọi đó là giá trị Truthy
+        ex: 1, ['mảng'], {key: 'value'}, 'chuỗi'
+    + Falsy: là bất cứ giá trị nào trong JS khi chuyển đổi sang boolean mà có giá trị là false thì ta gọi đó là giá trị Falsy
+        ex: false, 0, '' or "", null, undefined, NaN
 - các kiểu dữ liệu:
     1. dữ liệu nguyên thuỷ - primitive data
         + number
@@ -310,6 +315,16 @@
         ex: var lonNhat = [1, 2, 3, 4, 5, 6];
         console.log(Math.max(...lonNhat)); // dùng dấu 3 chấm mới truyền được mảng
 
+- Object.assgin({}, obj1, obj2,...): dùng để nối 2 object với nhau, đối số thứ nhất là 1 initial, còn các tham số còn lại là các object đã có sẽ được nối
+    ex:
+        var obj1 = {
+            name: 'Sơn Đặng',
+        }
+        var obj2 = {
+            age: 18,
+        }
+        var obj = Object.assign({}, obj1, obj2); // obj = {name: 'Sơn Đặng', age: 18}
+        
 - Ternary operator(toán tử 3 ngôi): cơ chế hoạt động giống IF ELSE nhưng ngắn gọn hơn, nên dùng trong những trường hợp đơn giản
     ex: var n = 8;
     (n > 10) ? console.log("n lớn hơn 10") : console.log("n nhỏ hơn 10");
@@ -390,13 +405,13 @@
         for(var value of valueMyInfo){
             console.log(value);
         }
-    + white: lặp khi điều kiện đúng
+    + while: lặp khi điều kiện đúng
         ex: var i = 0;
         while(i<10){
             i++;
             console.log(i);
         }
-    + do/white: lặp ít nhất một lần, sau đó lặp khi điều kiện đúng
+    + do/while: lặp ít nhất một lần, sau đó lặp khi điều kiện đúng
         ex: var i = 0;
         do {
             i++;
@@ -430,7 +445,11 @@
                 console.log(array[i][j])
             }
         }
-
+    + forEach: thường chỉ dùng cho được mảng
+        let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        myArr.forEach(function (element, index){
+            console.log(element, index);
+        });
     + new Set(<mảng các giá trị trùng nhau>); //trả về chuỗi các giá trị không bị trùng  
         --> trả về mảng: [...(new Set(<mảng các giá trị trùng nhau>))];
         ex:
@@ -655,3 +674,13 @@
         --> false, vì index bắt đầu tìm đã vượt qua chuỗi cần tìm
     + <mảng>.includes('element cần tìm', <index bắt đầu tìm>) // cơ chế hoạt động giống string includes
 - Polyfill: là 1 thuật ngữ, các tính năng mới của ES6 sẽ có thể không dùng được trên các trình duyệt cũ, và mình sẽ tự viết ra các hàm có chức năng tương tự như các tính năng mới đó.
+- đối tượng map(): là một loại cấu trúc dữ liệu trừu tượng. trong đó dữ liệu được lưu dạng key/value. đối tượng map tương tự như kiểu dữ liệu object, tuy nhiên chúng khác ở chỗ là:
+    + object chỉ cho phép sử dụng string làm key
+    + map thì mọi kiểu dữ liệu đều có thể làm key (string, number, boolean, NaN, object, array,...)
+    + các phương thức trong map:
+        - new Map();
+        - set Map();
+        - delete, clear Map();
+        - get Map();
+        - size
+        - has
