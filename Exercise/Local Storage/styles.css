@@ -21,7 +21,6 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 80px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -48,8 +47,19 @@ h1{
   font-size: var(--font-size);
 }
 
-.btn-add{
+.hide-btn-edit{
+  display: none;
+}
+
+#btn-edit{
+  background: orange;
+}
+
+#btn-add{
   background: #a5d5f8;
+}
+
+#btn-add, #btn-edit{
   border: none;
   width: 80px;
   border-top-right-radius: 10px;
@@ -58,7 +68,7 @@ h1{
   letter-spacing: 2px;
 }
 
-.btn-add:hover{
+#btn-add:hover, #btn-edit:hover{
   background: #49a6e9;
   color: #fff;
   transition: all linear 0.4s ;
@@ -99,5 +109,21 @@ p i{
 
 p i:hover{
   color: #de3b3b;
+  cursor: pointer;
+}
+
+.btn-clear{
+  border: none;
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 2px;
+  color: red;
+  margin: 20px 0;
+}
+
+.btn-clear:hover{
+  background: #d9d9d9;
   cursor: pointer;
 }
