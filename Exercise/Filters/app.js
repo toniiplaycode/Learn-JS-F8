@@ -3,6 +3,7 @@ var $$ = document.querySelectorAll.bind(document);
 
 var companies = $('.companies');
 var productsContainer = $('.products-container');
+var inputSearch = $('.input-search');
 
 function render(products){
     var html = products.map(function (product) {
@@ -46,15 +47,14 @@ companyLink.forEach(function (link) {
             filterProducts = products.filter(function(element){
                 return element.company === link.innerText.toLowerCase();
             });
-        }    
+        } 
+        inputSearch.value = ''; // khi click vào filter thì value của input luôn luôn phải trống
         // console.log(filterProducts);
         render(filterProducts);
     }
 });
 
 // **search**
-var inputSearch = $('.input-search');
-
 inputSearch.onkeyup = function(){ // mỗi lần nhấn 1 phím trong input thì function này sẽ thực hiện
     var inputValue = inputSearch.value;
     console.log(inputValue);

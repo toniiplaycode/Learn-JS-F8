@@ -1,8 +1,8 @@
 // //Promise
 // //sync(đồng bộ)
-//console.log(1);
-//console.log(2);      
-//async(bất đồng bộ)
+// console.log(1);
+// console.log(2);      
+// // async(bất đồng bộ)
 // setTimeout(function(){
 //     console.log(1);
 // });
@@ -109,28 +109,28 @@
 //     })
 // //ex3: nếu .then(function(){}) thứ nhất return Promise thì thằng .then(function(){}) thứ 2 sẽ nhận được promise từ thằng .then(function(){}) thứ nhất
 // var promise = new Promise(
-//     function(resolve, reject){
-//         resolve();
-//     }
-// )
-// promise 
-//     .then(function(){
-//         return new Promise(function(resolve, reject){ // excutor này chỉ có 1 tham số là resolve
-//             setTimeout(function(){
-//                 resolve([1,2,3,4]);
-//             }, 2000);   
+//         function(resolve, reject){
+//             resolve();
+//         }
+//     )
+//     promise 
+//         .then(function(){
+//             return new Promise(function(resolve, reject){ // excutor này chỉ có 1 tham số là resolve
+//                 setTimeout(function(){
+//                     resolve([1,2,3,4]);
+//                 }, 2000);   
+//             })
 //         })
-//     })
-//     .then(function(array){
-//         console.log(array);
-//     })
-//     .catch(function(){
-//         console.log('loi!');
-//     })
-//     .finally(function(){
-//         console.log('done!');
-//     })
-// //ex4: console.log từ 1->3 deplay 1s
+//         .then(function(array){
+//             console.log(array);
+//         })
+//         .catch(function(){
+//             console.log('loi!');
+//         })
+//         .finally(function(){
+//             console.log('done!');
+//         })
+// //ex4: console.log từ 1->4 deplay 1s
 // function sleep(millisecond){
 //     return new Promise(function(resolve){
 //         setTimeout(resolve, millisecond);
@@ -139,15 +139,18 @@
 // sleep(1000) // function sleep(1000) sẽ trả về 1 promise
 //     .then(function(){
 //         console.log(1);
-//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise
+//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise cho .then thứ 2
 //     })
 //     .then(function(){
 //         console.log(2);
-//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise
+//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise cho .then thứ 3
 //     })
 //     .then(function(){
 //         console.log(3);
-//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise
+//         return sleep(1000); // function sleep(1000) sẽ trả về 1 promise cho .then thứ 4
+//     })
+//     .then(function(){
+//         console.log(4);
 //     })
 //     .catch(function(){
 //         console.log('loi!');
@@ -212,7 +215,7 @@
 // // --> 2 promise chỉ tốn 4s(lấy max thời gian setTimeout)
 // Promise.all([promise1, promise2]) //Promise.all nhận 1 mảng là promise1 và promise2
 //     .then(function(result){ // result là mảng
-//         var result1 = result[0;
+//         var result1 = result[0];
 //         var result2 = result[1];
 //         console.log(result1.concat(result2));
 //     })     

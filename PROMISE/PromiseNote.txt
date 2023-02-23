@@ -108,7 +108,7 @@
         - ex2: cái return của callback .then(function(){}) thứ nhất thì callback .then(function(){}) thứ 2 sẽ nhận được giá trị đó...Tính chất này khắc phục callback hell
             var promise = new Promise(
                 function(resolve, reject){
-                    resolve('console.log từ 1-2');
+                    resolve('console.log từ 1-3');
                 }
             )
             promise
@@ -135,28 +135,28 @@
                 })
         - ex3: nếu .then(function(){}) thứ nhất return Promise thì thằng .then(function(){}) thứ 2 sẽ nhận được promise từ thằng .then(function(){}) thứ nhất
             var promise = new Promise(
-                function(resolve, reject){
-                    resolve();
-                }
-            )
-            promise 
-                .then(function(){
-                    return new Promise(function(resolve){
-                        setTimeout(function(){
-                            resolve([1,2,3,4]);
-                        }, 2000);   
+                    function(resolve, reject){
+                        resolve();
+                    }
+                )
+                promise 
+                    .then(function(){
+                        return new Promise(function(resolve){
+                            setTimeout(function(){
+                                resolve([1,2,3,4]);
+                            }, 2000);   
+                        })
                     })
-                })
-                .then(function(array){
-                    console.log(array);
-                })
-                .catch(function(){
-                    console.log('loi!');
-                })
-                .finally(function(){
-                    console.log('done!');
-                })
-        - ex4: console.log từ 1->3 deplay 1s
+                    .then(function(array){
+                        console.log(array);
+                    })
+                    .catch(function(){
+                        console.log('loi!');
+                    })
+                    .finally(function(){
+                        console.log('done!');
+                    })
+        - ex4: console.log từ 1->4 deplay 1s
             function sleep(millisecond){
                 return new Promise(function(resolve){
                     setTimeout(resolve, millisecond);
@@ -174,6 +174,9 @@
                 .then(function(){
                     console.log(3);
                     return sleep(1000); // function sleep(1000) sẽ trả về 1 promise
+                })
+                .then(function(){
+                    console.log(4);
                 })
                 .catch(function(){
                     console.log('loi!');
@@ -205,7 +208,7 @@
                 })
                 .finally(function(){
                     console.log('done!');
-                })
+                })  
     + promise.resolve // tạo 1 promise resolve() nhanh gọn, khi không cần xử lý logic
         var promise = Promise.resolve('Success!');
         promise
