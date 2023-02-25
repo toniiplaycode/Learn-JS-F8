@@ -1,0 +1,1 @@
+- kiến thức trong folder Asynchronus gồm đối tượng XMLHttpRequest, callback, JSON, Promise, Fetch, Async Await, Throwing.

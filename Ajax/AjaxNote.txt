@@ -1,0 +1,1 @@
+- Nền tảng của Ajax là đối tượng XMLHttpRequest, sức mạnh của Ajax là cập nhật trang web mà không load lại trang, gửi querest đến server để thao tác với dữ liệu
