@@ -1,0 +1,4 @@
+- try, catch: thực hiện code block trong try, nếu có lỗi thì catch sẽ bắt lỗi và in ra
+    + nếu có 1 đoạn code trong try code block bị lỗi thì nó sẽ dừng các đoạn code dưới và nhảy xuống catch để bắt lỗi đó 
+- throw: custom lỗi muốn hiển thị ở catch
+- finally: try catch thực hiện xong thì finally sẽ được chạy

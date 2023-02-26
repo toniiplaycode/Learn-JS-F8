@@ -3,7 +3,7 @@
         ex: 
             console.log(1);
             console.log(2);       
-    + async(bất đồng bộ): những hàm bất đồng bộ setTimeout, setInterval, fetch, XMLHtpprequest, file reading, request animation frame...
+    + async(bất đồng bộ, code chạy song song, lộn xộn): những hàm bất đồng bộ setTimeout, setInterval, fetch, XMLHtpprequest, file reading, request animation frame...
         ex:
             setTimeout(function(){
                 console.log(1);

@@ -1,0 +1,48 @@
+//** ASYNC **
+// ex1: hàm trả về 1 promise đơn giản
+// async function  myFunction() {
+//     return 'hello';
+// }
+// /* code ở trên tương đơn với 1 hàm trả về promise như bình thường 
+//     function myFunction(){
+//         return Promise.resolve('hello'); // cú pháp tạo nhanh 1 promise trả về resolve 
+//     }
+// */
+// myFunction()
+//     .then(function(data){
+//         console.log(data);
+//     })
+//     .catch(function(error){
+//         console.log(error);
+//     })
+
+//** ASYNC, AWAIT **
+// ex1: dùng await để đợi Promise thuần trả về resolve
+// async function myDisplay(){
+//     let promise = await new Promise(function(resolve, reject){
+//         resolve([1,2,3,4]);
+//     });
+//     console.log(promise);
+// }
+// myDisplay();
+
+// ex2: dùng await để đợi 1 fetch trả về promise và dùng await để đợi giải mã response.json()
+// const getNewToDo = async() => {
+//     let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+//     let data = await response.json() // response.json() cũng trả về 1 promise nên dùng await để đợi, nếu không có await thì console.log(data) sẽ chạy trước(vì đây là bất đồng bộ) và trả về 1 promise (không đúng như ý muốn là trả về dữ liệu JS), console.log(data) nó chạy xong in ra promise luôn (promise này chưa kịp để giải mã JSON thành dữ liệu JS theo ý muốn). Vì vậy phải dùng await để đợi nó giải mã JSON thành dữ liệu JS xong và gán cho biến data rồi sau đó console.log(data) mới được chạy và in ra đúng dữ liệu JS mình mong muốn
+//     console.log(data);
+// }
+// getNewToDo();
+
+// ex3: return promise ra ngoài hàm async
+const getNewToDo = async (id) => {
+    let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+    let data = await response.json();
+    // console.log(data); // data trong hàm async là dữ liệu JS
+    return data; // vì đây là hàm dạng async nên khi return ra ngoài thì data sẽ thành 1 promise
+}
+// console.log(getNewToDo()); // console.log tưởng ra là một dữ liệu JS, nhưng thật chất là 1 promise
+getNewToDo(1)
+    .then(function(data){
+        console.log(data);
+    })
