@@ -684,3 +684,6 @@
         - get Map();
         - size
         - has
+- get(): lấy chuỗi từ URL
+    ex: const URL = 'http://youtube.com?id=abc123';
+    const getIdURL =  URL.get('id'); // abc123
