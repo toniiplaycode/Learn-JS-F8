@@ -289,6 +289,21 @@
     };
     var a = [2,3,4];
     var b = [3,4,5];
+    
+- Array.from(<arrayLike>, <mapFunc>): dùng để tạo 1 mảng mới từ 1 đối tượng giống như mảng hoặc đối tượng có thể lặp đi lặp lại (string, array, set, map)
+    ex1: dùng với 1 tham số arrayLike (đối tượng giống như mảng, có thể lặp đi lặp lại)
+        - dùng với string
+            let newArray = Array.from("abc");
+            console.log(newArray); // ['a', 'b', 'c']; 
+    ex2: dùng với 2 tham số arrayLike và mapFunc
+        - dùng với hàm map()
+            let newArray = Array.from([2, 4, 6], (elemenet) => elemenet * 2);
+            console.log(newArray); // [4, 8, 12];
+- Array.from({length: ...}, <mapFunc>): tham số {length:...} để thiết lập độ dài của mảng mới 
+    ex1: tạo 1 mảnh mới với kích thước cố định
+        let  newArray = Array.from({length: 5}, (_, index) => index + 1); // tham số thứ nhất của map() là elemenet không dùng nên dùng dấu '_' 
+        console.log(newArray); // [1, 2, 3, 4, 5];
+        
 - object Date: là một hàm object constructor
     + new Date() // trả về thời gian hiện tại (thứ ngày tháng năm giờ phút giây)
         ex: var date = new Date();
