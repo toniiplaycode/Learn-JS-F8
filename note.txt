@@ -126,6 +126,13 @@
 - trim: bỏ đi khoảng trắng thừa 2 đầu của chuỗi
     chuỗi.trim();
 
+- startsWith: trả về boolean nếu chuỗi bắt đầu bằng chuỗi được chỉ định, có phân biệt hoa thường
+    + cú pháp: string.startsWith(searchValue, start), tham số thứ 2 là index muốn bắt đầu, không có tham số thứ 2 thì mặc định index là 0
+    ex1: let text = 'hello world';
+        text.startsWith('hello') // true
+    ex2: let text = 'hello world';
+        text.startsWith('world') // false
+
 ------MẢNG------
 - call function: myFunction(); // cặp ngoặc là được gọi là call
 - split: biến chuỗi thành mảng thông qua một điểm chung

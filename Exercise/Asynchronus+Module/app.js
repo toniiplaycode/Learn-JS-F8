@@ -60,3 +60,4 @@ paginationDOM.onclick = function(e){
         setUI();
     }
 }
+    
