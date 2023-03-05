@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <main>
+        <div class="main-background">
+            <div class="nav-and-intro">
+                <nav class="nav">
+                    <div class="toggle">
+                        <button class="toggle-btn"><i class="fas fa-bars"></i></button>
+                    </div>
+                    <div class="navigation">
+                        <span class="navigation-item">Home</span>
+                        <span class="navigation-item">Products</span>
+                        <span class="navigation-item">About</span>
+                    </div>
+                    <div class="logo">
+                        <img class="logo-img" src="img/logo-white.svg" alt="">
+                    </div>
+                    <div class="toggle-cart">
+                        <button class="toggle-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="toggle-cart-count">0</span>
+                        </button>
+                    </div>
+                </nav>
+                <div class="intro">
+                    <p class="intro-title">Rest, Relax, Unwind</p>
+                    <p class="intro-slogan">Embrace your choices - we do</p>
+                    <button class="move-products-btn">SHOP NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-overlay">
+            <aside class="sidebar">
+                <button class="sidebar-close"><i class="fas fa-times"></i></button>
+                <div class="sidebar-links">
+                    <a href=""><i class="fas fa-home fa-fw"></i> Home</a>
+                    <a href=""><i class="fas fa-couch fa-fw"></i> Products</a>
+                    <a href=""><i class="fas fa-book fa-fw"></i> About</a>
+                </div>
+            </aside>
+        </div>
+
+        <div class="cart-overlay">
+            <aside class="cart">
+                <button class="cart-close"><i class="fas fa-times"></i></button>
+                <p class="cart-title">Your Bag</p>
+                <div class="cart-items">
+                    <!-- hard code để code giao diện -->
+
+                    <article class="cart-item">
+                        <img class="cart-item-img" src="https://images2.imgbox.com/89/59/6An8aqJL_o.jpeg" alt="">
+                        <div class="cart-item-info">
+                            <span class="name">High-Back Bench</span>
+                            <span class="price">$9.99</span>
+                            <a class="cart-item-remove" href="">remove</a>
+                        </div>
+                        <div class="incre-and-decre">
+                            <button class="cart-item-increase-btn">
+                                <i class="fas fa-chevron-up"></i>
+                            </button>
+
+                            <p class="cart-item-amount">10</p>
+
+                            <button class="cart-item-decrease-btn">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+                <footer class="total-and-checkout">
+                    <div class="cart-total">
+                        <p class="total-title">Total: $99.9</p>
+                    </div>
+                    <div class="cart-checkout">
+                        <button class="checkout-btn">CHECKOUT</button>
+                    </div>
+                </footer>
+            </aside>
+        </div>
+
+        <div class="featured">
+            <p class="featured-title">Featured</p>
+            <div class="featured-underline"></div>
+
+            <div class="loading"></div> 
+            
+            <div class="featured-products">
+                <!-- hard code để code giao diện -->
+                <!-- <div class="featured-item">
+                    <div class="featured-container">
+                        <img class="featured-container-img" src="https://images2.imgbox.com/89/59/6An8aqJL_o.jpeg" alt="">
+                        <div class="featured-container-icons">
+                            <button class="icons-search"><i class="fas fa-search"></i></button>
+                            <button class="btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                    <footer class="featured-footer">
+                        <p class="featured-item-name">test</p>
+                        <p class="featured-item-price">$9.99</p>
+                    </footer>
+                </div> -->
+
+            </div>
+
+            <button class="move-products-btn2">ALL PRODUCTS</button>
+        </div>
+    </main>
+</body>
+<script type="module" src="./index.js"></script>
+</html>
