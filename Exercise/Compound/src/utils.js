@@ -20,8 +20,8 @@ const getStorageItem = (item) => { // get dữ liệu từ storage
     return storageItem;
 }
 
-const setStorageItem = (item, data) => { // set dữ liệu từ storage
-    localStorage.setItem(item, JSON.stringify(data));
+const setStorageItem = (name, data) => { // set dữ liệu từ storage
+    localStorage.setItem(name, JSON.stringify(data));
 }
 
 export {

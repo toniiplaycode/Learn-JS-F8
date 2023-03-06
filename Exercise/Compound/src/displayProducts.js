@@ -10,8 +10,12 @@ const display = (products, element, filter) => {
                 <div class="featured-container">
                     <img class="featured-container-img" src="${img}">
                     <div class="featured-container-icons">
-                        <button class="btn-link-product"><i class="fas fa-search"></i></button>
-                        <button class="btn-add-to-cart" data-id=${id}><i class="fas fa-shopping-cart"></i></button>
+                        <button class="btn-link-product" onclick="window.location.href='product.html?id=${id}'">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="btn-add-to-cart" data-id=${id}>
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
                     </div>
                 </div>
                 <footer class="featured-footer">

@@ -7,13 +7,17 @@ const cart = getElement('.cart');
 
 toggleCartBtn.addEventListener('click', ()=>{
     cartOverlay.classList.add('show');
-    cart.style.animation = 'cart-aside-on linear 0.4s';
+    cart.style.animation = 'cart-aside-on linear 0.3s';
 });
 
 cartCloseBtn.addEventListener('click', ()=>{
-    cart.style.animation = 'cart-aside-off linear 0.4s';
+    cart.style.animation = 'cart-aside-off linear 0.3s';
     setTimeout(() => {
         cartOverlay.classList.remove('show');
-    }, 400);
+    }, 300);
 });
 
+export function openCart() {
+    cartOverlay.classList.add('show');
+    cart.style.animation = 'cart-aside-on linear 0.3s'; 
+}

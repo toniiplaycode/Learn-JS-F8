@@ -11,17 +11,17 @@ const addToCartDOM = ({id, name, price, img, amount}) => {
         <div class="cart-item-info">
             <span class="name">${name}</span>
             <span class="price">$${formatPrice(price)}</span>
-            <a class="cart-item-remove" href='' data-id="${id}">remove</a>
+            <button class="cart-item-remove" data-id="${id}">remove</button>
         </div>
         <div class="incre-and-decre">
-            <button class="cart-item-increase-btn" data-id="${id}">
-                <i class="fas fa-chevron-up"></i>
+            <button class="cart-item-increase-btn">
+                <i class="fas fa-chevron-up" data-id="${id}"></i>
             </button>
 
             <p class="cart-item-amount" data-id="${id}">${amount}</p>
 
-            <button class="cart-item-decrease-btn" data-id="${id}">
-                <i class="fas fa-chevron-down"></i>
+            <button class="cart-item-decrease-btn">
+                <i class="fas fa-chevron-down" data-id="${id}"></i>
             </button>
         </div>
     `   
