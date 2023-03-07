@@ -130,6 +130,7 @@ HTML DOM (Document Object Modal): là mô hình theo dạng cây(lên w3chool xe
     + e.target.data : trả về 1 object (gồm key và value) chứa tất cả data của 1 thẻ
     + e.target.checked : trả về boolen của input có type là checkbox hoặc radio
     + e.target.parentElement: trả về cha, elemenet chứa nó
+    + e.target.textContent: trả về text 
     + e.target.focus(): Phương thức này sẽ focus vào phần tử đó, tức là di chuyển con trỏ đến phần tử HTML đó để người dùng có thể thao tác với nó, thường được dùng với input
     + e.target.offsetTop, e.target.offsetLeft : trả về khoảng cách từ phần tử đó đến đỉnh của trang web và khoảng cách từ phần tử đó đến cạch trái của trang web, 2 thuộc tính này thường được sử dụng trong các xử lý sự kiện để lấy vị trí của phần tử HTML trên trang web.
     + e.target.clientHeight và e.target.clientWidth: Trả về kích thước của phần tử đó trên trình duyệt của người dùng, bao gồm cả phần padding nhưng không bao gồm phần border và margin.
