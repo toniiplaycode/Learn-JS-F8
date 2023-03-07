@@ -7,10 +7,10 @@ const setupStore = (products) => { // set dữ liệu vào storage
     store = products.map(product => {
         const {
             id,
-            fields: {featured, name, price, company, colors, image}
+            fields: {featured, name, price, company, image}
         } = product;
         const img = image[0].url;
-        return {id, featured, name, price, company, colors, img};
+        return {id, featured, name, price, company, img};
     });
     // console.log(store);
     setStorageItem('store', store);

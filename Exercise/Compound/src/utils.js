@@ -1,5 +1,5 @@
 const allProductsURL = 'https://course-api.com/javascript-store-products';
-
+const singleProductURL = 'https://course-api.com/javascript-store-single-product';
 
 const getElement = (section) => {
     return document.querySelector(section);
@@ -26,6 +26,7 @@ const setStorageItem = (name, data) => { // set dữ liệu từ storage
 
 export {
     allProductsURL,
+    singleProductURL,
     getElement,
     formatPrice,
     getStorageItem,

@@ -1,15 +1,15 @@
-import { getElement, formatPrice } from "./utils.js";
+import { formatPrice } from "./utils.js";
 import { addToCart } from "./cart/setupCart.js";
 
-const display = (products, element, filter) => {
+const display = (products, element) => {
     // console.log(products);
     const html =  products.map(product => {
         const {id, img, name, price} = product;
         return `
-            <div class="featured-item">
-                <div class="featured-container">
-                    <img class="featured-container-img" src="${img}">
-                    <div class="featured-container-icons">
+            <div class="product-item">
+                <div class="product-container">
+                    <img class="product-container-img" src="${img}">
+                    <div class="product-container-icons">
                         <button class="btn-link-product" onclick="window.location.href='product.html?id=${id}'">
                             <i class="fas fa-search"></i>
                         </button>
@@ -18,16 +18,15 @@ const display = (products, element, filter) => {
                         </button>
                     </div>
                 </div>
-                <footer class="featured-footer">
-                    <p class="featured-item-name">${name}</p>
-                    <p class="featured-item-price">$${formatPrice(price)}</p>
+                <footer class="product-footer">
+                    <p class="product-item-name">${name}</p>
+                    <p class="product-item-price">$${formatPrice(price)}</p>
                 </footer>
             </div>
         `
     }).join('');
     // console.log(html);
     element.innerHTML = html;
-    getElement('.loading').classList.add('hide'); // khi products được render ra thì ẩn loading
     
     element.addEventListener('click', function(e){
         const parent = e.target.parentElement;

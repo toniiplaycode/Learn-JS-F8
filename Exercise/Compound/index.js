@@ -17,6 +17,7 @@ const init = async() => {
     // console.log(featured);
 
     display(featured, getElement('.featured-products')); // render ra 3 sản phẩm đặc trưng
+    getElement('.loading').remove(); // khi products được render ra thì ẩn loading
 }
 
 window.addEventListener('load', init);

@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
-    <title>Home | Comfy</title>
+    <title>Products | Comfy</title>
     <link rel="stylesheet" href="main.css">
-
 </head>
 <body>
     <main>
-        <nav class="nav">
+        <nav class="nav page">
             <div class="toggle">
                 <button class="toggle-btn"><i class="fas fa-bars"></i></button>
             </div>
@@ -21,7 +20,7 @@
                 <a class="navigation-item" href="about.html">About</a>
             </div>
             <div class="logo">
-                <a href="index.html"><img class="logo-img" src="img/logo-white.svg" alt=""></a>
+                <a href="index.html"><img class="logo-img" src="img/logo-black.svg" alt=""></a>
             </div>
             <div class="toggle-cart">
                 <button class="toggle-cart-btn">
@@ -78,26 +77,29 @@
                 </footer>
             </aside>
         </div>
-        
-        <div class="background">
-            <div class="background-intro">
-                <div class="intro">
-                    <p class="intro-title">Rest, Relax, Unwind</p>
-                    <p class="intro-slogan">Embrace your choices - we do</p>
-                    <button class="move-products-btn" onclick="window.location.href='products.html'">SHOP NOW</button>
-                </div>
+
+        <div class="path">
+            <div>
+                <p class="path-title">Home / Products</p>
             </div>
         </div>
 
-        <div class="featured">
-            <p class="featured-title">Featured</p>
-            <div class="underline"></div>
-
-            <div class="loading"></div> 
+        <section class="products">
+            <div class="filter">
+                <input class="input-search" type="text" placeholder="Search...">
+                <ul class="company-title">
+                    Company
+                    <li class="company-filter">All</li>
+                    <li class="company-filter">Ikea</li>
+                </ul>
+                <p class="price-title">Price</p>
+                <input class="price-range" type="range" min="0" max="100" value="100">
+                <p class="range-value">Value: $0 </p>
+            </div>
             
-            <div class="featured-products">
+            <div class="products-item">
                 <!-- hard code để code giao diện -->
-                <!-- <div class="product-item">
+                <div class="product-item">
                     <div class="product-container">
                         <img class="product-container-img" src="https://images2.imgbox.com/89/59/6An8aqJL_o.jpeg" alt="">
                         <div class="product-container-icons">
@@ -109,12 +111,15 @@
                         <p class="product-item-name">test</p>
                         <p class="product-item-price">$0.00</p>
                     </footer>
-                </div> -->
+                </div>
             </div>
+        </section>
 
-            <button class="move-products-btn2"  onclick="window.location.href='products.html'">ALL PRODUCTS</button>
+        <div class="page-loading">
+            <div class="loading"></div>
         </div>
     </main>
+
+    <script type="module" src="src/pages/products.js"></script>
 </body>
-<script type="module" src="./index.js"></script>
 </html>

@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
-    <title>Home | Comfy</title>
+    <title>About | Comfy</title>
     <link rel="stylesheet" href="main.css">
-
 </head>
 <body>
     <main>
-        <nav class="nav">
+        <nav class="nav page">
             <div class="toggle">
                 <button class="toggle-btn"><i class="fas fa-bars"></i></button>
             </div>
@@ -21,7 +20,7 @@
                 <a class="navigation-item" href="about.html">About</a>
             </div>
             <div class="logo">
-                <a href="index.html"><img class="logo-img" src="img/logo-white.svg" alt=""></a>
+                <a href="index.html"><img class="logo-img" src="img/logo-black.svg" alt=""></a>
             </div>
             <div class="toggle-cart">
                 <button class="toggle-cart-btn">
@@ -78,43 +77,25 @@
                 </footer>
             </aside>
         </div>
-        
-        <div class="background">
-            <div class="background-intro">
-                <div class="intro">
-                    <p class="intro-title">Rest, Relax, Unwind</p>
-                    <p class="intro-slogan">Embrace your choices - we do</p>
-                    <button class="move-products-btn" onclick="window.location.href='products.html'">SHOP NOW</button>
+
+        <div class="path">
+            <div>
+                <p class="path-title">Home / About</p>
+            </div>
+        </div>
+
+        <div class="about">
+            <div class="about-center">
+                <p class="about-title">Our History</p>
+                <div class="underline"></div>
+                <div class="about-des">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat accusantium sapiente tempora sed dolore esse deserunt eaque excepturi, delectus error accusamus vel eligendi, omnis beatae. Quisquam, dicta. Eos quod quisquam esse recusandae vitae neque dolore, obcaecati incidunt sequi blanditiis est exercitationem molestiae delectus saepe odio eligendi modi porro eaque in libero minus unde sapiente consectetur architecto. Ullam rerum, nemo iste ex, eaque perspiciatis nisi, eum totam velit saepe sed quos similique amet. Ex, voluptate accusamus nesciunt totam vitae esse iste.
+                    </p>
                 </div>
             </div>
         </div>
-
-        <div class="featured">
-            <p class="featured-title">Featured</p>
-            <div class="underline"></div>
-
-            <div class="loading"></div> 
-            
-            <div class="featured-products">
-                <!-- hard code để code giao diện -->
-                <!-- <div class="product-item">
-                    <div class="product-container">
-                        <img class="product-container-img" src="https://images2.imgbox.com/89/59/6An8aqJL_o.jpeg" alt="">
-                        <div class="product-container-icons">
-                            <button class="icons-search"><i class="fas fa-search"></i></button>
-                            <button class="btn-add-to-cart"><i class="fas fa-shopping-cart"></i></button>
-                        </div>
-                    </div>
-                    <footer class="product-footer">
-                        <p class="product-item-name">test</p>
-                        <p class="product-item-price">$0.00</p>
-                    </footer>
-                </div> -->
-            </div>
-
-            <button class="move-products-btn2"  onclick="window.location.href='products.html'">ALL PRODUCTS</button>
-        </div>
     </main>
+    <script type="module" src="src/pages/about.js"></script>
 </body>
-<script type="module" src="./index.js"></script>
 </html>
