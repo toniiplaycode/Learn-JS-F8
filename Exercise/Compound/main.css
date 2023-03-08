@@ -152,9 +152,8 @@ main{
 
 .intro-title{
     font-size: 5rem;
-    font-family: 'Kaushan Script', cursive;
-    font-weight: bold;
-    font-style: italic;
+    font-family: 'Courgette';
+    font-weight: 500;
 }
 
 .intro-slogan{
@@ -280,7 +279,7 @@ main{
 .cart-title{
     text-align: center;
     font-size: 1.6rem;
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Courgette';
     font-weight: bold;
     font-style: italic;
     margin-bottom: 20px;
@@ -357,7 +356,7 @@ main{
 }
 
 .total-title{
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Courgette';
     font-style: italic  ;
     font-size: 2rem;
 }
@@ -544,7 +543,7 @@ main{
 .info-company{
     font-size: 1.4rem;
     color:#becddd;
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Courgette';
     margin: 4px 0;
     text-transform: uppercase;
 }
