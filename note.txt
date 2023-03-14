@@ -112,7 +112,15 @@
     + chuỗi.slice(<vị trí bắt đầu>, <ví trí kết thúc>) // nếu bỏ tham số thứ 2 thì nó lấy <vị trí bắt đầu> đến hết chuỗi
     + chuỗi.slice(0) // lấy hết chuỗi
     --> có thể cắt chuỗi ngược từ phải sang trái bắt đầu từ 0 đếm ngược về âm
-
+    
+- split: biến chuỗi thành mảng thông qua một điểm chung
+    ex: languages = 'JS, PHP, C++'; // điểm chung là ', '(dấu phẩy và khoảng trắng)
+        languages.split(', ');
+        --> ["JS", "PHP", "C++"];
+    ex: languages = "thanhtoan";    
+        languages.split(''); // lấy từng ký tự trong chuỗi
+        --> ["t", "h", "a", "n", "h", "t", "o", "a", "n"]
+        
 - replace: thay thế chuỗi
     + chuỗi.replace('<chuỗi được thay thế>', '<chuỗi thay thế>'); 
     --> thay thế chuỗi được tìm thấy đầu tiên
